@@ -1,7 +1,8 @@
 <script>
-
+import Home from './views/Home.vue';
 export default {
     name: 'App',
+    components: {Home},
 }
 </script>
 
@@ -17,7 +18,7 @@ export default {
         </ul>
     </nav>
     <main>
-        <h1>Hola Mundo</h1>
+        <Home />
     </main>
     <footer>
         <p>Copyright &copy; Da Vinci 2024</p>
