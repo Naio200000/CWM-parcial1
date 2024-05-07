@@ -1,5 +1,5 @@
 <script>
-    return {
+    export default {
         name: 'App',
 
     }
