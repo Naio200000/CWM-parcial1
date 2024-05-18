@@ -7,4 +7,5 @@
 <template>
 
     <H1>Registrate</H1>
+    
 </template>
