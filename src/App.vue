@@ -1,15 +1,16 @@
 <script>
 import Home from './views/Home.vue';
+import Logo from './components/fragments/Logo.vue';
 export default {
     name: 'App',
-    components: {Home},
+    components: {Home, Logo},
 }
 </script>
 
 <template>
     <div class="h-full grid grid-rows-layout">
         <nav class="flex justify-between text-black bg-gray-light p-4">
-            <p>Gaming Room</p>
+            <Logo />
             <ul class="flex gap-4">
                 <li><routerLink to="/" href="#">Inicio</routerLink></li>
                 <li><routerLink to="/iniciar" href="#">Iniciar Sesión</routerLink></li>
