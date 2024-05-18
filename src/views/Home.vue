@@ -8,6 +8,12 @@ import MainP from '../components/labels/MainP.vue';
 </script>
 
 <template>
-    <MainH1>Gaming Room</MainH1>
-    <MainP>Bienvenido a la Primera Red <strong>Social para Gamers</strong></MainP>
+    <header class="container mx-auto mt-8">
+        <div>
+            <MainH1>Gaming Room</MainH1>
+        </div>
+        <div class="text-center text-lg">
+            <MainP>Bienvenido a la Primera Red <strong>Social para Gamers</strong></MainP>
+        </div>
+    </header>
 </template>
