@@ -10,6 +10,6 @@
 <template>
     <div class="flex gap-4">
         <MainImgLogo />
-        <MainP />
+        <MainP>Gaming Room</MainP>
     </div>
 </template>
