@@ -7,20 +7,20 @@ export default {
 </script>
 
 <template>
-
-    <nav class="flex justify-between h-[60px] bg-slate-300 p-4 text-gray-900">
-        <p>DV Social</p>
-        <ul class="flex gap-4">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Chat Público</a></li>
-            <li><a href="#">Iniciar Sesión</a></li>
-            <li><a href="#">Registro</a></li>
-        </ul>
-    </nav>
-    <main>
-        <Home />
-    </main>
-    <footer>
-        <p>Copyright &copy; Da Vinci 2024</p>
-    </footer>
+    <div class="h-full grid grid-rows-layout">
+        <nav class="flex justify-between text-black bg-gray-light p-4">
+            <p>Gaming Room</p>
+            <ul class="flex gap-4">
+                <li><routerLink to="/" href="#">Inicio</routerLink></li>
+                <li><routerLink to="/iniciar" href="#">Iniciar Sesión</routerLink></li>
+                <li><routerLink to="/registrarse" href="#">Registro</routerLink></li>
+            </ul>
+        </nav>
+        <main>
+            <routerView />
+        </main>
+        <footer class="flex justify-center items-center bg-black text-gray-light">
+            <p>Copyright &copy; Naio200000 - 2024</p>
+        </footer>
+    </div>
 </template>
