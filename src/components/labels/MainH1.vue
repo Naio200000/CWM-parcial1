@@ -5,5 +5,5 @@
 </script>
 
 <template>
-    <h1><slot /></h1>
+    <h1 class="text-4xl font-bold text-center mb-4 p-2"><slot /></h1>
 </template>
