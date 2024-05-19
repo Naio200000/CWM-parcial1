@@ -1,5 +1,6 @@
 <script>
     import MainH1 from '../components/labels/MainH1.vue';
+    import { register } from '../services/auth';
     export default {
         name: 'Register',
         components: {MainH1},
@@ -15,8 +16,8 @@
             }
         },
         methods: {
-            submitRegister(){
-
+            async submitRegister(){
+                await register(this.user.email, this.user.password); 
             }
         }
     }
