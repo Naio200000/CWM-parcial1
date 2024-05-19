@@ -8,7 +8,7 @@
 </script>
 
 <template>
-    <div class="flex gap-4">
+    <div class="flex gap-4 items-center">
         <MainImgLogo />
         <MainP>Gaming Room</MainP>
     </div>

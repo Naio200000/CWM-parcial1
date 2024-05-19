@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       gridTemplateRows: {
-        'layout' : '60px 1fr 100px',
+        'layout' : '70px 1fr 100px',
       } 
     },
   },
