@@ -1,22 +1,4 @@
 <script>
-
-
-    const defaultpost = [
-        {
-            user: 'Naio',
-            post: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, perferendis? Nam vitae earum laboriosam magnam aspernatur ipsam placeat doloribus nesciunt.'
-        },
-        {
-            user: 'Megameg',
-            post: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, perferendis? Nam vitae earum laboriosam magnam aspernatur ipsam placeat doloribus nesciunt.'
-        },
-        {
-            user: 'Pexdromeg',
-            post: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsam, perferendis? Nam vitae earum laboriosam magnam aspernatur ipsam placeat doloribus nesciunt.'
-        },
-    ];
-
-
     import MainH1 from '../components/labels/MainH1.vue';
     import { savePost, subscribeToPosting } from '../services/post';
     export default {
@@ -46,7 +28,6 @@
     }
 
 </script>
-
 <template>
     <section class="container mx-auto mt-8">
 
