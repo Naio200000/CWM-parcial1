@@ -1,4 +1,4 @@
-import { addDoc, collection, onSnapshot } from 'firebase/firestore';
+import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp } from 'firebase/firestore';
 import {db} from './firebase';
 
 /**
@@ -11,6 +11,7 @@ export function savePost(data) {
     const refPost = collection(db, 'post');
     return addDoc(refPost, {
         ...data,
+        created_at: serverTimestamp(),
     })
     .then(doc => {
 
@@ -18,7 +19,9 @@ export function savePost(data) {
 }
 export function subscribeToPosting (callback) {
     
-    const refPost = collection(db, 'post');
+    const refPost = query(
+                    collection(db, 'post'), 
+                    orderBy('created_at'));
 
     onSnapshot(refPost, snapshot => {
 
@@ -26,6 +29,7 @@ export function subscribeToPosting (callback) {
             return {
                 user: doc.data().user,
                 post: doc.data().post,
+                post: doc.data().created_at.toDate(),
             }
         });
         callback(posts);
