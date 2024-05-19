@@ -2,7 +2,7 @@
     import MainH1 from '../components/labels/MainH1.vue';
     import { savePost, subscribeToPosting } from '../services/post';
     export default {
-        name: 'Register',
+        name: 'Posts',
         components: {MainH1},
         data (){
             return {
