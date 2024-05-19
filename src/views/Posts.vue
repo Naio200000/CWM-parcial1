@@ -18,7 +18,7 @@
 
 
     import MainH1 from '../components/labels/MainH1.vue';
-import { savePost } from '../services/post';
+    import { savePost, subscribeToPosting } from '../services/post';
     export default {
         name: 'Register',
         components: {MainH1},
@@ -41,7 +41,7 @@ import { savePost } from '../services/post';
             },
         },
         mounted() {
-            this.posts = defaultpost;
+            subscribeToPosting(newPosts => this.posts = newPosts)
         },
     }
 

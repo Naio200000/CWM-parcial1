@@ -1,4 +1,4 @@
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, onSnapshot } from 'firebase/firestore';
 import {db} from './firebase';
 
 /**
@@ -15,5 +15,20 @@ export function savePost(data) {
     .then(doc => {
 
     });
+}
+export function subscribeToPosting (callback) {
     
+    const refPost = collection(db, 'post');
+
+    onSnapshot(refPost, snapshot => {
+
+        const posts = snapshot.docs.map(doc => {
+            return {
+                user: doc.data().user,
+                post: doc.data().post,
+            }
+        });
+        callback(posts);
+    });
+
 }
