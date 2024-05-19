@@ -5,5 +5,5 @@
 </script>
 
 <template>
-    <img class="" src="../../../public/img/icons/logo.png" alt="Logo">
+    <img class="" src="../../../img/icons/logo.png" alt="Logo">
 </template>
