@@ -18,6 +18,7 @@
 
 
     import MainH1 from '../components/labels/MainH1.vue';
+import { savePost } from '../services/post';
     export default {
         name: 'Register',
         components: {MainH1},
@@ -32,11 +33,11 @@
         },
         methods: {
             submitPost() {
-                this.posts.push({
+                savePost({
                     user: this.newPost.user,
                     post: this.newPost.post,
                 });
-            this.newPost.post = '';
+                this.newPost.post = '';
             },
         },
         mounted() {
