@@ -30,13 +30,13 @@
 </script>
 
 <template>
-    <div class="p-4 bg-white rounded-xl shadow-xl shadow-slate-500">
+    <div class="p-5 bg-white rounded-xl shadow-xl shadow-slate-500">
         <MainH2 class="sr-only">Iniciar Sesion</MainH2>
         <form action="" @submit.prevent="submitLogin">
             <div class="mb-4 px-4">
                 <label class="text-lg font-bold block sr-only" for="email">Correo Electronico</label>
                 <input  v-model="user.email" 
-                        class="w-full p-2 m-2 text-xl border-gray-400 border-2 rounded" 
+                        class="w-full p-2 m-2 text-xl border-gray-400 border-2 rounded-lg" 
                         type="email" 
                         id="email" 
                         placeholder="Correo Electronico">
@@ -44,13 +44,22 @@
             <div class="mb-4 px-4">
                 <label class="text-lg font-bold block sr-only" for="password">Correo Electronico</label>
                 <input  v-model="user.email" 
-                        class="w-full p-2 m-2 text-xl border-gray-400 border-2 rounded" 
+                        class="w-full p-2 m-2 text-xl border-gray-400 border-2 rounded-lg" 
                         type="password" 
                         id="password" 
                         placeholder="Contraña">
             </div>
-            <button 
-                type="submit" class="mb-4 py-2 px-6 bg-blue-light text-gray-light font-bold rounded hover:bg-blue-dark transition-all">Registrarse</button>
+            <div class="mb-4 px-4">
+                <button 
+                    type="submit" 
+                    class="w-full p-2 m-2 rounded-lg text-2xl font-bold text-white bg-slate-500 hover:bg-slate-400 active:bg-slate-800 transition-all"
+                    >Iniciar Sesción</button>
+            </div>
+            <div class="mt-4 px-4 border-t-2">
+                <button class="w-full p-2 mt-6 m-2 rounded-lg text-2xl font-bold text-white bg-green-800 hover:bg-green-700 active:bg-green-950 transition-all">
+                    <routerLink to="/register">Registrarse</routerLink>
+                </button>
+            </div>
         </form>
     </div>
 </template>
