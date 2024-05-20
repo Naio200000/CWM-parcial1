@@ -30,7 +30,7 @@
 
 <template>
         <nav class="h-20 p-4 flex justify-between items-center bg-gray-100 text-black text-xl">
-            <div class="w-16">
+            <div class="">
                 <ImageLogo />
             </div>
             <ul class="flex justify-evenly gap-4 lg:gap-16 items-center ">
