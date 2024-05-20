@@ -38,7 +38,7 @@
                     <li><routerLink to="/registrarse" href="#">Registro</routerLink></li>
                 </template>
                 <template v-else>
-                    <li><routerLink to="/posts" href="#">Posts</routerLink></li>
+                    <!-- <li><routerLink to="/posts" href="#">Posts</routerLink></li> -->
                     <li><routerLink to="/perfil" href="#">Mi Perfil</routerLink></li>
                     <li>
                     </li>
