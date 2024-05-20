@@ -56,9 +56,10 @@
                     >Iniciar Sesción</button>
             </div>
             <div class="mt-4 px-4 border-t-2">
-                <button class="w-full p-2 mt-6 m-2 rounded-lg text-2xl font-bold text-white bg-green-800 hover:bg-green-700 active:bg-green-950 transition-all">
-                    <routerLink to="/register">Registrarse</routerLink>
-                </button>
+                <routerLink to="/registrarse">
+                    <button class="w-full p-2 mt-6 m-2 rounded-lg text-2xl font-bold text-white bg-green-800 hover:bg-green-700 active:bg-green-950 transition-all">
+                        Registrarse</button>
+                </routerLink>
             </div>
         </form>
     </div>
