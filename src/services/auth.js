@@ -7,15 +7,14 @@ let userData = EMPTY_USER_DATA;
 let observers = [];
 
 /**
- * Agrega los datos del usuario si esta autenticado.
+ * ejecuta la funcion setUserData para agregar o actualizar los datos del usuario y notificar a los observers
  */
 onAuthStateChanged(auth, user => {
     if (user) {
-        userData = {id: user.uid, email: user.email,};
+        setUserData({id: user.uid, email: user.email,});
     } else {
-        userData = EMPTY_USER_DATA;
+        setUserData(EMPTY_USER_DATA);
     }
-    notifyAll();
 })
 
 /**
@@ -43,6 +42,17 @@ function notify(observer) {
  */
 function notifyAll() {
     observers.forEach(obs => notify(obs));
+};
+
+/**
+ * Actualiza datos del usuario y notifica a todos
+ * 
+ * @param {{}}} data 
+ */
+function setUserData(data) {
+
+    userData = {...userData, ...data};
+    notifyAll();
 };
 
 /**
