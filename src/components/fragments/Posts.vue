@@ -1,10 +1,17 @@
 <script>
     import { savePost, subscribeToPosting } from '../../services/post';
+    import { subscribeToAuth } from '../../services/auth';
+    
+    import MainH2 from '../labels/MainH2.vue';
     export default {
         name: 'Posts',
-        components: {},
+        components: {MainH2},
         data (){
             return {
+                authUser: {
+                    id: null,
+                    email: null,
+                },
                 newPost: {
                     user: '',
                     post: '',
@@ -22,50 +29,50 @@
             },
         },
         mounted() {
-            subscribeToPosting(newPosts => this.posts = newPosts)
+            subscribeToPosting(newPosts => this.posts = newPosts);
+            subscribeToAuth(userData => this.authUser = userData);
         },
     }
 
 </script>
 <template>
-    <section class="container mx-auto mt-8">
-
-        <div>
-        </div>
-        <div>
-            <h2 class="text-center text-2xl mb-6">Ingresa un Post</h2>
+    <div class="">
+        <MainH2 class="sr-only">Ingresar un Post</MainH2>
+        <section class="w-10/12 mx-auto rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
             <form 
                 action="#"
                 @submit.prevent="submitPost">
-                <div class="mb-4">
+                <div class="">
                     <label 
-                        class="text-lg font-bold block"
+                        class="block sr-only"
                         for="usuario"
                         >Usuario:</label>
                     <input
-                        class="border-black border-2 rounded p-2 m-1"
+                        class="px-4 py-2 text-xl font-bold rounded-lg"
                         type="text" 
                         id="usuario"
-                        v-model="newPost.user">
+                        disabled
+                        v-model="authUser.email">
                 </div>
-                <div class="mb-4">
+                <div class="mx-4">
                     <label 
-                        class="text-lg font-bold block"
+                        class="block sr-only"
                         for="post"
                         >Publicacion</label>
                     <textarea 
-                        class="border-black border-2 rounded p-2 m-1"
+                        class="w-full p-2 border-gray-200 border-2 rounded-lg focus:border-gray-200 focus:outline-none"
                         name="post" 
                         id="post"
                         v-model="newPost.post"></textarea>
                 </div>
-                <button 
-                    type="submit"
-                    class="mb-4 py-2 px-6 bg-blue-light text-gray-light font-bold rounded hover:bg-blue-dark transition-all"
-                    >Postear</button>
+                <div class="text-end">
+                    <button type="submit" 
+                        class=" px-6 py-1 m1-1 me-4 mb-2 rounded-lg text-xl text-end text-white bg-green-600 hover:bg-green-500 active:bg-green-700 transition-all">Postear
+                    </button>
+                </div>
             </form>
-        </div>
-        <div class="w-full border min-h-[500px] p-4">
+        </section>
+        <section class="w-full border min-h-[500px] p-4">
             <h2 class="text-center text-2xl font-bold uppercase">Posts</h2>
             <div class="m-2 p-4">
                 <ul>
@@ -75,6 +82,6 @@
                     </li>
                 </ul>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 </template>

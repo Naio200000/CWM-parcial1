@@ -39,7 +39,7 @@
             <MainH2 class="sr-only">Iniciar Sesion</MainH2>
             <form action="" @submit.prevent="submitLogin">
                 <div class="mb-4 px-4">
-                    <label class="text-lg font-bold block sr-only" for="email">Correo Electronico</label>
+                    <label class="block sr-only" for="email">Correo Electronico</label>
                     <input  v-model="user.email" 
                             class="w-full p-2 m-2 text-xl border-gray-400 border-2 rounded-lg" 
                             type="email" 
@@ -47,7 +47,7 @@
                             placeholder="Correo Electronico">
                 </div>
                 <div class="mb-4 px-4">
-                    <label class="text-lg font-bold block sr-only" for="password">Contraña</label>
+                    <label class="block sr-only" for="password">Contraña</label>
                     <input  v-model="user.password" 
                             class="w-full p-2 m-2 text-xl border-gray-400 border-2 rounded-lg" 
                             type="password" 
