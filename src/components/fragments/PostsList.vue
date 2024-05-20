@@ -13,10 +13,14 @@
                     post: '',
                 },                
                 posts:[],
+                unsucribeToPosting: () =>{},
             }
         },
         mounted() {
-            subscribeToPosting(newPosts => this.posts = newPosts);
+            this.unsucribeToPosting = subscribeToPosting(newPosts => this.posts = newPosts);
+        },
+        unmounted() {
+            this.unsucribeToPosting();
         },
     }
 

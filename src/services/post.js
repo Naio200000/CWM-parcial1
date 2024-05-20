@@ -17,13 +17,21 @@ export function savePost(data) {
 
     });
 }
+
+/**
+ * Ejecuta el callback cada vez que cambien los post en la bd
+ * retorna la funcion onSnapshot
+ * 
+ * @param {() =>{}} callback 
+ * @returns {Unsubscribe}
+ */
 export function subscribeToPosting (callback) {
     
     const refPost = query(
                     collection(db, 'post'), 
                     orderBy('created_at', 'desc'));
 
-    onSnapshot(refPost, snapshot => {
+    return onSnapshot(refPost, snapshot => {
 
         const posts = snapshot.docs.map(doc => {
             return {
