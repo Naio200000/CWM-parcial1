@@ -1,7 +1,7 @@
 <script>
 import Home from './views/Home.vue';
 import LogTitle from './components/fragments/LogTitle.vue';
-import MainFooter from './components/labels/MainFooter.vue';
+import MainFooter from './components/fragments/MainFooter.vue';
 export default {
     name: 'App',
     components: {Home, LogTitle, MainFooter},

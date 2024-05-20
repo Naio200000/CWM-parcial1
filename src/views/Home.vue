@@ -1,7 +1,7 @@
 <script>
 import MainH1 from '../components/labels/MainH1.vue';
 import MainP from '../components/labels/MainP.vue';
-import MainNav from '../components/labels/MainNav.vue';
+import MainNav from '../components/fragments/MainNav.vue';
 import PostsList from '../components/fragments/PostsList.vue';
 import PostForm from '../components/fragments/PostForm.vue';
 import MenuList from '../components/fragments/MenuList.vue';
