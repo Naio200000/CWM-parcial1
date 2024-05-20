@@ -22,6 +22,7 @@ export default {
     methods: {
         submitPost() {
             savePost({
+                user_Id: this.authUser.id,
                 user: this.authUser.email,
                 post: this.newPost.post,
             });
