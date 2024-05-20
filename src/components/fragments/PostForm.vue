@@ -16,6 +16,7 @@ export default {
                 post: '',
             },
             posts: [],
+            unsubscribeToAUth: () => {},
         };
     },
     methods: {
@@ -28,7 +29,10 @@ export default {
         },
     },
     mounted() {
-        subscribeToAuth(userData => this.authUser = userData);
+        this.unsubscribeToAUth = subscribeToAuth(userData => this.authUser = userData);
+    },
+    unmounted() {
+        this.unsubscribeToAUth();
     },
     components: { MainH2 }
 }

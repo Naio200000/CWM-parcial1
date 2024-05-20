@@ -12,6 +12,7 @@
                     id: null,
                     email: null,
                 },
+                unsubscribeToAUth: () => {},
             };
         },
         methods: {
@@ -23,8 +24,11 @@
             }
         },
         mounted() { 
-            subscribeToAuth(userData => this.authUser = userData);
+            this.unsubscribeToAUth = subscribeToAuth(userData => this.authUser = userData);
         },
+        unmounted() {
+            this.unsubscribeToAUth();
+        }
     }
 </script>
 
