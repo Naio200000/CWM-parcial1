@@ -2,9 +2,10 @@
     import { logout, subscribeToAuth } from '../../services/auth';
     import ImageLogo from '../fragments/ImageLogo.vue';
     import MainImg from './MainImg.vue';
+    import MainRouterLink from './MainRouterLink.vue';
     export default {
         name: 'MainNav',
-        components: { ImageLogo, MainImg },
+        components: { ImageLogo, MainImg, MainRouterLink },
         data() {
             return {
                 authUser: {
@@ -40,21 +41,21 @@
                     </routerLink>
                 </li>
                 <template v-if="authUser.id === null">
-                    <li><routerLink to="/" href="#">Iniciar Sesión</routerLink></li>
-                    <li><routerLink to="/registrarse" href="#">Registro</routerLink></li>
+                    <li><MainRouterLink :to="'/'">Iniciar Sesion</MainRouterLink></li>
+                    <li><MainRouterLink :to="'/registrarse'">Registro</MainRouterLink></li>
                 </template>
                 <template v-else>
                     <li class="w-12">
-                        <routerLink  href="#">
+                        <MainRouterLink :to="'/registrarse'">
                             <MainImg :src="'./img/icons/posts.png'"/>
                             <span class="sr-only">Mis Posts</span>
-                        </routerLink>
+                        </MainRouterLink>
                     </li>
                     <li class="w-12">
-                        <routerLink to="/perfil" href="#">
+                        <MainRouterLink :to="'/perfil'">
                             <MainImg :src="'./img/icons/profile.png'"/>
                             <span class="sr-only">Mi Perfil</span>
-                        </routerLink>
+                        </MainRouterLink>
                     </li>
                 </template>
             </ul>
