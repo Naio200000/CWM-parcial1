@@ -17,8 +17,8 @@
         },
         methods: {
             async submitRegister(){
-                try {
-                    await login(this.user.email, this.user.password); 
+                           try {
+                    await register(this.user.email, this.user.password); 
                     this.$router.push({
                         path: '/',
                     })
