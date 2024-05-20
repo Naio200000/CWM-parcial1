@@ -21,7 +21,7 @@ export function subscribeToPosting (callback) {
     
     const refPost = query(
                     collection(db, 'post'), 
-                    orderBy('created_at'));
+                    orderBy('created_at', 'desc'));
 
     onSnapshot(refPost, snapshot => {
 
@@ -29,7 +29,7 @@ export function subscribeToPosting (callback) {
             return {
                 user: doc.data().user,
                 post: doc.data().post,
-                post: doc.data().created_at.toDate(),
+                date: doc.data().created_at.toDate(),
             }
         });
         callback(posts);
