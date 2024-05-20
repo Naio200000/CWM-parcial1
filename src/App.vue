@@ -1,9 +1,10 @@
 <script>
 import Home from './views/Home.vue';
 import LogTitle from './components/fragments/LogTitle.vue';
+import MainFooter from './components/labels/MainFooter.vue';
 export default {
     name: 'App',
-    components: {Home, LogTitle},
+    components: {Home, LogTitle, MainFooter},
 }
 </script>
 
@@ -17,8 +18,6 @@ export default {
                 <routerView />
             </main>
         </div>
-        <footer class="flex justify-center items-center bg-black text-white">
-            <p>Copyright &copy; Naio200000 - 2024</p>
-        </footer>
+        <MainFooter />
     </div>
 </template>
