@@ -8,12 +8,12 @@ export default {
 </script>
 
 <template>
-    <div class="h-full grid grid-rows-log container mx-auto bg-gray-300">
-        <div class="flex flex-col mlg:flex-row lg:items-center items-center justify-center">
-            <header class="w-1/2">
+    <div class="h-full grid grid-rows-log mx-auto bg-gray-300">
+        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-evenly items-center justify-center">
+            <header class="lg:w-1/2 w-10/12 max-w-log">
                 <LogTitle />
             </header>
-            <main class="w-1/2">
+            <main class="lg:w-1/2 w-10/12 max-w-log">
                 <routerView />
             </main>
         </div>
