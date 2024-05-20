@@ -11,12 +11,16 @@ import MainRouterLink from '../labels/MainRouterLink.vue';
                 authUser: {
                     id: null,
                     email: null,
-                }
+                },
+                unsubscribeToAUth: () => {},
             }
         },
         mounted() {
-            subscribeToAuth(userData => this.authUser = userData)
-        }
+            this.unsubscribeToAUth = subscribeToAuth(userData => this.authUser = userData)
+        },
+        unmounted() {
+            this.unsubscribeToAUth();
+        },
     }
     
 </script>
