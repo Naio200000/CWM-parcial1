@@ -84,12 +84,12 @@
                             <MainH3 class="text-base pb-0">{{post.user}}</MainH3>
                             <span class="px-2 text-sm ">{{ post.date }}</span>
                         </div>
-                        <div class="p-4">
+                        <div class="px-2 py-4">
                             <MainP>{{ post.post }}</MainP>
                         </div>
                         <div class="flex justify-evenly border-gray-200 border-t-2">
-                            <MainP class="py-2 font-bold text-lg">Like</MainP>
-                            <MainP class="py-2 font-bold text-lg">Comentario</MainP>
+                            <MainP class="py-2 font-bold text-lg text-gray-500">Like</MainP>
+                            <MainP class="py-2 font-bold text-lg text-gray-500">Comentario</MainP>
                         </div>
                     </div>
                 </div>
