@@ -1,40 +1,43 @@
 <script>
 import { subscribeToAuth } from '../../services/auth';
 import { savePost } from '../../services/post';
+import MainH2 from '../labels/MainH2.vue';
 
 
 export default {
     name: 'PostForm',
-    data (){
-            return {
-                authUser: {
-                    id: null,
-                    email: null,
-                },
-                newPost: {
-                    post: '',
-                },                
-                posts:[],
-            }
-        },
-        methods: {
-            submitPost() {
-                savePost({
-                    user: this.authUser.email,
-                    post: this.newPost.post,
-                });
-                this.newPost.post = '';
+    data() {
+        return {
+            authUser: {
+                id: null,
+                email: null,
             },
+            newPost: {
+                post: '',
+            },
+            posts: [],
+        };
+    },
+    methods: {
+        submitPost() {
+            savePost({
+                user: this.authUser.email,
+                post: this.newPost.post,
+            });
+            this.newPost.post = '';
         },
-        mounted() {
-            subscribeToAuth(userData => this.authUser = userData);
-        },
+    },
+    mounted() {
+        subscribeToAuth(userData => this.authUser = userData);
+    },
+    components: { MainH2 }
 }
 </script>
 
 <template>
     <section>
         <section class="w-10/12 mx-auto mb-8 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
+            <MainH2 class="sr-only">Ingresar un Post</MainH2>
             <form 
                 action="#"
                 @submit.prevent="submitPost">
