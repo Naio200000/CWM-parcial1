@@ -46,6 +46,12 @@
                 </template>
                 <template v-else>
                     <li class="w-12">
+                        <MainRouterLink :to="'/gamers'">
+                            <MainImg :src="'./img/icons/gamers.png'"/>
+                            <span class="sr-only">Gamers</span>
+                        </MainRouterLink>
+                    </li>
+                    <li class="w-12">
                         <MainRouterLink :to="'/registrarse'">
                             <MainImg :src="'./img/icons/posts.png'"/>
                             <span class="sr-only">Mis Posts</span>
