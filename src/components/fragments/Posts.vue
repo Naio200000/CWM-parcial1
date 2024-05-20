@@ -3,9 +3,11 @@
     import { subscribeToAuth } from '../../services/auth';
     
     import MainH2 from '../labels/MainH2.vue';
+    import MainH3 from '../labels/MainH3.vue';
+    import MainP from '../labels/MainP.vue';
     export default {
         name: 'Posts',
-        components: {MainH2},
+        components: {MainH2, MainH3, MainP},
         data (){
             return {
                 authUser: {
@@ -13,7 +15,6 @@
                     email: null,
                 },
                 newPost: {
-                    user: '',
                     post: '',
                 },                
                 posts:[],
@@ -22,7 +23,7 @@
         methods: {
             submitPost() {
                 savePost({
-                    user: this.newPost.user,
+                    user: this.authUser.email,
                     post: this.newPost.post,
                 });
                 this.newPost.post = '';
@@ -38,7 +39,7 @@
 <template>
     <div class="">
         <MainH2 class="sr-only">Ingresar un Post</MainH2>
-        <section class="w-10/12 mx-auto rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
+        <section class="w-10/12 mx-auto mb-8 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
             <form 
                 action="#"
                 @submit.prevent="submitPost">
@@ -72,16 +73,27 @@
                 </div>
             </form>
         </section>
-        <section class="w-full border min-h-[500px] p-4">
-            <h2 class="text-center text-2xl font-bold uppercase">Posts</h2>
-            <div class="m-2 p-4">
-                <ul>
-                    <li v-for="post in posts">
-                       <p><b>{{ post.user }}</b></p> 
-                       <p>{{ post.post }}</p> 
-                    </li>
-                </ul>
+        <section >
+            <div>
+                <MainH2 class="sr-only">Posts</MainH2>
             </div>
+            <template v-for="post in posts">
+                <div class="w-10/12 mx-auto my-4 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
+                    <div>
+                        <div class="pt-2 px-2">
+                            <MainH3 class="text-base pb-0">{{post.user}}</MainH3>
+                            <span class="px-2 text-sm ">{{ post.date }}</span>
+                        </div>
+                        <div class="p-4">
+                            <MainP>{{ post.post }}</MainP>
+                        </div>
+                        <div class="flex justify-evenly border-gray-200 border-t-2">
+                            <MainP class="py-2 font-bold text-lg">Like</MainP>
+                            <MainP class="py-2 font-bold text-lg">Comentario</MainP>
+                        </div>
+                    </div>
+                </div>
+            </template>
         </section>
     </div>
 </template>
