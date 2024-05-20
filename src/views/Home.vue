@@ -2,9 +2,10 @@
 import MainH1 from '../components/labels/MainH1.vue';
 import MainP from '../components/labels/MainP.vue';
 import MainNav from '../components/labels/MainNav.vue';
+import Posts from '../components/fragments/Posts.vue';
     export default {
         name: 'Home',
-        components: {MainH1, MainP, MainNav},
+        components: { MainH1, MainP, MainNav, Posts },
     }
 </script>
 
@@ -23,7 +24,7 @@ import MainNav from '../components/labels/MainNav.vue';
                 </div>
             </header>
             <article>
-
+                <Posts />
             </article>
         </section>
     </section>

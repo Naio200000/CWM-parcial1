@@ -1,9 +1,8 @@
 <script>
-    import MainH1 from '../components/labels/MainH1.vue';
-    import { savePost, subscribeToPosting } from '../services/post';
+    import { savePost, subscribeToPosting } from '../../services/post';
     export default {
         name: 'Posts',
-        components: {MainH1},
+        components: {},
         data (){
             return {
                 newPost: {
@@ -32,7 +31,6 @@
     <section class="container mx-auto mt-8">
 
         <div>
-            <MainH1>Posts</MainH1>
         </div>
         <div>
             <h2 class="text-center text-2xl mb-6">Ingresa un Post</h2>
