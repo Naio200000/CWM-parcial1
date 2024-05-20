@@ -8,7 +8,7 @@ export default {
     extend: {
       gridTemplateRows: {
         'layout' : '70px 1fr 100px',
-        'log' : '200px 1fr 150px'
+        'log' : '1fr 150px'
       } 
     },
   },
