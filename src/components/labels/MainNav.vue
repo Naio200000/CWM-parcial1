@@ -1,9 +1,9 @@
 <script>
     import { logout, subscribeToAuth } from '../../services/auth';
-    import Logo from '../fragments/Logo.vue';
+    import ImageLogo from '../fragments/ImageLogo.vue';
     export default {
         name: 'MainNav',
-        components: {Logo},
+        components: {ImageLogo},
         data() {
             return {
                 authUser: {
@@ -27,9 +27,11 @@
 </script>
 
 <template>
-        <nav class="flex justify-between text-black bg-gray-light p-4">
-            <Logo />
-            <ul class="flex items-center gap-4">
+        <nav class="h-20 p-4 flex justify-between items-center bg-gray-100 text-black text-xl">
+            <div class="w-16">
+                <ImageLogo />
+            </div>
+            <ul class="flex justify-evenly gap-4 lg:gap-16 items-center ">
                 <li><routerLink to="/" href="#">Inicio</routerLink></li>
                 <template v-if="authUser.id === null">
                     <li><routerLink to="/iniciar" href="#">Iniciar Sesión</routerLink></li>
@@ -39,11 +41,13 @@
                     <li><routerLink to="/posts" href="#">Posts</routerLink></li>
                     <li><routerLink to="/perfil" href="#">Mi Perfil</routerLink></li>
                     <li>
-                        <form action="" @submit.prevent="submitLogout">
-                            <button type="submit">Cerrar Sesion</button>
-                        </form>
                     </li>
                 </template>
             </ul>
+            <div v-if="authUser.id != null" class="">
+                <form action="" @submit.prevent="submitLogout">
+                    <button type="submit">Cerrar Sesion</button>
+                </form>
+            </div>
         </nav>
 </template>
