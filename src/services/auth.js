@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "./firebase";
 
 /**
@@ -10,20 +10,38 @@ import { auth } from "./firebase";
  */
 export function register(email, password){
     return createUserWithEmailAndPassword(auth, email, password)
-            .then(userCredentials => {
-                console.log(userCredentials)
-            })
-            .catch(error => {
-                console.error(error.code)
-            })
+        .then(userCredentials => {
+            console.log(userCredentials)
+        })
+        .catch(error => {
+            console.error(error.code)
+        })
 };
 
+/**
+ * Inicia sesion con los datos del usuario
+ * 
+ * @param {string} email email del usuario
+ * @param {string} password password del usuario
+ * @returns {Promise<null>}
+ */
 export function login(email, password){
 
-
+    return signInWithEmailAndPassword(auth, email, password)
+        .then(userCredentials => {
+            console.log(userCredentials)
+        })
+        .catch(error => {
+            console.error(error.code)
+        })
 };
 
+/**
+ *  Cierra sesion del usuario 
+ * 
+ * @returns {Promise<null>}
+ */
 export function logout(){
 
-
+    return signOut(auth);
 };
