@@ -21,11 +21,14 @@ onAuthStateChanged(auth, user => {
  * Ejecuta el callback cada vez que cambie el estado
  * 
  * @param {() => {}} callback 
+ * @returns {() => {}} callback para cancelar las subscripcion
  */
 export function subscribeToAuth(callback) {
     observers.push(callback);
 
     notify(callback);
+
+    return () => observers = observers.filter(obs => obs !== callback);
 };
 
 /**
