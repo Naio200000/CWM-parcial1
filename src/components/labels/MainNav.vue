@@ -15,8 +15,8 @@
             };
         },
         methods: {
-            submitLogout() {
-                logout();
+            async submitLogout() {
+                await logout();
                 this.$router.push({
                     path: '/',
                 });

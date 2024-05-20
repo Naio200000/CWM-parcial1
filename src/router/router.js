@@ -24,9 +24,13 @@ let authUser = {id:null, email:null,};
 subscribeToAuth(userData => authUser = userData);
 
 router.beforeEach((to, from) => {
-    if (authUser.id === null && to.path == '/posts') {
+    if (authUser.id != null && (to.path == '/' || to.path == '/registrarse')) {
         return {
-            path: '/iniciar'
+            path: '/home'
+        };
+    }else if (authUser.id === null && (to.path == '/posts' || to.path == '/perfil')) {
+        return {
+            path: '/'
         };
     }
 });
