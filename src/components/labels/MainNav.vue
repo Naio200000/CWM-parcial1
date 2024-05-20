@@ -1,6 +1,6 @@
 <script>
     import { logout, subscribeToAuth } from '../../services/auth';
-import Logo from '../fragments/Logo.vue';
+    import Logo from '../fragments/Logo.vue';
     export default {
         name: 'MainNav',
         components: {Logo},
@@ -15,6 +15,9 @@ import Logo from '../fragments/Logo.vue';
         methods: {
             submitLogout() {
                 logout();
+                this.$router.push({
+                    path: '/iniciar',
+                });
             }
         },
         mounted() { 
