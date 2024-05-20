@@ -1,9 +1,10 @@
 <script>
     import { logout, subscribeToAuth } from '../../services/auth';
     import ImageLogo from '../fragments/ImageLogo.vue';
+    import MainImg from './MainImg.vue';
     export default {
         name: 'MainNav',
-        components: {ImageLogo},
+        components: { ImageLogo, MainImg },
         data() {
             return {
                 authUser: {
@@ -46,7 +47,10 @@
             </ul>
             <div v-if="authUser.id != null" class="">
                 <form action="" @submit.prevent="submitLogout">
-                    <button type="submit">Cerrar Sesion</button>
+                    <button type="submit" class="w-12 ">
+                        <MainImg class="block" :src="'./img/icons/close.png'" :alt="'megamemga'"/>
+                        <span class="sr-only">Cerrar Sesion</span>
+                    </button>
                 </form>
             </div>
         </nav>
