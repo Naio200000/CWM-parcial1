@@ -36,7 +36,7 @@
         <header class="lg:w-1/2 w-10/12 max-w-log">
                 <LogTitle />
         </header>
-        <section class="lg:w-1/2 w-10/12 max-w-log p-5 bg-white rounded-xl shadow-xl shadow-slate-500">
+        <section class="lg:w-1/2 w-10/12 max-w-log p-5 bg-gray-100 rounded-xl shadow-xl shadow-slate-500">
             <MainH2 class="sr-only">Registrarse</MainH2>
             <form action="" @submit.prevent="submitRegister">
                 <div class="mb-4 px-4">
