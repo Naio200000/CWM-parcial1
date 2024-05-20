@@ -31,7 +31,7 @@
 </script>
 
 <template>
-    <div class="h-full flex flex-col items-center justify-center lg:flex-row lg:items-center lg:justify-evenly">
+    <div class="h-full flex flex-col items-center justify-center lg:flex-row lg:items-center lg:justify-evenly  lg:mx-8 lg:gap-4">
         <header class="lg:w-1/2 w-10/12 max-w-log">
                 <LogTitle />
         </header>
