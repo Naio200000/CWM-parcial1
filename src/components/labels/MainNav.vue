@@ -33,15 +33,23 @@
                 <ImageLogo />
             </div>
             <ul class="flex justify-evenly gap-4 lg:gap-16 items-center ">
-                <li><routerLink to="/home" href="#">Inicio</routerLink></li>
+                <li class="w-12">
+                    <routerLink to="/home" href="#">
+                        <MainImg :src="'./img/icons/home.png'"/>
+                        <span class="sr-only">Inicio</span>
+                    </routerLink>
+                </li>
                 <template v-if="authUser.id === null">
                     <li><routerLink to="/" href="#">Iniciar Sesión</routerLink></li>
                     <li><routerLink to="/registrarse" href="#">Registro</routerLink></li>
                 </template>
                 <template v-else>
                     <!-- <li><routerLink to="/posts" href="#">Posts</routerLink></li> -->
-                    <li><routerLink to="/perfil" href="#">Mi Perfil</routerLink></li>
-                    <li>
+                    <li class="w-12">
+                        <routerLink to="/perfil" href="#">
+                            <MainImg :src="'./img/icons/profile.png'"/>
+                            <span class="sr-only">Mi Perfil</span>
+                        </routerLink>
                     </li>
                 </template>
             </ul>
