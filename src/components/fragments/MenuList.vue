@@ -1,11 +1,22 @@
 <script>
+import { subscribeToAuth } from '../../services/auth';
 import MainImg from '../labels/MainImg.vue';
 import MainRouterLink from '../labels/MainRouterLink.vue';
 
     export default {
         name: 'MenuList',
         components: {MainRouterLink, MainImg},
-        mounter
+        data() {
+            return {
+                authUser: {
+                    id: null,
+                    email: null,
+                }
+            }
+        },
+        mounted() {
+            subscribeToAuth(userData => this.authUser = userData)
+        }
     }
     
 </script>
@@ -16,7 +27,7 @@ import MainRouterLink from '../labels/MainRouterLink.vue';
         <ul class="py-8">
             <li class="py-4 ps-2 text-xl font-bold">
                 <MainImg class="w-10 inline me-2" :alt="''" :src="''"/>
-                <MainRouterLink class="align-middle" :to="'/home'">Nombre de usuario</MainRouterLink>
+                <MainRouterLink class="align-middle" :to="'/home'">{{ authUser.email }}</MainRouterLink>
             </li>
             <li class="py-4 ps-2 text-xl font-bold">
                 <MainRouterLink class="align-middle" :to="'/home'">
