@@ -9,8 +9,8 @@ export default {
 </script>
 
 <template>
-    <div class="h-full grid grid-rows-layout mx-auto bg-gray-300">
-        <main>
+    <div class="h-full grid grid-rows-layout mx-auto">
+        <main class="pb-8 bg-gray-300">
             <routerView />
         </main>
         <MainFooter />

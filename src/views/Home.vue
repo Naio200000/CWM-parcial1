@@ -19,10 +19,7 @@ import MainNav from '../components/labels/MainNav.vue';
         <section>
             <header class="container mx-auto mt-8">
                 <div>
-                    <MainH1>Gaming Room</MainH1>
-                </div>
-                <div class="text-center text-lg">
-                    <MainP>Bienvenido a la Primera Red <strong>Social para Gamers</strong></MainP>
+                    <MainH1 class="sr-only">Gaming Room</MainH1>
                 </div>
             </header>
             <article>
