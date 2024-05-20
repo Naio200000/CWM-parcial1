@@ -9,7 +9,10 @@ export default {
       gridTemplateRows: {
         'layout' : '70px 1fr 100px',
         'log' : '1fr 150px'
-      } 
+      },
+      maxWidth: {
+        'log' : '500px'
+      }
     },
   },
   plugins: [],
