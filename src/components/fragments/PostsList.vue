@@ -25,7 +25,7 @@
     <div class="">
         <section >
             <div>
-                <MainH2 class="sr-only">Posts</MainH2>
+                <MainH2 class="sr-only">Lista de Posts</MainH2>
             </div>
             <template v-for="post in posts">
                 <div class="w-10/12 mx-auto my-4 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
