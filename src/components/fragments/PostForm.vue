@@ -36,7 +36,7 @@ export default {
 
 <template>
     <section>
-        <section class="w-10/12 mx-auto mb-8 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
+        <section class="w-10/12 max-w-post mx-auto mb-8 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
             <MainH2 class="sr-only">Ingresar un Post</MainH2>
             <form 
                 action="#"

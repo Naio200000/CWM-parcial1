@@ -28,7 +28,7 @@
                 <MainH2 class="sr-only">Lista de Posts</MainH2>
             </div>
             <template v-for="post in posts">
-                <div class="w-10/12 mx-auto my-4 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
+                <div class="w-10/12 max-w-post mx-auto my-4 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
                     <div>
                         <div class="pt-2 px-2">
                             <MainH3 class="text-base pb-0">{{post.user}}</MainH3>

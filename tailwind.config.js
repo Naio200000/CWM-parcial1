@@ -10,7 +10,8 @@ export default {
         'layout' : '1fr 150px',
       },
       maxWidth: {
-        'log' : '500px'
+        'log' : '500px',
+        'post' : '700px',
       }
     },
   },
