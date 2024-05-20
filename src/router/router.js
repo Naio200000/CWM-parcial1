@@ -4,6 +4,7 @@ import Login from '../views/Login.vue';
 import Register from '../views/Register.vue';
 import Profile from '../views/Profile.vue';
 import Posts from '../views/Posts.vue';
+import { subscribeToAuth } from '../services/auth';
 
 const routes = [
     {path: '/',             component: Home,},
@@ -18,9 +19,15 @@ const router = createRouter({
     history: createWebHashHistory(),
 });
 
+
+let authUser = {id:null, email:null,};
+subscribeToAuth(userData => authUser = userData);
+
 router.beforeEach((to, from) => {
-    if (to.path == '/posts') {
-        return false;
+    if (authUser.id === null && to.path == '/posts') {
+        return {
+            path: '/iniciar'
+        };
     }
 });
 
