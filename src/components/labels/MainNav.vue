@@ -44,7 +44,12 @@
                     <li><routerLink to="/registrarse" href="#">Registro</routerLink></li>
                 </template>
                 <template v-else>
-                    <!-- <li><routerLink to="/posts" href="#">Posts</routerLink></li> -->
+                    <li class="w-12">
+                        <routerLink  href="#">
+                            <MainImg :src="'./img/icons/posts.png'"/>
+                            <span class="sr-only">Mis Posts</span>
+                        </routerLink>
+                    </li>
                     <li class="w-12">
                         <routerLink to="/perfil" href="#">
                             <MainImg :src="'./img/icons/profile.png'"/>
