@@ -16,4 +16,10 @@ const router = createRouter({
     history: createWebHashHistory(),
 });
 
+router.beforeEach((to, from) => {
+    if (to.path == '/posts') {
+        return false;
+    }
+});
+
 export default router;

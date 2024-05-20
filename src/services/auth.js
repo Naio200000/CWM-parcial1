@@ -15,6 +15,7 @@ export function register(email, password){
         })
         .catch(error => {
             console.error(error.code)
+            throw error
         })
 };
 
@@ -33,6 +34,7 @@ export function login(email, password){
         })
         .catch(error => {
             console.error(error.code)
+            throw error
         })
 };
 

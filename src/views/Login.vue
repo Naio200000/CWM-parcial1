@@ -15,7 +15,14 @@
             },
             methods: {
             async submitLogin(){
-                await login(this.user.email, this.user.password); 
+                try {
+                    await login(this.user.email, this.user.password); 
+                    this.$router.push({
+                        path: '/',
+                    })
+                } catch (error) {
+                    
+                }
             }
         }
     }
