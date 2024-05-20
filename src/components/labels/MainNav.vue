@@ -16,7 +16,7 @@
             submitLogout() {
                 logout();
                 this.$router.push({
-                    path: '/iniciar',
+                    path: '/',
                 });
             }
         },
@@ -32,9 +32,9 @@
                 <ImageLogo />
             </div>
             <ul class="flex justify-evenly gap-4 lg:gap-16 items-center ">
-                <li><routerLink to="/" href="#">Inicio</routerLink></li>
+                <li><routerLink to="/home" href="#">Inicio</routerLink></li>
                 <template v-if="authUser.id === null">
-                    <li><routerLink to="/iniciar" href="#">Iniciar Sesión</routerLink></li>
+                    <li><routerLink to="/" href="#">Iniciar Sesión</routerLink></li>
                     <li><routerLink to="/registrarse" href="#">Registro</routerLink></li>
                 </template>
                 <template v-else>

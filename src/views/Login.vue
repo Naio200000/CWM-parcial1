@@ -20,7 +20,7 @@
                 try {
                     await login(this.user.email, this.user.password); 
                     this.$router.push({
-                        path: '/',
+                        path: '/home',
                     })
                 } catch (error) {
                     //handle error   

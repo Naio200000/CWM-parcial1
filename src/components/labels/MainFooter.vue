@@ -11,9 +11,9 @@
         </div>
         <div>
             <ul class="flex gap-8 my-4 text-lg">
-                <li><routerLink to="/iniciar" href="#">Iniciar Sesión</routerLink></li>
+                <li><routerLink to="/" href="#">Iniciar Sesión</routerLink></li>
                 <li><routerLink to="/registrarse" href="#">Registro</routerLink></li>
-                <li><routerLink to="/" href="#">Inicio</routerLink></li>
+                <li><routerLink to="/home" href="#">Inicio</routerLink></li>
             </ul>
         </div>
     </footer>

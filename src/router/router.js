@@ -7,8 +7,8 @@ import Posts from '../views/Posts.vue';
 import { subscribeToAuth } from '../services/auth';
 
 const routes = [
-    {path: '/',             component: Home,},
-    {path: '/iniciar',      component: Login,},
+    {path: '/home',         component: Home,},
+    {path: '/',             component: Login,},
     {path: '/registrarse',  component: Register,},
     {path: '/perfil',       component: Profile,},
     {path: '/posts',        component: Posts,},

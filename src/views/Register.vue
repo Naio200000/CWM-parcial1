@@ -21,7 +21,7 @@
                 try {
                     await register(this.user.email, this.user.password); 
                     this.$router.push({
-                        path: '/',
+                        path: '/home',
                     })
                 } catch (error) {
                     
@@ -32,7 +32,7 @@
 </script>
 
 <template>
-    <div class="h-full flex flex-col items-center justify-center lg:flex-row lg:items-center lg:justify-evenly">
+    <div class="h-full flex flex-col items-center justify-center lg:flex-row lg:items-center lg:justify-evenly lg:mx-8 lg:gap-4">
         <header class="lg:w-1/2 w-10/12 max-w-log">
                 <LogTitle />
         </header>
@@ -62,7 +62,7 @@
                         Registrarse</button>
                     </div>
                     <div class="mt-4 px-4 border-t-2 w-8/12 mx-auto">
-                        <routerLink to="/iniciar">
+                        <routerLink to="/">
                         <button  
                             class="w-full p-2 mt-6 m-2 rounded-lg text-2xl font-bold text-white bg-slate-500 hover:bg-slate-400 active:bg-slate-800 transition-all"
                             >Iniciar Sesción</button>
