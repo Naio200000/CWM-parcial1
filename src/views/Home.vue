@@ -23,7 +23,7 @@ import MenuList from '../components/fragments/MenuList.vue';
                     <MainH1 class="sr-only">Gaming Room</MainH1>
                 </div>
             </header>
-            <article>
+            <article class="overflow-y-scroll max-h-screen">
                 <PostForm />
                 <PostsList />
             </article>

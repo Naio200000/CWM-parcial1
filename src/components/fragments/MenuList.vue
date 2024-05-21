@@ -27,27 +27,27 @@ import MainRouterLink from '../labels/MainRouterLink.vue';
 
 <template>
 
-    <div class="h-full px-8 m-8 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
+    <div class="h-ful px-8 m-8 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
         <ul class="py-8">
-            <li class="py-4 ps-2 text-xl font-bold">
-                <MainImg class="w-10 inline me-2" :alt="''" :src="''"/>
+            <li class="py-4 ps-2 xl:text-xl font-bold">
+                <MainImg class="xl:w-10 w-8 inline me-2" :alt="''" :src="''"/>
                 <MainRouterLink class="align-middle" :to="'/home'">{{ authUser.email }}</MainRouterLink>
             </li>
-            <li class="py-4 ps-2 text-xl font-bold">
+            <li class="py-4 ps-2 xl:text-xl  font-bold">
                 <MainRouterLink class="align-middle" :to="'/home'">
-                    <MainImg class="w-10 inline me-2" :alt="'Link a Gamers'" :src="'../img/icons/gamers.png'"/>
+                    <MainImg class="xl:w-10 w-8 inline me-2" :alt="'Link a Gamers'" :src="'../img/icons/gamers.png'"/>
                     Gamers
                 </MainRouterLink>
             </li>
-            <li class="py-4 ps-2 text-xl font-bold">
+            <li class="py-4 ps-2 xl:text-xl font-bold">
                 <MainRouterLink class="align-middle" :to="'/home'">
-                    <MainImg class="w-10 inline me-2" :alt="'Link a Posts'" :src="'../img/icons/posts.png'"/>
+                    <MainImg class="xl:w-10 w-8 inline me-2" :alt="'Link a Posts'" :src="'../img/icons/posts.png'"/>
                     Mis Posts
                 </MainRouterLink>
             </li>
-            <li class="py-4 ps-2 text-xl font-bold">
+            <li class="py-4 ps-2 xl:text-xl font-bold">
                 <MainRouterLink class="align-middle" :to="'/perfil'">
-                    <MainImg class="w-10 inline me-2" :alt="'Link a Perfil'" :src="'../img/icons/profile.png'"/>
+                    <MainImg class="xl:w-10 w-8 inline me-2" :alt="'Link a Perfil'" :src="'../img/icons/profile.png'"/>
                     Mi Perfil
                 </MainRouterLink>
             </li>
