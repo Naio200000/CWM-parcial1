@@ -38,17 +38,17 @@
                 <ImageLogo />
             </div>
             <ul class="flex justify-evenly gap-4 lg:gap-16 items-center ">
-                <li class="w-12">
-                    <routerLink to="/home" href="#">
-                        <MainImg :src="'./img/icons/home.png'"/>
-                        <span class="sr-only">Inicio</span>
-                    </routerLink>
-                </li>
                 <template v-if="authUser.id === null">
                     <li><MainRouterLink :to="'/'">Iniciar Sesion</MainRouterLink></li>
                     <li><MainRouterLink :to="'/registrarse'">Registro</MainRouterLink></li>
                 </template>
                 <template v-else>
+                    <li class="w-12">
+                        <MainRouterLink :to="'/home'" href="#">
+                            <MainImg :src="'./img/icons/home.png'"/>
+                            <span class="sr-only">Inicio</span>
+                        </MainRouterLink>
+                    </li>
                     <li class="w-12">
                         <MainRouterLink :to="'/gamers'">
                             <MainImg :src="'./img/icons/gamers.png'"/>
