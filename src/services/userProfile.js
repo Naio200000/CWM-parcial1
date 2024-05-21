@@ -10,7 +10,7 @@ export async function getUserProfilebyId(id) {
 
     const refUser = doc(db, `users/${id}`);
 
-    const docUser = await getDoc(refuser);
+    const docUser = await getDoc(refUser);
 
     return {
         id: docUser.id,
