@@ -18,7 +18,7 @@ import MainP from '../components/labels/MainP.vue';
         </aside>
         <section class="w-1/2">
             <header class="mt-8">
-                <MainH1>Mi perfil</MainH1>
+                <MainH1>Gamers</MainH1>
             </header>
             <article>
                 

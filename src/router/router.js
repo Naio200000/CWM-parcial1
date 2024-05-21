@@ -3,6 +3,7 @@ import Home from '../views/Home.vue';
 import Login from '../views/Login.vue';
 import Register from '../views/Register.vue';
 import Profile from '../views/Profile.vue';
+import Gamers from '../views/Gamers.vue';
 // import Posts from '../views/Posts.vue';
 import { subscribeToAuth } from '../services/auth';
 
@@ -11,6 +12,7 @@ const routes = [
     {path: '/',             component: Login,},
     {path: '/registrarse',  component: Register,},
     {path: '/perfil',       component: Profile,},
+    {path: '/gamers',       component: Gamers,},
     // {path: '/posts',        component: Posts,},
 ];
 
