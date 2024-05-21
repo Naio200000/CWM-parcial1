@@ -2,6 +2,7 @@
 import { subscribeToAuth } from '../../services/auth';
 import { savePost } from '../../services/post';
 import MainH2 from '../labels/MainH2.vue';
+import PostingLoader from './PostingLoader.vue';
 
 
 export default {
@@ -15,17 +16,19 @@ export default {
             newPost: {
                 post: '',
             },
+            postinSkeleton: false,
             posts: [],
             unsubscribeToAUth: () => {},
         };
     },
     methods: {
         submitPost() {
+            this.postinSkeleton = true;
             savePost({
                 user_Id: this.authUser.id,
                 user: this.authUser.email,
                 post: this.newPost.post,
-            });
+            }).then(() => this.postinSkeleton = false);
             this.newPost.post = '';
         },
     },
@@ -35,7 +38,7 @@ export default {
     unmounted() {
         this.unsubscribeToAUth();
     },
-    components: { MainH2 }
+    components: { MainH2 , PostingLoader}
 }
 </script>
 
@@ -67,11 +70,18 @@ export default {
                         class="w-full p-2 border-gray-200 border-2 rounded-lg focus:border-gray-200 focus:outline-none"
                         name="post" 
                         id="post"
+                        :disabled="postinSkeleton"
                         v-model="newPost.post"></textarea>
                 </div>
-                <div class="text-end">
+                <div class="text-end mt-1">
                     <button type="submit" 
-                        class=" px-6 py-1 m1-1 me-4 mb-2 rounded-lg text-xl text-end text-white bg-green-600 hover:bg-green-500 active:bg-green-700 transition-all">Postear
+                        class=" px-6 py-1 m1-1 me-4 mb-2 rounded-lg text-xl text-end text-white bg-green-600 hover:bg-green-500 active:bg-green-700 transition-all">
+                        <template v-if="postinSkeleton">
+                            <PostingLoader />
+                        </template>
+                        <template v-else>
+                            Postear
+                        </template>
                     </button>
                 </div>
             </form>

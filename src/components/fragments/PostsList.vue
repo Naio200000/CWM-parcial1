@@ -4,10 +4,10 @@
     import MainH2 from '../labels/MainH2.vue';
     import MainH3 from '../labels/MainH3.vue';
     import MainP from '../labels/MainP.vue';
-import Skeleton from './Skeleton.vue';
+    import PostSkeleton from './PostSkeleton.vue';
     export default {
         name: 'Posts',
-        components: {MainH2, MainH3, MainP, Skeleton},
+        components: {MainH2, MainH3, MainP, PostSkeleton},
         data (){
             return {
                 newPost: {
@@ -38,7 +38,7 @@ import Skeleton from './Skeleton.vue';
             </div>
             <template v-if="!postSkeleton">
                 <div v-for="i in 2" :key="i" class="w-10/12 max-w-post mx-auto my-4 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
-                    <Skeleton />
+                    <PostSkeleton />
                 </div>
             </template>
             <template v-else v-for="post in posts">

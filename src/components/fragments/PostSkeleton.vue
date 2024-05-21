@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: 'Skeleton',
+    name: 'PostSkeleton',
 }
 </script>
 
