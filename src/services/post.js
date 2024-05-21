@@ -8,7 +8,7 @@ import {db} from './firebase';
  */
 export function savePost(data) {
 
-    const refPost = collection(db, 'post');
+    const refPost = collection(db, 'posts');
     return addDoc(refPost, {
         ...data,
         created_at: serverTimestamp(),
@@ -28,7 +28,7 @@ export function savePost(data) {
 export function subscribeToPosting (callback) {
     
     const refPost = query(
-                    collection(db, 'post'), 
+                    collection(db, 'posts'), 
                     orderBy('created_at', 'desc'));
 
     return onSnapshot(refPost, snapshot => {
