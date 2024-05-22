@@ -19,10 +19,15 @@
             }
         },
         methods: {
+            /**
+             * Conviere la fecha que recibimos del servidor en un formateo de "Dia DD/MM/AAAA"
+             * 
+             * @param string Date dato que viene de firebase
+             */
             formatDate(date) {
 
                 return Intl.DateTimeFormat('es', {
-                        weekday: "long",
+                        weekday: "short",
                         year: 'numeric',
                         month: '2-digit', 
                         day: '2-digit',
