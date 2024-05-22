@@ -18,6 +18,17 @@
                 unsucribeToPosting: () =>{},
             }
         },
+        methods: {
+            formatDate(date) {
+
+                return Intl.DateTimeFormat('es', {
+                        weekday: "long",
+                        year: 'numeric',
+                        month: '2-digit', 
+                        day: '2-digit',
+                }).format(date).replace(',', '');
+            }
+        },
         mounted() {
             this.unsucribeToPosting = subscribeToPosting(newPosts => {
                 this.posts = newPosts;
@@ -44,7 +55,7 @@
             <div class="w-10/12 max-w-post mx-auto my-4 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
                 <div class="pt-2 px-2">
                     <MainH3 class="text-base pb-0">{{post.user}}</MainH3>
-                    <span class="px-2 text-sm ">{{ post.date }}</span>
+                    <span class="px-2 ps-4 text-sm capitalize">{{ `Publicado:  ${formatDate(post.date)}` }}</span>
                 </div>
                 <div class="px-2 py-4">
                     <MainP>{{ post.post }}</MainP>
