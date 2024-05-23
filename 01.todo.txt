@@ -12,6 +12,6 @@ LOW Priority
 
 Add Gamers Chat Component
 update Home view to to show menu and chats
-Add form, input, label comments
+Add form, input, label, button comments
 
 
