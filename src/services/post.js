@@ -1,4 +1,4 @@
-import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp } from 'firebase/firestore';
+import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp, where } from 'firebase/firestore';
 import {db} from './firebase';
 
 /**
@@ -44,3 +44,25 @@ export function subscribeToPosting (callback) {
     });
 
 }
+
+
+    export function subscribeToIdPosting (callback, id) {
+        
+        const refPost = query(
+                        collection(db, `posts`),
+                        where('user_Id', '==', id),
+                        orderBy('created_at', 'desc'));
+
+        return onSnapshot(refPost, snapshot => {
+
+            const posts = snapshot.docs.map(doc => {
+                return {
+                    user: doc.data().user,
+                    post: doc.data().post,
+                    date: doc.data().created_at.toDate(),
+                }
+            });
+            callback(posts);
+        });
+
+    }

@@ -7,6 +7,11 @@ import MainP from '../components/labels/MainP.vue';
     export default {
         name: 'Posts',
         components: { MainH1, MainP, MainNav, MenuList, PostsList, },
+        data() {
+            return {
+                userId: 'Ac5N104v5ofh7Gmonap21Qy3AdX2',
+            }
+        },
     }
 </script>
 
@@ -20,7 +25,7 @@ import MainP from '../components/labels/MainP.vue';
                 <MainH1>Mis Posts</MainH1>
             </header>
             <article>
-                <PostsList />
+                <PostsList :userId="userId" />
             </article>
         </section>
     </section>
