@@ -4,13 +4,28 @@ import MenuList from '../components/fragments/MenuList.vue';
 import PostsList from '../components/fragments/PostsList.vue';
 import MainH1 from '../components/labels/MainH1.vue';
 import MainP from '../components/labels/MainP.vue';
+import { subscribeToAuth } from '../services/auth';
     export default {
         name: 'Posts',
         components: { MainH1, MainP, MainNav, MenuList, PostsList, },
         data() {
             return {
+                authUser: {
+                    id: null,
+                    email: null
+                },
+                unsubscribeToAUth: () => {},
                 userId: 'Ac5N104v5ofh7Gmonap21Qy3AdX2',
-            }
+            };
+        },
+        methods: {
+
+        },
+        mounted() {
+            this.unsubscribeToAUth = subscribeToAuth(userData => this.authUser = userData);
+        },
+        unmounted() {
+            this.unsubscribeToAUth();
         },
     }
 </script>
@@ -25,7 +40,7 @@ import MainP from '../components/labels/MainP.vue';
                 <MainH1>Mis Posts</MainH1>
             </header>
             <article>
-                <PostsList :userId="userId" />
+                <PostsList :userId="this.authUser.id" />
             </article>
         </section>
     </section>
