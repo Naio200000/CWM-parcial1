@@ -12,7 +12,6 @@ import MainP from '../components/labels/MainP.vue';
 </script>
 
 <template>
-    <MainNav />
     <section class="flex">
         <aside class="w-1/4 hidden lg:block">
             <MenuList />

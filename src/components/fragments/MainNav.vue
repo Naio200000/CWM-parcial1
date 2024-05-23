@@ -39,8 +39,8 @@
             </div>
             <ul class="flex justify-evenly gap-4 lg:gap-16 items-center ">
                 <template v-if="authUser.id === null">
-                    <li><MainRouterLink :to="'/'">Iniciar Sesion</MainRouterLink></li>
-                    <li><MainRouterLink :to="'/registrarse'">Registro</MainRouterLink></li>
+                    <li><MainRouterLink class="font-bold text-2xl" :to="'/'">Iniciar Sesion</MainRouterLink></li>
+                    <li><MainRouterLink class="font-bold text-2xl pe-4" :to="'/registrarse'">Registrarse</MainRouterLink></li>
                 </template>
                 <template v-else>
                     <li class="w-12">
@@ -69,7 +69,7 @@
                     </li>
                 </template>
             </ul>
-            <div v-if="authUser.id != null" class="">
+            <div v-if="authUser.id != null" class="pe-4">
                 <form action="" @submit.prevent="submitLogout">
                     <button type="submit" class="w-12 ">
                         <MainImg class="block" :src="'./img/icons/close.png'" :alt="'megamemga'"/>

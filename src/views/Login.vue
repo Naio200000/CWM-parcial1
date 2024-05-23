@@ -58,7 +58,7 @@
                     <button 
                         type="submit" 
                         class="w-full p-2 m-2 rounded-lg text-2xl font-bold text-white bg-slate-500 hover:bg-slate-400 active:bg-slate-800 transition-all"
-                        >Iniciar Sesción</button>
+                        >Iniciar Sesión</button>
                 </div>
                 <div class="mt-4 px-4 border-t-2 w-8/12 mx-auto">
                     <routerLink to="/registrarse">
