@@ -1,0 +1,11 @@
+Add comments to post
+Add Posts View
+Add Gamers View + Gamers Profile info and posts
+Add Gamers Chat Component
+
+Bring Gamer's Data
+Update my Profile Data
+add more user data
+
+update Home view to to show menu and chats
+
