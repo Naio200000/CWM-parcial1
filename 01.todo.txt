@@ -1,11 +1,17 @@
-Add comments to post
-Add Posts View
-Add Gamers View + Gamers Profile info and posts
+TOP Priority
+    Add comments to post
+    Add Gamers View + Gamers Profile info and posts
+        Bring all Gamers' Data
+    Update my Profile Data
+
+MID Priority
+    Add Posts View
+    add more user data
+
+LOW Priority
+
 Add Gamers Chat Component
-
-Bring Gamer's Data
-Update my Profile Data
-add more user data
-
 update Home view to to show menu and chats
+Add form, input, label comments
+
 
