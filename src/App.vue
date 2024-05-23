@@ -8,7 +8,7 @@ export default {
     components: {Home, LogTitle, MainFooter, MainNav},
     methods: {
         showNav(){
-            if (this.$route.path == '/' || this.$route.path == 'registrarse') {
+            if (this.$route.path == '/' || this.$route.path == '/registrarse') {
                 return false;
             }
             return true;

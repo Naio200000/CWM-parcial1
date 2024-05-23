@@ -65,7 +65,7 @@
                         <routerLink to="/">
                         <button  
                             class="w-full p-2 mt-6 m-2 rounded-lg text-2xl font-bold text-white bg-slate-500 hover:bg-slate-400 active:bg-slate-800 transition-all"
-                            >Iniciar Sesción</button>
+                            >Iniciar Sesión</button>
                     </routerLink>
                 </div>
             </form>

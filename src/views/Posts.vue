@@ -6,7 +6,7 @@ import ProfileData from '../components/fragments/ProfileData.vue';
 import MainH1 from '../components/labels/MainH1.vue';
 import MainP from '../components/labels/MainP.vue';
     export default {
-        name: 'Profile',
+        name: 'Posts',
         components: { MainH1, MainP, MainNav, MenuList, PostsList, ProfileData },
     }
 </script>
@@ -18,7 +18,7 @@ import MainP from '../components/labels/MainP.vue';
         </aside>
         <section class="w-1/2">
             <header class="mt-8">
-                <MainH1>Mi perfil</MainH1>
+                <MainH1>Mis Posts</MainH1>
             </header>
             <article>
                 <ProfileData />
