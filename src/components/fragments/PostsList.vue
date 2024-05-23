@@ -1,5 +1,5 @@
 <script>
-    import { subscribeToPosting } from '../../services/post';
+    import { subscribeToIdPosting, subscribeToPosting } from '../../services/post';
     
     import MainH2 from '../labels/MainH2.vue';
     import MainH3 from '../labels/MainH3.vue';
@@ -8,6 +8,12 @@
     export default {
         name: 'Posts',
         components: {MainH2, MainH3, MainP, PostSkeleton},
+        props: {
+            userId: {
+                type: String,
+                required: true,
+            }
+        },
         data (){
             return {
                 newPost: {
@@ -16,6 +22,7 @@
                 posts:[],
                 postSkeleton: false,
                 unsucribeToPosting: () =>{},
+                unsucribeToIdPosting: () =>{},
             }
         },
         methods: {
@@ -39,9 +46,17 @@
                 this.posts = newPosts;
                 this.postSkeleton = true
             });
+            this.unsucribeToIdPosting = subscribeToIdPosting(newPosts => {
+                this.posts = newPosts;
+                this.postSkeleton = true;
+            },this.userId);
         },
         unmounted() {
-            this.unsucribeToPosting();
+            if (this.userId) {
+                this.unsucribeToIdPosting();
+            } else {
+                this.unsucribeToPosting();
+            }
         },
     }
 
