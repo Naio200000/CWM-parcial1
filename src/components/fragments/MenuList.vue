@@ -34,13 +34,13 @@ import MainRouterLink from '../labels/MainRouterLink.vue';
                 <MainRouterLink class="align-middle" :to="'/home'">{{ authUser.email }}</MainRouterLink>
             </li>
             <li class="py-4 ps-2 xl:text-xl  font-bold">
-                <MainRouterLink class="align-middle" :to="'/home'">
+                <MainRouterLink class="align-middle" :to="'/gamers'">
                     <MainImg class="xl:w-10 w-8 inline me-2" :alt="'Link a Gamers'" :src="'../img/icons/gamers.png'"/>
                     Gamers
                 </MainRouterLink>
             </li>
             <li class="py-4 ps-2 xl:text-xl font-bold">
-                <MainRouterLink class="align-middle" :to="'/home'">
+                <MainRouterLink class="align-middle" :to="'/posts'">
                     <MainImg class="xl:w-10 w-8 inline me-2" :alt="'Link a Posts'" :src="'../img/icons/posts.png'"/>
                     Mis Posts
                 </MainRouterLink>

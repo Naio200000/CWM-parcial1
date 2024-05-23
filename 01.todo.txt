@@ -3,9 +3,9 @@ TOP Priority
     Add Gamers View + Gamers Profile info and posts
         Bring all Gamers' Data
     Update my Profile Data
+    Add Posts View
 
 MID Priority
-    Add Posts View
     add more user data
 
 LOW Priority

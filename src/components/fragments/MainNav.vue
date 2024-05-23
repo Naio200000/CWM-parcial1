@@ -56,7 +56,7 @@
                         </MainRouterLink>
                     </li>
                     <li class="w-12">
-                        <MainRouterLink :to="'/registrarse'">
+                        <MainRouterLink :to="'/posts'">
                             <MainImg :src="'./img/icons/posts.png'"/>
                             <span class="sr-only">Mis Posts</span>
                         </MainRouterLink>
