@@ -4,7 +4,7 @@ import { createUserProfile } from "./userProfile";
 
 
 const EMPTY_USER_DATA = {id: null, email:null,};
-let userData = EMPTY_USER_DATA;
+let userData = localStorage.getItem('user') == null ? EMPTY_USER_DATA : JSON.parse(localStorage.getItem('user'));
 let observers = [];
 
 /**
@@ -50,12 +50,16 @@ function notifyAll() {
 
 /**
  * Actualiza datos del usuario y notifica a todos
+ * update: Se agrega el guardado de los datos en el local storage
  * 
  * @param {{}}} data 
  */
 function setUserData(data) {
 
     userData = {...userData, ...data};
+
+    localStorage.setItem('user', JSON.stringify(userData));
+
     notifyAll();
 };
 
@@ -99,10 +103,13 @@ export function login(email, password){
 
 /**
  *  Cierra sesion del usuario 
+ *  update se borra el local storage when cierra sesion
  * 
  * @returns {Promise<null>}
  */
 export function logout(){
+
+    localStorage.removeItem('user');
 
     return signOut(auth);
 };
