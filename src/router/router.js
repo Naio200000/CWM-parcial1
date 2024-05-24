@@ -11,9 +11,9 @@ const routes = [
     {path: '/',             component: Login,},
     {path: '/registrarse',  component: Register,},
     {path: '/home',         component: Home,},
-    {path: '/perfil',       component: Profile,},
-    {path: '/gamers',       component: Gamers,},
-    {path: '/posts',        component: Posts,},
+    {path: '/perfil',       component: Profile,         meta: {requireAuth: true}},
+    {path: '/gamers',       component: Gamers,          meta: {requireAuth: true}},
+    {path: '/posts',        component: Posts,           meta: {requireAuth: true}},
 ];
 
 const router = createRouter({
@@ -26,11 +26,11 @@ let authUser = {id:null, email:null,};
 subscribeToAuth(userData => authUser = userData);
 
 router.beforeEach((to, from) => {
-    if (authUser.id != null && (to.path == '/' || to.path == '/registrarse')) {
+    if (authUser.id != null && ['/', '/registrarse'].includes(to.path)) {
         return {
             path: '/home'
         };
-    }else if (authUser.id === null && (to.path == '/posts' || to.path == '/perfil')) {
+    }else if (authUser.id === null && to.meta.requireAuth) {
         return {
             path: '/'
         };

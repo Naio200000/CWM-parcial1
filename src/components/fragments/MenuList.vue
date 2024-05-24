@@ -29,10 +29,15 @@ import MainRouterLink from '../labels/MainRouterLink.vue';
 
     <div class="h-ful px-8 m-8 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
         <ul class="py-8">
-            <li class="py-4 ps-2 xl:text-xl font-bold">
+            <li v-if="authUser.id == null" class="py-4 ps-2 ms-6 xl:text-xl font-bold">    
+                <MainRouterLink class="font-bold text-2xl" :to="'/'">Iniciar Sesion</MainRouterLink>
+            </li>
+            <li v-else class="py-4 ps-2 xl:text-xl font-bold">
                 <MainImg class="xl:w-10 w-8 inline me-2" :alt="''" :src="''"/>
                 <MainRouterLink class="align-middle" :to="'/home'">{{ authUser.email }}</MainRouterLink>
             </li>
+
+                    
             <li class="py-4 ps-2 xl:text-xl  font-bold">
                 <MainRouterLink class="align-middle" :to="'/gamers'">
                     <MainImg class="xl:w-10 w-8 inline me-2" :alt="'Link a Gamers'" :src="'../img/icons/gamers.png'"/>

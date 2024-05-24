@@ -27,7 +27,7 @@ export async function getUserProfilebyId(id) {
  */
 export async function createUserProfile(id, data) {
 
-    const refUser = doc(db, `user/${id}`);
+    const refUser = doc(db, `users/${id}`);
 
     await setDoc(refUser, data);
 }

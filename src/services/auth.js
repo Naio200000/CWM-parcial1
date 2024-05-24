@@ -1,5 +1,6 @@
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "./firebase";
+import { createUserProfile } from "./userProfile";
 
 
 const EMPTY_USER_DATA = {id: null, email:null,};
@@ -65,15 +66,16 @@ function setUserData(data) {
  * @param {string} password password del usuario
  * @returns {Promise<null>}
  */
-export function register(email, password){
-    return createUserWithEmailAndPassword(auth, email, password)
-        .then(userCredentials => {
-            console.log(userCredentials)
-        })
-        .catch(error => {
-            console.error(error.code)
-            throw error
-        })
+export async function register(email, password){
+    try {
+        const userData = await createUserWithEmailAndPassword(auth, email, password)
+        console.log(userData);
+        await createUserProfile(userData.user.uid, {email})
+    } catch (error) {
+        console.error(error.code)
+        throw error
+    }
+    
 };
 
 /**
