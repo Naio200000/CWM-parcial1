@@ -3,7 +3,6 @@ TOP Priority
     Add Gamers View + Gamers Profile info and posts
         Bring all Gamers' Data
     Update my Profile Data
-    Add local storage for auth
 
 MID Priority
     add more user data
