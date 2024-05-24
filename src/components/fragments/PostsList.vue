@@ -15,7 +15,7 @@
                 },                
                 posts:[],
                 postSkeleton: false,
-                unsucribeToPosting: () =>{},
+                unsubscribeToPosting: () =>{},
             }
         },
         methods: {
@@ -41,7 +41,7 @@
             });
         },
         unmounted() {
-            this.unsucribeToPosting();
+            this.unsubscribeToPosting();
         },
     }
 
