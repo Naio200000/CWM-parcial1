@@ -24,7 +24,7 @@ import MenuList from '../components/fragments/MenuList.vue';
             </header>
             <article class="overflow-y-scroll max-h-screen">
                 <PostForm />
-                <PostsList />
+                <PostsList/>
             </article>
         </section>
         <article class="w-1/4 hidden lg:block">

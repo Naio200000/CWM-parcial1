@@ -15,7 +15,6 @@ import { subscribeToAuth } from '../services/auth';
                     email: null
                 },
                 unsubscribeToAUth: () => {},
-                userId: 'Ac5N104v5ofh7Gmonap21Qy3AdX2',
             };
         },
         methods: {
@@ -40,7 +39,7 @@ import { subscribeToAuth } from '../services/auth';
                 <MainH1>Mis Posts</MainH1>
             </header>
             <article>
-                <PostsList :userId="this.authUser.id" />
+                <PostsList />
             </article>
         </section>
     </section>
