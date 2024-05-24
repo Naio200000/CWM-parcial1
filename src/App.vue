@@ -3,20 +3,11 @@ import Home from './views/Home.vue';
 import LogTitle from './components/fragments/LogTitle.vue';
 import MainFooter from './components/fragments/MainFooter.vue';
 import MainNav from './components/fragments/MainNav.vue';
-import { subscribeToAuth } from './services/auth';
 import MenuList from './components/fragments/MenuList.vue';
 export default {
     name: 'App',
     components: {Home, LogTitle, MainFooter, MainNav, MenuList},
-    data() {
-            return {
-                authUser: {
-                    id: null,
-                    email: null,
-                },
-                unsubscribeToAUth: () => {},
-            };
-        },
+
     methods: {
         showNav(){
             if (this.$route.path == '/' || this.$route.path == '/registrarse') {
@@ -25,12 +16,6 @@ export default {
             return true;
         },
     },
-    mounted() { 
-        this.unsubscribeToAUth = subscribeToAuth(userData => this.authUser = userData);
-    },
-    unmounted() {
-        this.unsubscribeToAUth();
-    }
 }
 </script>
 
