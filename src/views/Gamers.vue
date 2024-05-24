@@ -11,17 +11,12 @@ import MainP from '../components/labels/MainP.vue';
 </script>
 
 <template>
-    <section class="flex">
-        <aside class="w-1/4 hidden lg:block">
-            <MenuList />
-        </aside>
-        <section class="w-1/2">
-            <header class="mt-8">
-                <MainH1>Gamers</MainH1>
-            </header>
-            <article>
-                
-            </article>
-        </section>
+    <section class="w-full">
+        <header class="mt-8">
+            <MainH1>Gamers</MainH1>
+        </header>
+        <article>
+            
+        </article>
     </section>
 </template>

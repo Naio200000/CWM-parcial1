@@ -30,17 +30,12 @@ import { subscribeToAuth } from '../services/auth';
 </script>
 
 <template>
-    <section class="flex">
-        <aside class="w-1/4 hidden lg:block">
-            <MenuList />
-        </aside>
-        <section class="w-1/2">
-            <header class="mt-8">
-                <MainH1>Mis Posts</MainH1>
-            </header>
-            <article>
-                <PostsList />
-            </article>
-        </section>
+    <section class="w-full">
+        <header class="mt-8">
+            <MainH1>Mis Posts</MainH1>
+        </header>
+        <article>
+            <PostsList />
+        </article>
     </section>
 </template>
