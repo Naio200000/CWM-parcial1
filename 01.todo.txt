@@ -1,7 +1,6 @@
 TOP Priority
     Add comments to post
     Gamers Profile info and posts
-        Bring all Gamers' Data
     Update my Profile Data
 
 MID Priority

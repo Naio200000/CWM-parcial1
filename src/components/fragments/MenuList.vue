@@ -2,7 +2,6 @@
 import { subscribeToAuth } from '../../services/auth';
 import MainImg from '../labels/MainImg.vue';
 import MainRouterLink from '../labels/MainRouterLink.vue';
-
     export default {
         name: 'MenuList',
         components: {MainRouterLink, MainImg},
