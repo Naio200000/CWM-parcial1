@@ -23,8 +23,9 @@ export function subscribeToUsers(callback) {
 
         const users = snapshot.docs.map(doc => {
             return {
+                id: doc.id,
                 email: doc.data().email,
-                displayName: doc.data.displayname,
+                displayName: doc.data().displayName,
             }
         });
         callback(users);
@@ -45,5 +46,6 @@ export async function getUserProfilebyId(id) {
     return {
         id: docUser.id,
         email: docUser.data().email,
+        displayName: docUser.data().displayName,
     }
 }
