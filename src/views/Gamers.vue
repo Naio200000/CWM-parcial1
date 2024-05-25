@@ -2,7 +2,7 @@
 import GamersList from '../components/fragments/GamersList.vue';
 import MainH1 from '../components/labels/MainH1.vue';
     export default {
-        name: 'Home',
+        name: 'Gamers',
         components: { MainH1, GamersList },
     }
 </script>

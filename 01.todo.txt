@@ -1,6 +1,6 @@
 TOP Priority
     Add comments to post
-    Add Gamers View + Gamers Profile info and posts
+    Gamers Profile info and posts
         Bring all Gamers' Data
     Update my Profile Data
 
