@@ -2,11 +2,11 @@
 import { subscribeToAuth } from '../../services/auth';
 import { savePost } from '../../services/post';
 import MainH2 from '../labels/MainH2.vue';
+import MainLabel from '../labels/MainLabel.vue';
 import PostingLoader from './PostingLoader.vue';
-
-
 export default {
     name: 'PostForm',
+    components: { MainH2 , PostingLoader, MainLabel},
     data() {
         return {
             authUser: {
@@ -38,7 +38,6 @@ export default {
     unmounted() {
         this.unsubscribeToAUth();
     },
-    components: { MainH2 , PostingLoader}
 }
 </script>
 
@@ -50,10 +49,7 @@ export default {
                 action="#"
                 @submit.prevent="submitPost">
                 <div class="">
-                    <label 
-                        class="block sr-only"
-                        for="usuario"
-                        >Usuario:</label>
+                    <MainLabel for="usuario">Usuario :</MainLabel>
                     <input
                         class="px-4 py-2 text-xl font-bold rounded-lg"
                         type="text" 
@@ -62,10 +58,7 @@ export default {
                         v-model="authUser.email">
                 </div>
                 <div class="mx-4">
-                    <label 
-                        class="block sr-only"
-                        for="post"
-                        >Publicacion</label>
+                    <MainLabel for="post">Publicacion</MainLabel>
                     <textarea 
                         class="w-full p-2 border-gray-200 border-2 rounded-lg focus:border-gray-200 focus:outline-none"
                         name="post" 
