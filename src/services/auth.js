@@ -70,11 +70,11 @@ function setUserData(data) {
  * @param {string} password password del usuario
  * @returns {Promise<null>}
  */
-export async function register(email, password){
+export async function register(email, password, displayName){
     try {
         const userData = await createUserWithEmailAndPassword(auth, email, password)
         console.log(userData);
-        await createUserProfile(userData.user.uid, {email})
+        await createUserProfile(userData.user.uid, {email, displayName})
     } catch (error) {
         console.error(error.code)
         throw error

@@ -9,7 +9,7 @@
         data() {
             return {
                 user: {
-                    username: '',
+                    displayName: '',
                     email: '',
                     password:'',
                 },
@@ -19,7 +19,7 @@
         methods: {
             async submitRegister(){
                 try {
-                    await register(this.user.email, this.user.password); 
+                    await register(this.user.email, this.user.password, this.user.displayName); 
                     this.$router.push({
                         path: '/home',
                     })
@@ -39,6 +39,14 @@
         <section class="lg:w-1/2 w-10/12 max-w-log p-5 bg-gray-100 rounded-xl shadow-xl shadow-slate-500">
             <MainH2 class="sr-only">Registrarse</MainH2>
             <form action="" @submit.prevent="submitRegister">
+                <div class="mb-4 px-4">
+                    <label class="block sr-only" for="displayName">Nombre de usuario</label>
+                    <input  v-model="user.displayName" 
+                            class="w-full p-2 m-2 text-xl border-gray-400 border-2 rounded-lg" 
+                            type="text" 
+                            id="displayName" 
+                            placeholder="Nombre de Usuario">
+                </div>
                 <div class="mb-4 px-4">
                     <label class="block sr-only" for="email">Correo Electronico</label>
                     <input  v-model="user.email" 

@@ -24,6 +24,7 @@ export function subscribeToUsers(callback) {
         const users = snapshot.docs.map(doc => {
             return {
                 email: doc.data().email,
+                displayName: doc.data.displayname,
             }
         });
         callback(users);
