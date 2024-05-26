@@ -2,10 +2,13 @@
     import LogTitle from '../components/fragments/LogTitle.vue';
     import MainH1 from '../components/labels/MainH1.vue';
     import MainH2 from '../components/labels/MainH2.vue';
+import MainLabel from '../components/labels/MainLabel.vue';
+import MainInput from '../components/labels/MainInput.vue';
     import { register } from '../services/auth';
+import MainButton from '../components/labels/MainButton.vue';
     export default {
         name: 'Register',
-        components: {MainH1, MainH2, LogTitle},
+        components: {MainH1, MainH2, LogTitle, MainLabel, MainInput, MainButton},
         data() {
             return {
                 user: {
@@ -40,40 +43,38 @@
             <MainH2 class="sr-only">Registrarse</MainH2>
             <form action="" @submit.prevent="submitRegister">
                 <div class="mb-4 px-4">
-                    <label class="block sr-only" for="displayName">Nombre de usuario</label>
-                    <input  v-model="user.displayName" 
-                            class="w-full p-2 m-2 text-xl border-gray-400 border-2 rounded-lg" 
-                            type="text" 
-                            id="displayName" 
-                            placeholder="Nombre de Usuario">
+                    <MainLabel for="displayName">Nombre de usuario</MainLabel>
+                    <MainInput  
+                        v-model="user.displayName" 
+                        type="text" 
+                        id="displayName" 
+                        placeholder="Nombre de Usuario"
+                    />
                 </div>
                 <div class="mb-4 px-4">
-                    <label class="block sr-only" for="email">Correo Electronico</label>
-                    <input  v-model="user.email" 
-                            class="w-full p-2 m-2 text-xl border-gray-400 border-2 rounded-lg" 
-                            type="email" 
-                            id="email" 
-                            placeholder="Correo Electronico">
+                    <MainLabel for="email">Correo Electronico</MainLabel>
+                    <MainInput  
+                        v-model="user.email" 
+                        type="email" 
+                        id="email" 
+                        placeholder="Correo Electronico"
+                    />
                 </div>
                 <div class="mb-4 px-4">
-                    <label class="block sr-only" for="password">Contraña</label>
-                    <input  v-model="user.password" 
-                            class="w-full p-2 m-2 text-xl border-gray-400 border-2 rounded-lg" 
-                            type="password" 
-                            id="password" 
-                            placeholder="Contraña">
+                    <MainLabel for="password">Contraña</MainLabel>
+                    <MainInput  
+                        v-model="user.password" 
+                        type="password" 
+                        id="password" 
+                        placeholder="Contraña"
+                    />
                 </div>
                 <div class="mb-4 px-4">
-                    <button
-                        type="submit" 
-                        class="w-full p-2 m-2 rounded-lg text-2xl font-bold text-white bg-green-800 hover:bg-green-700 active:bg-green-950 transition-all">
-                        Registrarse</button>
+                    <MainButton type="submit" class="bg-green-800 hover:bg-green-700 active:bg-green-950">Registrarse</MainButton>
                     </div>
                     <div class="mt-4 px-4 border-t-2 w-8/12 mx-auto">
                         <routerLink to="/">
-                        <button  
-                            class="w-full p-2 mt-6 m-2 rounded-lg text-2xl font-bold text-white bg-slate-500 hover:bg-slate-400 active:bg-slate-800 transition-all"
-                            >Iniciar Sesión</button>
+                            <MainButton class="bg-slate-500 hover:bg-slate-400 active:bg-slate-800 transition-all">Iniciar Sesión</MainButton>
                     </routerLink>
                 </div>
             </form>
