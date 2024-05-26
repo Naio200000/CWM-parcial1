@@ -1,11 +1,11 @@
 <script>
+    import { register } from '../services/auth';
     import LogTitle from '../components/fragments/LogTitle.vue';
     import MainH1 from '../components/labels/MainH1.vue';
     import MainH2 from '../components/labels/MainH2.vue';
-import MainLabel from '../components/labels/MainLabel.vue';
-import MainInput from '../components/labels/MainInput.vue';
-    import { register } from '../services/auth';
-import MainButton from '../components/labels/MainButton.vue';
+    import MainLabel from '../components/labels/MainLabel.vue';
+    import MainInput from '../components/labels/MainInput.vue';
+    import MainButton from '../components/labels/MainButton.vue';
     export default {
         name: 'Register',
         components: {MainH1, MainH2, LogTitle, MainLabel, MainInput, MainButton},
@@ -71,13 +71,13 @@ import MainButton from '../components/labels/MainButton.vue';
                 </div>
                 <div class="mb-4 px-4">
                     <MainButton type="submit" class="bg-green-800 hover:bg-green-700 active:bg-green-950">Registrarse</MainButton>
-                    </div>
-                    <div class="mt-4 px-4 border-t-2 w-8/12 mx-auto">
-                        <routerLink to="/">
-                            <MainButton class="bg-slate-500 hover:bg-slate-400 active:bg-slate-800 transition-all">Iniciar Sesión</MainButton>
-                    </routerLink>
                 </div>
             </form>
+            <div class="mt-4 px-4 border-t-2 w-8/12 mx-auto">
+                <routerLink to="/">
+                    <MainButton class="bg-slate-500 hover:bg-slate-400 active:bg-slate-800 transition-all">Iniciar Sesión</MainButton>
+                </routerLink>
+            </div>
         </section>
     </div>
 </template>
