@@ -3,7 +3,6 @@
     import LogTitle from '../components/fragments/LogTitle.vue';
     import MainH2 from '../components/labels/MainH2.vue';
     import { login } from '../services/auth';
-    import MainInput from '../components/labels/MainInput.vue';
     import MainLabel from '../components/labels/MainLabel.vue';
     import MainButton from '../components/labels/MainButton.vue';
     export default {
@@ -43,8 +42,9 @@
             <form action="" @submit.prevent="submitLogin">
                 <div class="mb-4 px-4">
                     <MainLabel for="email">Correo Electronico</MainLabel>
-                    <MainInput 
+                    <input 
                         v-model="user.email" 
+                        class="w-full p-2 m-2 text-xl border-gray-400 border-2 rounded-lg"
                         type="email" 
                         id="email" 
                         placeholder="Correo Electronico"
@@ -52,8 +52,9 @@
                 </div>
                 <div class="mb-4 px-4">
                     <MainLabel for="passw0rd">Contraña</MainLabel>
-                    <MainInput 
+                    <input 
                         v-model="user.password" 
+                        class="w-full p-2 m-2 text-xl border-gray-400 border-2 rounded-lg"
                         type="password" 
                         id="password" 
                         placeholder="Contraña" 

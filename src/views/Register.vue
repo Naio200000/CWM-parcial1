@@ -8,7 +8,7 @@
     import MainButton from '../components/labels/MainButton.vue';
     export default {
         name: 'Register',
-        components: {MainH1, MainH2, LogTitle, MainLabel, MainInput, MainButton},
+        components: {MainH1, MainH2, LogTitle, MainLabel, MainButton},
         data() {
             return {
                 user: {
@@ -44,30 +44,32 @@
             <form action="" @submit.prevent="submitRegister">
                 <div class="mb-4 px-4">
                     <MainLabel for="displayName">Nombre de usuario</MainLabel>
-                    <MainInput  
+                    <input  
                         v-model="user.displayName" 
+                        class="w-full p-2 m-2 text-xl border-gray-400 border-2 rounded-lg"
                         type="text" 
                         id="displayName" 
                         placeholder="Nombre de Usuario"
-                    />
+                    >
                 </div>
                 <div class="mb-4 px-4">
                     <MainLabel for="email">Correo Electronico</MainLabel>
-                    <MainInput  
-                        v-model="user.email" 
+                    <input 
+                        v-model="user.email"
+                        class="w-full p-2 m-2 text-xl border-gray-400 border-2 rounded-lg"
                         type="email" 
                         id="email" 
-                        placeholder="Correo Electronico"
-                    />
+                        placeholder="Correo Electronico">
                 </div>
                 <div class="mb-4 px-4">
                     <MainLabel for="password">Contraña</MainLabel>
-                    <MainInput  
+                    <input  
                         v-model="user.password" 
+                        class="w-full p-2 m-2 text-xl border-gray-400 border-2 rounded-lg"
                         type="password" 
                         id="password" 
                         placeholder="Contraña"
-                    />
+                    >
                 </div>
                 <div class="mb-4 px-4">
                     <MainButton type="submit" class="bg-green-800 hover:bg-green-700 active:bg-green-950">Registrarse</MainButton>
