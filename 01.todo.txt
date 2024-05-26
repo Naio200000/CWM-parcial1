@@ -5,10 +5,14 @@ TOP Priority
 
 MID Priority
     add more user data
+    Agregar boton que me lleve al perfil del Gamer
+    agregar ruta y veiw del perfil del gamer gamer/:id
+    traer posts del gamer
 
 LOW Priority
-
 Add Gamers Chat Component
 update Home view to to show menu and chats
+
+
 
 

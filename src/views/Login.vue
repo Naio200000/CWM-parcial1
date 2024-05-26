@@ -7,7 +7,7 @@
     import MainButton from '../components/labels/MainButton.vue';
     export default {
         name: 'Login',
-        components: {MainH1, MainH2, LogTitle, MainInput, MainLabel, MainButton},
+        components: {MainH1, MainH2, LogTitle, MainLabel, MainButton},
         data() {
             return {
                 user: {
