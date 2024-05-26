@@ -57,7 +57,7 @@
             </div>
         </template>
         <template v-else v-for="post in posts">
-            <div class="w-10/12 max-w-post mx-auto my-4 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
+            <div class="w-10/12 max-w-post mx-auto mt-4 rounded-b-none rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
                 <div class="pt-2 px-2">
                     <MainH3 class="text-base pb-0">{{post.user}}</MainH3>
                     <span class="px-2 ps-4 text-sm capitalize">{{ `Publicado:  ${formatDate(post.date)}` }}</span>
@@ -69,6 +69,15 @@
                     <MainP class="py-2 font-bold text-lg text-gray-500">Like</MainP>
                     <MainP class="py-2 font-bold text-lg text-gray-500">Comentario</MainP>
                 </div>
+            </div>
+            <div class="w-10/12 mx-auto rounded-b-lg bg-white">
+                <div class="py-2 px-4">
+                    <p class="font-bold">Naio</p>
+                </div>
+                <div class="px-4 pb-4">
+                    <MainP>Muy bune comentario</MainP>
+                </div>
+
             </div>
         </template>
     </section>
