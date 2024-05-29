@@ -62,7 +62,7 @@
                         </MainRouterLink>
                     </li>
                     <li class="w-12">
-                        <MainRouterLink :to="'/perfil'">
+                        <MainRouterLink :to="`/perfil/${authUser.id}`">
                             <MainImg :src="'./img/icons/profile.png'"/>
                             <span class="sr-only">Mi Perfil</span>
                         </MainRouterLink>

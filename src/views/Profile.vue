@@ -5,6 +5,7 @@ import PostsList from '../components/fragments/PostsList.vue';
 import ProfileData from '../components/fragments/ProfileData.vue';
 import MainH1 from '../components/labels/MainH1.vue';
 import MainP from '../components/labels/MainP.vue';
+import { subscribeToAuth } from '../services/auth';
     export default {
         name: 'Profile',
         components: { MainH1, MainP, MainNav, MenuList, PostsList, ProfileData },

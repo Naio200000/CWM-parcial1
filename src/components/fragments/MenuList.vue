@@ -50,7 +50,7 @@ import MainRouterLink from '../labels/MainRouterLink.vue';
                 </MainRouterLink>
             </li>
             <li class="py-4 ps-2 xl:text-xl font-bold">
-                <MainRouterLink class="align-middle" :to="'/perfil'">
+                <MainRouterLink class="align-middle" :to="`/perfil/${authUser.id}`">
                     <MainImg class="xl:w-10 w-8 inline me-2" :alt="'Link a Perfil'" :src="'../img/icons/profile.png'"/>
                     Mi Perfil
                 </MainRouterLink>
