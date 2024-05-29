@@ -1,22 +1,31 @@
 <script>
 import { subscribeToAuth } from '../../services/auth';
+import { getUserProfilebyId } from '../../services/userProfile';
 import MainH3 from '../labels/MainH3.vue';
 import MainP from '../labels/MainP.vue';
 
 export default {
     name: 'ProfileData.vue',
     components: { MainP, MainH3 },
+    props: ['profileId'],
     data() {
         return {
            authUser: {
                 id: null,
                 email: null,
            },
+           userData: {
+                id: null,
+                email: null,
+                displayName: null,
+           },
            unsubscribeToAuth: () => {},
         }
     },
-    mounted() {
-        this.unsubscribeToAuth = subscribeToAuth(userData => this.authUser = userData); 
+    async mounted() {
+        this.unsubscribeToAuth = subscribeToAuth(userData => this.authUser = userData);
+        this.userData = await getUserProfilebyId(this.profileId);
+
     },
     unmounted() {
         this.unsubscribeToAuth();
