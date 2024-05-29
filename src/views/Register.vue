@@ -4,7 +4,6 @@
     import MainH1 from '../components/labels/MainH1.vue';
     import MainH2 from '../components/labels/MainH2.vue';
     import MainLabel from '../components/labels/MainLabel.vue';
-    import MainInput from '../components/labels/MainInput.vue';
     import MainButton from '../components/labels/MainButton.vue';
     export default {
         name: 'Register',

@@ -14,8 +14,10 @@
                     post: '',
                 },                
                 posts:[],
+                showComments: false,
                 postSkeleton: false,
                 unsubscribeToPosting: () =>{},
+                unsubscribeToComent: () =>{},
             }
         },
         methods: {
@@ -32,10 +34,13 @@
                         month: '2-digit', 
                         day: '2-digit',
                 }).format(date).replace(',', '');
+            },
+            bringComments() {
+                this.showComments = !this.showComments;
             }
         },
         mounted() {
-            this.unsucribeToPosting = subscribeToPosting(newPosts => {
+            this.unsubscribeToPosting = subscribeToPosting(newPosts => {
                 this.posts = newPosts;
                 this.postSkeleton = true
             });
@@ -56,7 +61,7 @@
                 <PostSkeleton />
             </div>
         </template>
-        <template v-else v-for="post in posts">
+        <template v-else v-for="post in posts" :key="post.id">
             <div class="w-10/12 max-w-post mx-auto mt-4 rounded-b-none rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
                 <div class="pt-2 px-2">
                     <MainH3 class="text-base pb-0">{{post.user}}</MainH3>
@@ -67,18 +72,19 @@
                 </div>
                 <div class="flex justify-evenly border-gray-200 border-t-2">
                     <MainP class="py-2 font-bold text-lg text-gray-500">Like</MainP>
-                    <MainP class="py-2 font-bold text-lg text-gray-500">Comentario</MainP>
+                    <MainP @click="bringComments" class="py-2 font-bold text-lg text-gray-500">Comentario</MainP>
                 </div>
             </div>
-            <div class="w-10/12 mx-auto rounded-b-lg bg-white">
-                <div class="py-2 px-4">
-                    <p class="font-bold">Naio</p>
+            <template v-if="post.comments">
+                <div v-for="comment in post.comments" class="w-10/12 mx-auto rounded-b-lg bg-white">
+                    <div class="py-2 px-4">
+                        <p class="font-bold">{{ comment.user_email }}</p>
+                    </div>
+                    <div class="px-4 pb-4">
+                        <MainP>{{ comment.comment }}</MainP>
+                    </div>
                 </div>
-                <div class="px-4 pb-4">
-                    <MainP>Muy bune comentario</MainP>
-                </div>
-
-            </div>
+            </template>
         </template>
     </section>
 </template>
