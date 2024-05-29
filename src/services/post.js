@@ -18,6 +18,17 @@ export function savePost(data) {
     });
 }
 
+export function saveComment(data, postId) {
+
+    const refComment = collection(db, `posts/${postId}/comments`);
+    return addDoc(refComment, {
+        ...data,
+        created_at:serverTimestamp(),
+    }).then(doc => {
+
+    });
+}
+
 /**
  * Ejecuta el callback cada vez que cambien los post en la bd
  * Trae todos los posts con sus comentarios
@@ -66,6 +77,6 @@ export function subscribeToPosting(callback) {
  * @returns snapshot de los comentaios de un post
  */
 async function getCommentsForPost(postRef) {
-    const commentsSnapshot = await getDocs(collection(postRef, 'comments'));
+    const commentsSnapshot = await getDocs(collection(postRef, 'comments'), orderBy('created_at', 'desc'));
     return commentsSnapshot;
 }

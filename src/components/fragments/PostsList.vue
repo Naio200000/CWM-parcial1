@@ -5,16 +5,16 @@
     import MainH3 from '../labels/MainH3.vue';
     import MainP from '../labels/MainP.vue';
     import PostSkeleton from './PostSkeleton.vue';
+    import CommentForm from './CommentForm.vue';
     export default {
         name: 'Posts',
-        components: {MainH2, MainH3, MainP, PostSkeleton},
+        components: {MainH2, MainH3, MainP, PostSkeleton, CommentForm},
         data (){
             return {
                 newPost: {
                     post: '',
                 },                
                 posts:[],
-                showComments: false,
                 postSkeleton: false,
                 unsubscribeToPosting: () =>{},
                 unsubscribeToComent: () =>{},
@@ -42,6 +42,12 @@
         mounted() {
             this.unsubscribeToPosting = subscribeToPosting(newPosts => {
                 this.posts = newPosts;
+                this.posts = this.posts.map(post => {
+                    return {
+                        ...post,
+                        showComments: false
+                    }
+                })
                 this.postSkeleton = true
             });
         },
@@ -72,16 +78,21 @@
                 </div>
                 <div class="flex justify-evenly border-gray-200 border-t-2">
                     <MainP class="py-2 font-bold text-lg text-gray-500">Like</MainP>
-                    <MainP @click="bringComments" class="py-2 font-bold text-lg text-gray-500">Comentario</MainP>
+                    <MainP @click="post.showComments = !post.showComments" class="py-2 font-bold text-lg text-gray-500">Comentario</MainP>
                 </div>
             </div>
             <template v-if="post.comments">
-                <div v-for="comment in post.comments" class="w-10/12 mx-auto rounded-b-lg bg-white">
-                    <div class="py-2 px-4">
-                        <p class="font-bold">{{ comment.user_email }}</p>
+                <div class="w-10/12 mx-auto bg-white">
+                    <div v-for="comment in post.comments" >
+                        <div class="py-2 px-4">
+                            <p class="font-bold">{{ comment.user_email }}</p>
+                        </div>
+                        <div class="px-4 pb-4">
+                            <MainP>{{ comment.comment }}</MainP>
+                        </div>
                     </div>
-                    <div class="px-4 pb-4">
-                        <MainP>{{ comment.comment }}</MainP>
+                    <div v-if="post.showComments">
+                        <CommentForm :postId="post.id" />
                     </div>
                 </div>
             </template>
