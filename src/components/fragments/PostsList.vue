@@ -68,7 +68,7 @@
             </div>
         </template>
         <template v-else v-for="post in posts" :key="post.id">
-            <div class="w-10/12 max-w-post mx-auto mt-4 rounded-b-none rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
+            <div :class="['w-10/12', 'max-w-post', 'mx-auto mt-4', 'rounded-lg', 'shadow-lg', 'shadow-slate-400', 'bg-gray-100', (post.comments ? 'rounded-b-none' : 'rounded-b-lg')] ">
                 <div class="pt-2 px-2">
                     <MainH3 class="text-base pb-0">{{post.user}}</MainH3>
                     <span class="px-2 ps-4 text-sm capitalize">{{ `Publicado:  ${formatDate(post.date)}` }}</span>
@@ -82,7 +82,7 @@
                 </div>
             </div>
             <template v-if="post.comments">
-                <div class="w-10/12 mx-auto bg-white">
+                <div :class="['w-10/12', 'mx-auto', 'bg-white', 'rounded-b-lg']">
                     <div v-for="comment in post.comments" >
                         <div class="py-2 px-4">
                             <p class="font-bold">{{ comment.user_email }}</p>

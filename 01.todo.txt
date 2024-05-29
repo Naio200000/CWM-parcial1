@@ -1,5 +1,4 @@
 TOP Priority
-    Add comments to post
     Gamers Profile info and posts
     Update my Profile Data
 
