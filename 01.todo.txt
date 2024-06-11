@@ -4,11 +4,10 @@ TOP Priority
 
 MID Priority
     add more user data
-    traer posts del gamer
 
 LOW Priority
-Add Gamers Chat Component
-update Home view to to show menu and chats
+    Add Gamers Chat Component
+    update Home view to to show chats
 
 
 

@@ -23,7 +23,6 @@
         methods: {
             /**
              * Conviere la fecha que recibimos del servidor en un formateo de "Dia DD/MM/AAAA"
-             * 
              * @param string Date dato que viene de firebase
              */
             formatDate(date) {
@@ -35,9 +34,6 @@
                         day: '2-digit',
                 }).format(date).replace(',', '');
             },
-            bringComments() {
-                this.showComments = !this.showComments;
-            }
         },
         mounted() {
             this.unsubscribeToPosting = subscribeToPosting(newPosts => {
@@ -81,8 +77,8 @@
                     <MainP @click="post.showComments = !post.showComments" class="py-2 font-bold text-lg text-gray-500">Comentario</MainP>
                 </div>
             </div>
-            <template v-if="post.comments">
-                <div :class="['w-10/12', 'mx-auto', 'bg-white', 'rounded-b-lg']">
+            <template v-if="post.showComments">
+                <div :class="['w-10/12', 'mx-auto', 'bg-white']">
                     <div v-for="comment in post.comments" >
                         <div class="py-2 px-4">
                             <p class="font-bold">{{ comment.user_email }}</p>
@@ -91,11 +87,11 @@
                             <MainP>{{ comment.comment }}</MainP>
                         </div>
                     </div>
-                    <div v-if="post.showComments">
-                        <CommentForm :postId="post.id" />
                     </div>
-                </div>
-            </template>
+                </template>
+            <div :class="['w-10/12', 'mx-auto', 'bg-white', 'rounded-b-lg']" v-if="post.comments">
+                <CommentForm :postId="post.id" />
+            </div>
         </template>
     </section>
 </template>
