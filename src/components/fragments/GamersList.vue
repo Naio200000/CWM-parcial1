@@ -6,17 +6,21 @@ export default {
     name: 'GamersList',
     components: {MainP, MainRouterLink},
     data() {
+
         return {
             gamers: [],
             unsubscribeToUsers: () => {},
         }
     },
     mounted() {
+
         this.unsubscribeToUsers = subscribeToUsers(newGamers =>{
+
             this.gamers = newGamers;
         })
     },
     unmounted() {
+        
         this.unsubscribeToUsers();
     }
 }

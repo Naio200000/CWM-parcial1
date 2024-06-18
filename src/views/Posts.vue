@@ -9,6 +9,7 @@ import { subscribeToAuth } from '../services/auth';
         name: 'Posts',
         components: { MainH1, MainP, MainNav, MenuList, PostsList, },
         data() {
+            
             return {
                 authUser: {
                     id: null,

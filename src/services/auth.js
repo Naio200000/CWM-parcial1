@@ -11,12 +11,13 @@ let observers = [];
  * ejecuta la funcion setUserData para agregar o actualizar los datos del usuario y notificar a los observers
  */
 onAuthStateChanged(auth, user => {
+
     if (user) {
         setUserData({id: user.uid, email: user.email,});
     } else {
         setUserData(EMPTY_USER_DATA);
     }
-})
+});
 
 /**
  * Ejecuta el callback cada vez que cambie el estado
@@ -25,6 +26,7 @@ onAuthStateChanged(auth, user => {
  * @returns {() => {}} callback para cancelar las subscripcion
  */
 export function subscribeToAuth(callback) {
+
     observers.push(callback);
 
     notify(callback);
@@ -38,6 +40,7 @@ export function subscribeToAuth(callback) {
  * @param {() => {}} observer 
  */
 function notify(observer) {
+
     observer({...userData});
 };
 
@@ -45,6 +48,7 @@ function notify(observer) {
  * Notifica a todos los observes
  */
 function notifyAll() {
+
     observers.forEach(obs => notify(obs));
 };
 
@@ -71,15 +75,17 @@ function setUserData(data) {
  * @returns {Promise<null>}
  */
 export async function register(email, password, displayName){
+
     try {
+
         const userData = await createUserWithEmailAndPassword(auth, email, password)
         console.log(userData);
         await createUserProfile(userData.user.uid, {email, displayName})
     } catch (error) {
+
         console.error(error.code)
         throw error
     }
-    
 };
 
 /**
@@ -93,7 +99,6 @@ export function login(email, password){
 
     return signInWithEmailAndPassword(auth, email, password)
         .then(userCredentials => {
-
         })
         .catch(error => {
             console.error(error.code)

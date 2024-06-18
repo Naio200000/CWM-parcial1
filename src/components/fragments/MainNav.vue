@@ -7,6 +7,7 @@
         name: 'MainNav',
         components: { ImageLogo, MainImg, MainRouterLink },
         data() {
+
             return {
                 authUser: {
                     id: null,
@@ -16,7 +17,9 @@
             };
         },
         methods: {
+
             async submitLogout() {
+
                 await logout();
                 this.$router.push({
                     path: '/',
@@ -24,9 +27,11 @@
             }
         },
         mounted() { 
+
             this.unsubscribeToAUth = subscribeToAuth(userData => this.authUser = userData);
         },
         unmounted() {
+            
             this.unsubscribeToAUth();
         }
     }

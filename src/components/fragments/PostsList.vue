@@ -1,6 +1,5 @@
 <script>
     import { subscribeToPosting } from '../../services/post';
-    
     import MainH2 from '../labels/MainH2.vue';
     import MainH3 from '../labels/MainH3.vue';
     import MainP from '../labels/MainP.vue';
@@ -10,6 +9,7 @@
         name: 'Posts',
         components: {MainH2, MainH3, MainP, PostSkeleton, CommentForm},
         data (){
+
             return {
                 newPost: {
                     post: '',
@@ -21,6 +21,7 @@
             }
         },
         methods: {
+
             /**
              * Conviere la fecha que recibimos del servidor en un formateo de "Dia DD/MM/AAAA"
              * @param string Date dato que viene de firebase
@@ -36,6 +37,7 @@
             },
         },
         mounted() {
+
             this.unsubscribeToPosting = subscribeToPosting(newPosts => {
                 this.posts = newPosts;
                 this.posts = this.posts.map(post => {
@@ -48,6 +50,7 @@
             });
         },
         unmounted() {
+
             this.unsubscribeToPosting();
         },
     }

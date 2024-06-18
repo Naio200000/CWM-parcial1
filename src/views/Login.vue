@@ -9,6 +9,7 @@
         name: 'Login',
         components: {MainH1, MainH2, LogTitle, MainLabel, MainButton},
         data() {
+
             return {
                 user: {
                     email: '',
@@ -16,15 +17,18 @@
                 },
                 loading: false,
             }
-            },
-            methods: {
+        },
+        methods: {
+
             async submitLogin(){
                 try {
+
                     await login(this.user.email, this.user.password); 
                     this.$router.push({
                         path: '/home',
                     })
                 } catch (error) {
+                    
                     //handle error   
                 }
             }

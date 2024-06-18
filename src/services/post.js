@@ -77,6 +77,8 @@ export function subscribeToPosting(callback) {
  * @returns snapshot de los comentaios de un post
  */
 async function getCommentsForPost(postRef) {
+
     const commentsSnapshot = await getDocs(collection(postRef, 'comments'), orderBy('created_at', 'desc'));
+    
     return commentsSnapshot;
 }

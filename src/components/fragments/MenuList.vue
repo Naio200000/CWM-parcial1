@@ -3,9 +3,11 @@ import { subscribeToAuth } from '../../services/auth';
 import MainImg from '../labels/MainImg.vue';
 import MainRouterLink from '../labels/MainRouterLink.vue';
     export default {
+
         name: 'MenuList',
         components: {MainRouterLink, MainImg},
         data() {
+
             return {
                 authUser: {
                     id: null,
@@ -15,9 +17,11 @@ import MainRouterLink from '../labels/MainRouterLink.vue';
             }
         },
         mounted() {
+
             this.unsubscribeToAUth = subscribeToAuth(userData => this.authUser = userData)
         },
         unmounted() {
+            
             this.unsubscribeToAUth();
         },
     }

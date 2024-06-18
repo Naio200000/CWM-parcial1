@@ -1,11 +1,10 @@
 <script>
-import { subscribeToAuth } from '../../services/auth';
 import { getUserProfilebyId } from '../../services/userProfile';
 import MainH2 from '../labels/MainH2.vue';
-import MainH3 from '../labels/MainH3.vue';
 import MainP from '../labels/MainP.vue';
 
 export default {
+
     name: 'ProfileData.vue',
     components: { MainP, MainH2 },
     data() {
@@ -22,10 +21,12 @@ export default {
         }
     },
     async mounted() {
+
         this.userData = await getUserProfilebyId(this.$route.params.id);
 
     },
     unmounted() {
+
     },
 }
 </script>

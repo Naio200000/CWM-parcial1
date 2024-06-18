@@ -9,6 +9,7 @@ export default {
     components: { MainH2 , PostingLoader, MainLabel},
     props: ['postId'],
     data() {
+
         return {
             authUser: {
                 id: null,
@@ -23,20 +24,26 @@ export default {
         };
     },
     methods: {
+
         submitComment() {
+
             this.postinSkeleton = true;
+            
             saveComment({
                 user_Id: this.authUser.id,
                 user_email: this.authUser.email,
                 comment: this.newComment.comment,
             },this.postId).then(() => this.postinSkeleton = false);
+            
             this.newComment.comment = '';
         },
     },
     mounted() {
+
         this.unsubscribeToAUth = subscribeToAuth(userData => this.authUser = userData);
     },
     unmounted() {
+        
         this.unsubscribeToAUth();
     },
 }

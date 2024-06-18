@@ -9,6 +9,7 @@
         name: 'Register',
         components: {MainH1, MainH2, LogTitle, MainLabel, MainButton},
         data() {
+
             return {
                 user: {
                     displayName: '',
@@ -19,12 +20,14 @@
             }
         },
         methods: {
+
             async submitRegister(){
                 try {
+
                     await register(this.user.email, this.user.password, this.user.displayName); 
                     this.$router.push({
                         path: '/home',
-                    })
+                    });
                 } catch (error) {
                     
                 }

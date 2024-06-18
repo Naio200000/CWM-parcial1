@@ -8,6 +8,7 @@ export default {
     name: 'PostForm',
     components: { MainH2 , PostingLoader, MainLabel},
     data() {
+
         return {
             authUser: {
                 id: null,
@@ -22,6 +23,7 @@ export default {
         };
     },
     methods: {
+
         submitPost() {
             this.postinSkeleton = true;
             savePost({
@@ -33,9 +35,11 @@ export default {
         },
     },
     mounted() {
+
         this.unsubscribeToAUth = subscribeToAuth(userData => this.authUser = userData);
     },
     unmounted() {
+        
         this.unsubscribeToAUth();
     },
 }
