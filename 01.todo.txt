@@ -11,4 +11,34 @@ LOW Priority
 
 
 
+Correcciones Generales
+- Errores de ortografía (ej: tildes, palabras mal
 
+tipeadas como "contraña").
+- Falta mostrar mensajes de error.
+- [registro] Faltan estados de carga que informen
+al usuario que el sitio está trabajando.
+- [comentarios] No aparecen al cargarse hasta
+refrescar la vista.
+- [comentarios] Deberían incluir la fecha y hora.
+- "Mis posts" muestra toods los posts, no solo
+los propios.
+-- Falta la posiblidad de ver los posts de un
+usuario en particular.
+-- Falta poder editar mi perfil.
+- No es bueno para la usabilidad tener solo íconos
+para los botones sin alternativas de texto, dificulta
+notablemente la navegabilidad.
+
+
+Correcciones HTML+CSS
+
+- Hay errores de validación de HTML.
+* [posts] El email del usuario no es una buena
+opción para un <h*>. Ya que puede repetirse
+múltiples veces, lo hace una alternativa confusa
+para usuarios de lectores de pantalla.
+
+Correcciones JS+Firebase
+- Código inconsistente: Problemas de indentación.
++ Organización de componentes.
