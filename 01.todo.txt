@@ -20,7 +20,6 @@ tipeadas como "contraña").
 - Falta mostrar mensajes de error.
 - [registro] Faltan estados de carga que informen
 al usuario que el sitio está trabajando.
-- [comentarios] Deberían incluir la fecha y hora.
 - "Mis posts" muestra toods los posts, no solo
 los propios.
 -- Falta la posiblidad de ver los posts de un

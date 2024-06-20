@@ -33,7 +33,6 @@ export function saveComment(data, postId) {
 
 /**
  * Ejecuta el callback cada vez que cambien los post en la bd
- * Trae todos los posts con sus comentarios
  * retorna la funcion onSnapshot
  * 
  * @param {() =>{}} callback 
@@ -56,6 +55,39 @@ export function subscribeToPosting(callback) {
                 date: doc.data().created_at.toDate(),
             }
         })
+
+        callback(posts);
+    });
+}
+
+/**
+ * Ejecuta el callback cada vez que cambien los post en la bd
+ * retorna la funcion onSnapshot
+ * 
+ * @param {() =>{}} callback 
+ * @returns {Unsubscribe}
+ */
+export function subscribeToUserPosting(userId, callback) {
+    
+    console.log("Subscribing to posts for user:", userId);
+
+    const refUserPost = query(
+        collection(db, 'posts'),
+        where('user_Id', '==', userId),
+        orderBy('created_at', 'desc')
+    );
+
+    return onSnapshot(refUserPost, async snapshot => {
+
+        const posts = snapshot.docs.map(doc => {
+
+            return {
+                id: doc.id,
+                user: doc.data().user,
+                post: doc.data().post,
+                date: doc.data().created_at.toDate(),
+            };
+        });
 
         callback(posts);
     });

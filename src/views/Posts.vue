@@ -1,13 +1,13 @@
 <script>
 import MainNav from '../components/fragments/MainNav.vue';
 import MenuList from '../components/fragments/MenuList.vue';
-import PostsList from '../components/fragments/PostsList.vue';
+import UserPosts from '../components/fragments/UserPosts.vue';
 import MainH1 from '../components/labels/MainH1.vue';
 import MainP from '../components/labels/MainP.vue';
 import { subscribeToAuth } from '../services/auth';
     export default {
         name: 'Posts',
-        components: { MainH1, MainP, MainNav, MenuList, PostsList, },
+        components: { MainH1, MainP, MainNav, MenuList, UserPosts, },
         data() {
             
             return {
@@ -36,7 +36,7 @@ import { subscribeToAuth } from '../services/auth';
             <MainH1>Mis Posts</MainH1>
         </header>
         <article>
-            <PostsList />
+            <UserPosts :userId="authUser.id" />
         </article>
     </section>
 </template>
