@@ -8,6 +8,7 @@ MID Priority
 LOW Priority
     Add Gamers Chat Component
     update Home view to to show chats
+    Add hover to comment button
 
 
 
