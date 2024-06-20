@@ -1,5 +1,5 @@
 <script>
-    import { subscribeToComments2, subscribeToPosting2 } from '../../services/post';
+    import { subscribeToPosting } from '../../services/post';
     import MainH2 from '../labels/MainH2.vue';
     import MainP from '../labels/MainP.vue';
     import PostSkeleton from './PostSkeleton.vue';
@@ -17,7 +17,6 @@
                 posts:[],
                 postSkeleton: false,
                 unsubscribeToPosting: () =>{},
-                unsubscribeToComment: () =>{},
             }
         },
         methods: {
@@ -38,7 +37,7 @@
         },
         mounted() {
 
-            this.unsubscribeToPosting = subscribeToPosting2(newPosts => {
+            this.unsubscribeToPosting = subscribeToPosting(newPosts => {
                 this.posts = newPosts;
                 this.posts = this.posts.map(post => {
                     return {
@@ -51,7 +50,6 @@
         },
         unmounted() {
             this.unsubscribeToPosting();
-            this.unsubscribeToComment()
         },
     }
 

@@ -1,5 +1,5 @@
 <script>
-    import { subscribeToComments2 } from '../../services/post';
+    import { subscribeToComments } from '../../services/post';
     import MainP from '../labels/MainP.vue';
     export default {
         name: 'CommentsList',
@@ -32,8 +32,9 @@
             },
         },
         mounted() {
-            this.unsubscribeToComment = subscribeToComments2(
+            this.unsubscribeToComment = subscribeToComments(
                 this.postId, 
+
                 newComments => {this.comments = newComments});
         },
         unmounted() {
@@ -45,22 +46,12 @@
 
 <template>
 
-    <div>
-        <div>
-            <div>
-                <p>megameg</p>
-            </div>
-            <div>
-                <p>megamegamegameg</p>
-            </div>
+    <div v-for="comment in this.comments">
+        <div class="py-2 px-4">
+            <p class="font-bold">{{ comment.user_email }}</p>
+        </div>
+        <div class="px-4 pb-4">
+            <MainP>{{ comment.comment }}</MainP>
         </div>
     </div>
-        <!-- <div v-for="comment in post.comments" >
-            <div class="py-2 px-4">
-                <p class="font-bold">{{ comment.user_email }}</p>
-            </div>
-            <div class="px-4 pb-4">
-                <MainP>{{ comment.comment }}</MainP>
-            </div>
-        </div> -->
 </template>
