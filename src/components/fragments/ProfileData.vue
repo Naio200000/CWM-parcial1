@@ -23,7 +23,7 @@ export default {
     },
     async mounted() {
 
-        this.userData = await getUserProfilebyId(this.$route.params.id  );
+        this.userData = await getUserProfilebyId(this.$route.params.id );
 
     },
     unmounted() {

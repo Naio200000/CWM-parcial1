@@ -1,5 +1,5 @@
 TOP Priority
-    Gamers posts
+    fix null id for posts and gamer's posts
     Update my Profile Data
 
 MID Priority
@@ -20,10 +20,6 @@ tipeadas como "contraña").
 - Falta mostrar mensajes de error.
 - [registro] Faltan estados de carga que informen
 al usuario que el sitio está trabajando.
-- "Mis posts" muestra toods los posts, no solo
-los propios.
--- Falta la posiblidad de ver los posts de un
-usuario en particular.
 -- Falta poder editar mi perfil.
 - No es bueno para la usabilidad tener solo íconos
 para los botones sin alternativas de texto, dificulta

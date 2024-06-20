@@ -52,7 +52,7 @@ export function subscribeToPosting(callback) {
                 id: doc.id,
                 user: doc.data().user,
                 post: doc.data().post,
-                date: doc.data().created_at.toDate(),
+                date: doc.data().created_at?.toDate(),
             }
         })
 
@@ -85,7 +85,7 @@ export function subscribeToUserPosting(userId, callback) {
                 id: doc.id,
                 user: doc.data().user,
                 post: doc.data().post,
-                date: doc.data().created_at.toDate(),
+                date: doc.data().created_at?.toDate(),
             };
         });
 
@@ -113,7 +113,7 @@ export function subscribeToComments(postId, callback) {
                 user_email: doc.data().user_email,
                 user_id: doc.data().user_Id,
                 comment: doc.data().comment,
-                date: doc.data().created_at.toDate(),
+                date: doc.data().created_at?.toDate(),
             }
         })
         callback(comments);
