@@ -9,6 +9,7 @@ import {db} from './firebase';
 export function savePost(data) {
 
     const refPost = collection(db, 'posts');
+
     return addDoc(refPost, {
         ...data,
         created_at: serverTimestamp(),
@@ -132,7 +133,7 @@ export function subscribeToPosting2(callback) {
         const posts = snapshot.docs.map(doc => {
 
             return {
-                id: doc.data().user_id,
+                id: doc.id,
                 user: doc.data().user,
                 post: doc.data().post,
                 date: doc.data().created_at.toDate(),
@@ -155,12 +156,16 @@ export function subscribeToComments2(postId, callback) {
                         orderBy('created_at', 'desc');
     
     return onSnapshot(refComment, async snapshot => {
-
         const comments = snapshot.docs.map(doc => {
-
-            console.log(doc.data());
+            console.log(doc.data())
+            return {
+                id: doc.id,
+                user_email: doc.data().user_email,
+                user_id: doc.data().user_Id,
+                comment: doc.data().comment,
+                date: doc.data().created_at.toDate(),
+            }
         })
-        
         callback(comments);
     })
 }

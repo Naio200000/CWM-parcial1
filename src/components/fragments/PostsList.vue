@@ -4,9 +4,10 @@
     import MainP from '../labels/MainP.vue';
     import PostSkeleton from './PostSkeleton.vue';
     import CommentForm from './CommentForm.vue';
+    import CommentsList from './CommentsList.vue';
     export default {
         name: 'Posts',
-        components: {MainH2, MainP, PostSkeleton, CommentForm},
+        components: {MainH2, MainP, PostSkeleton, CommentForm, CommentsList},
         data (){
 
             return {
@@ -40,14 +41,6 @@
             this.unsubscribeToPosting = subscribeToPosting2(newPosts => {
                 this.posts = newPosts;
                 this.posts = this.posts.map(post => {
-  
-                    this.unsubscribeToComment = subscribeToComments2(post.id, newComments => {
-                        console.log(newComments);
-                        return {
-                            ...post,
-                            comments: newComments,
-                        }
-                    });
                     return {
                         ...post,
                         showComments: false
@@ -57,8 +50,8 @@
             });
         },
         unmounted() {
-
             this.unsubscribeToPosting();
+            this.unsubscribeToComment()
         },
     }
 
@@ -89,17 +82,10 @@
             </div>
             <template v-if="post.showComments">
                 <div :class="['w-10/12', 'mx-auto', 'bg-white']">
-                    <div v-for="comment in post.comments" >
-                        <div class="py-2 px-4">
-                            <p class="font-bold">{{ comment.user_email }}</p>
-                        </div>
-                        <div class="px-4 pb-4">
-                            <MainP>{{ comment.comment }}</MainP>
-                        </div>
-                    </div>
+                    <CommentsList :postId="post.id" />
                 </div>
             </template>
-            <div :class="['w-10/12', 'max-w-post', 'mx-auto', 'bg-white', 'rounded-b-lg']" v-if="post.comments">
+            <div :class="['w-10/12', 'max-w-post', 'mx-auto', 'bg-white', 'rounded-b-lg']">
                 <CommentForm :postId="post.id" />
             </div>
         </template>
