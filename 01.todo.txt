@@ -4,6 +4,7 @@ TOP Priority
 
 MID Priority
     add more user data
+    add a post component fragment
 
 LOW Priority
     Add Gamers Chat Component
@@ -19,8 +20,6 @@ tipeadas como "contraña").
 - Falta mostrar mensajes de error.
 - [registro] Faltan estados de carga que informen
 al usuario que el sitio está trabajando.
-- [comentarios] No aparecen al cargarse hasta
-refrescar la vista.
 - [comentarios] Deberían incluir la fecha y hora.
 - "Mis posts" muestra toods los posts, no solo
 los propios.
