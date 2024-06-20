@@ -89,9 +89,9 @@
                             <MainP>{{ comment.comment }}</MainP>
                         </div>
                     </div>
-                    </div>
-                </template>
-            <div :class="['w-10/12', 'mx-auto', 'bg-white', 'rounded-b-lg']" v-if="post.comments">
+                </div>
+            </template>
+            <div :class="['w-10/12', 'max-w-post', 'mx-auto', 'bg-white', 'rounded-b-lg']" v-if="post.comments">
                 <CommentForm :postId="post.id" />
             </div>
         </template>
