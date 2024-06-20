@@ -1,9 +1,10 @@
 <script>
     import { subscribeToComments } from '../../services/post';
     import MainP from '../labels/MainP.vue';
+    import CommentSkeleton from './CommentSkeleton.vue';
     export default {
         name: 'CommentsList',
-        components: { MainP },
+        components: { MainP, CommentSkeleton },
         props: ['postId'],
         data (){
 
@@ -12,6 +13,7 @@
                     comment: '',
                 },
                 comments: [],
+                commentSkeleton: false,
                 unsubscribeToComment: () =>{},
             }
         },
@@ -34,8 +36,10 @@
         mounted() {
             this.unsubscribeToComment = subscribeToComments(
                 this.postId, 
-
-                newComments => {this.comments = newComments});
+                newComments => {
+                    this.comments = newComments
+                    this.commentSkeleton = true
+                });
         },
         unmounted() {
             this.unsubscribeToComment();
@@ -45,14 +49,18 @@
 </script>
 
 <template>
-
-    <div v-for="comment in this.comments" class="border-gray-200 border-b-2">
-        <div class="py-2 px-4">
-            <p class="font-bold">{{ comment.user_email }}</p>
-            <span class="px-2 ps-4 text-sm capitalize">{{ `Publicado:  ${formatDate(comment.date)}` }}</span>
+    <template v-if="!commentSkeleton">
+        <div v-for="i in 2" :key="i" class="py-2 px-4">
+            <CommentSkeleton />
         </div>
-        <div class="px-4 pb-4">
-            <MainP>{{ comment.comment }}</MainP>
-        </div>
-    </div>
+    </template>
+    <template v-else v-for="comment in this.comments" class="border-gray-200 border-b-2">
+            <div class="py-2 px-4">
+                <p class="font-bold">{{ comment.user_email }}</p>
+                <span class="px-2 ps-4 text-sm capitalize">{{ `Publicado:  ${formatDate(comment.date)}` }}</span>
+            </div>
+            <div class="px-4 pb-4">
+                <MainP>{{ comment.comment }}</MainP>
+            </div>
+    </template>
 </template>
