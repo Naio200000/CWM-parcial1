@@ -68,7 +68,8 @@
             <div :class="['w-10/12', 'max-w-post', 'mx-auto mt-4', 'rounded-lg', 'shadow-lg', 'shadow-slate-400', 'bg-gray-100', 'rounded-b-none'] ">
                 <div class="pt-2 px-2">
                     <MainP class="text-2xl font-bold pb-0">{{post.user}}</MainP>
-                    <span class="px-2 ps-4 text-sm capitalize">{{ `Publicado:  ${formatDate(post.date)}` }}</span>
+                    <span v-if="post.date != null" class="px-2 ps-4 text-sm capitalize">{{ `Publicado:  ${formatDate(post.date)}` }}</span>
+                    <span v-else class="px-2 ps-4 text-sm capitalize">Publicando... </span>
                 </div>
                 <div class="px-2 py-4">
                     <MainP>{{ post.post }}</MainP>

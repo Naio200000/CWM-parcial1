@@ -57,7 +57,8 @@
     <template v-else v-for="comment in this.comments" class="border-gray-200 border-b-2">
             <div class="py-2 px-4">
                 <p class="font-bold">{{ comment.user_email }}</p>
-                <span class="px-2 ps-4 text-sm capitalize">{{ `Publicado:  ${formatDate(comment.date)}` }}</span>
+                <span v-if="comment.date != null" class="px-2 ps-4 text-sm capitalize">{{ `Comentado:  ${formatDate(comment.date)}` }}</span>
+                <span v-else class="px-2 ps-4 text-sm capitalize">Comentando...</span>
             </div>
             <div class="px-4 pb-4">
                 <MainP>{{ comment.comment }}</MainP>
