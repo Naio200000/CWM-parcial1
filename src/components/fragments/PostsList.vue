@@ -1,13 +1,12 @@
 <script>
     import { subscribeToPosting } from '../../services/post';
     import MainH2 from '../labels/MainH2.vue';
-    import MainH3 from '../labels/MainH3.vue';
     import MainP from '../labels/MainP.vue';
     import PostSkeleton from './PostSkeleton.vue';
     import CommentForm from './CommentForm.vue';
     export default {
         name: 'Posts',
-        components: {MainH2, MainH3, MainP, PostSkeleton, CommentForm},
+        components: {MainH2, MainP, PostSkeleton, CommentForm},
         data (){
 
             return {
@@ -69,7 +68,7 @@
         <template v-else v-for="post in posts" :key="post.id">
             <div :class="['w-10/12', 'max-w-post', 'mx-auto mt-4', 'rounded-lg', 'shadow-lg', 'shadow-slate-400', 'bg-gray-100', (post.comments ? 'rounded-b-none' : 'rounded-b-lg')] ">
                 <div class="pt-2 px-2">
-                    <MainH3 class="text-base pb-0">{{post.user}}</MainH3>
+                    <MainP class="text-2xl font-bold pb-0">{{post.user}}</MainP>
                     <span class="px-2 ps-4 text-sm capitalize">{{ `Publicado:  ${formatDate(post.date)}` }}</span>
                 </div>
                 <div class="px-2 py-4">

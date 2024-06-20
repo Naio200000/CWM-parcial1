@@ -34,11 +34,6 @@ notablemente la navegabilidad.
 Correcciones HTML+CSS
 
 - Hay errores de validación de HTML.
-* [posts] El email del usuario no es una buena
-opción para un <h*>. Ya que puede repetirse
-múltiples veces, lo hace una alternativa confusa
-para usuarios de lectores de pantalla.
 
 Correcciones JS+Firebase
-- Código inconsistente: Problemas de indentación.
 + Organización de componentes.
