@@ -69,8 +69,6 @@ export function subscribeToPosting(callback) {
  */
 export function subscribeToUserPosting(userId, callback) {
     
-    console.log("Subscribing to posts for user:", userId);
-
     const refUserPost = query(
         collection(db, 'posts'),
         where('user_Id', '==', userId),
