@@ -1,9 +1,9 @@
 TOP Priority
     fix null id for posts and gamer's posts
     Update my Profile Data
+    add more user data
 
 MID Priority
-    add more user data
     add a post component fragment
 
 LOW Priority
@@ -14,12 +14,8 @@ LOW Priority
 
 
 Correcciones Generales
-- Errores de ortografía (ej: tildes, palabras mal
-
-tipeadas como "contraña").
+- Errores de ortografía (ej: tildes, palabras maltipeadas como "contraña").
 - Falta mostrar mensajes de error.
-- [registro] Faltan estados de carga que informen
-al usuario que el sitio está trabajando.
 -- Falta poder editar mi perfil.
 - No es bueno para la usabilidad tener solo íconos
 para los botones sin alternativas de texto, dificulta

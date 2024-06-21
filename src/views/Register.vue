@@ -5,9 +5,10 @@
     import MainH2 from '../components/labels/MainH2.vue';
     import MainLabel from '../components/labels/MainLabel.vue';
     import MainButton from '../components/labels/MainButton.vue';
+    import RegisterSkeleton from '../components/fragments/RegisterSkeleton.vue';
     export default {
         name: 'Register',
-        components: {MainH1, MainH2, LogTitle, MainLabel, MainButton},
+        components: {MainH1, MainH2, LogTitle, MainLabel, MainButton, RegisterSkeleton},
         data() {
 
             return {
@@ -22,9 +23,10 @@
         methods: {
 
             async submitRegister(){
+                this.loading = true
                 try {
-
-                    await register(this.user.email, this.user.password, this.user.displayName); 
+                    await register(this.user.email, this.user.password, this.user.displayName);
+                    this.loading = false;
                     this.$router.push({
                         path: '/home',
                     });
@@ -41,7 +43,10 @@
         <header class="lg:w-1/2 w-10/12 max-w-log">
                 <LogTitle />
         </header>
-        <section class="lg:w-1/2 w-10/12 max-w-log p-5 bg-gray-100 rounded-xl shadow-xl shadow-slate-500">
+        <section v-if="loading" class="lg:w-1/2 w-10/12 max-w-log p-5 bg-gray-100 rounded-xl shadow-xl shadow-slate-500">
+            <RegisterSkeleton />
+        </section>
+        <section v-else class="lg:w-1/2 w-10/12 max-w-log p-5 bg-gray-100 rounded-xl shadow-xl shadow-slate-500">
             <MainH2 class="sr-only">Registrarse</MainH2>
             <form action="" @submit.prevent="submitRegister">
                 <div class="mb-4 px-4">
