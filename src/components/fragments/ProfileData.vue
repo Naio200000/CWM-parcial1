@@ -41,7 +41,7 @@ export default {
         <div>
             <div class="flex pt-2 px-2">
                 <MainH2 class="w-11/12">{{ userData.displayName }}</MainH2>
-                <MainRouterLink class="my-2" :to="`/perfil/editar`" href="#">Editar</MainRouterLink>
+                <MainRouterLink class="my-2 underline" :to="`/perfil/editar`" href="#">Editar</MainRouterLink>
             </div>
             <div class="pt-2 px-2 mb-3">
                 <MainP class="text-lg"><span class="font-bold"></span>{{userData.bio || 'Cuenta un poco sobre ti. ¿Qué juegos te gustan? ¿Cuáles fueron tus primeros pasos o qué juego estás jugando actualmente?' }}</MainP>
@@ -53,7 +53,7 @@ export default {
                 <MainP class="text-lg"><span class="font-bold">Id: </span>{{ userData.id }}</MainP>
             </div>
         </div>
-        <div @click="this.showPosts = !this.showPosts" class="flex justify-end px-4 items-center">
+        <div @click="this.showPosts = !this.showPosts" class="flex justify-end px-4 items-center cursor-pointer">
             <MainP class="text-end p-2 me-2">Posts </MainP>
             <span class="">
                 <svg fill="#000000" height="20px" width="20px" viewBox="0 0 330 330" >
