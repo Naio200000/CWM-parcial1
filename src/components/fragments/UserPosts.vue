@@ -39,6 +39,7 @@
             this.unsubscribeToPosting = subscribeToUserPosting(this.userId, newPosts => {
                 this.posts = newPosts;
                 this.posts = this.posts.map(post => {
+
                     return {
                         ...post,
                         showComments: false
@@ -51,7 +52,6 @@
             this.unsubscribeToUserPosting();
         },
     }
-
 </script>
 <template>
     <section class="">
@@ -59,12 +59,11 @@
             <MainH2 class="sr-only">Lista de Posts</MainH2>
         </div>
         <template v-if="!postSkeleton">
-            <p>{{this.userId}}</p>
             <div v-for="i in 2" :key="i" class="w-10/12 max-w-post mx-auto my-4 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
                 <PostSkeleton />
             </div>
         </template>
-        <template v-else v-for="post in posts" :key="post.id">
+        <template v-else v-for="post in posts"  :key="post.id">
             <div :class="['w-10/12', 'max-w-post', 'mx-auto mt-4', 'rounded-lg', 'shadow-lg', 'shadow-slate-400', 'bg-gray-100', 'rounded-b-none'] ">
                 <div class="pt-2 px-2">
                     <MainP class="text-2xl font-bold pb-0">{{post.user}}</MainP>
