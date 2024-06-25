@@ -1,5 +1,5 @@
 <script>
-    import { subscribeToPosting, subscribeToUserPosting } from '../../services/post';
+    import { subscribeToUserPosting } from '../../services/post';
     import MainH2 from '../labels/MainH2.vue';
     import MainP from '../labels/MainP.vue';
     import PostSkeleton from './PostSkeleton.vue';
@@ -36,7 +36,7 @@
             },
         },
         mounted() {
-            this.unsubscribeToPosting = subscribeToUserPosting(this.userId ,  newPosts => {
+            this.unsubscribeToPosting = subscribeToUserPosting(this.userId, newPosts => {
                 this.posts = newPosts;
                 this.posts = this.posts.map(post => {
                     return {
