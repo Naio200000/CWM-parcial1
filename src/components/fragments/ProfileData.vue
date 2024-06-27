@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue';
 import MainH2 from '../labels/MainH2.vue';
 import MainP from '../labels/MainP.vue';
 import MainRouterLink from '../labels/MainRouterLink.vue';
@@ -10,6 +11,7 @@ defineProps({
         require: true,
     },
 });
+const showPosts = ref(false);
 </script>
 <template>
     <section class="w-10/12 max-w-post mx-auto my-4 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
@@ -28,7 +30,7 @@ defineProps({
                 <MainP class="text-lg"><span class="font-bold">Id: </span>{{ userData.id }}</MainP>
             </div>
         </div>
-        <div @click="this.showPosts = !this.showPosts" class="flex justify-end px-4 items-center cursor-pointer">
+        <div @click="showPosts = !showPosts" class="flex justify-end px-4 items-center cursor-pointer">
             <MainP class="text-end p-2 me-2">Posts </MainP>
             <span class="">
                 <svg fill="#000000" height="20px" width="20px" viewBox="0 0 330 330" >
