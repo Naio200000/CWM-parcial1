@@ -1,9 +1,32 @@
 <script setup>
 import ProfileData from '../components/fragments/ProfileData.vue';
 import MainH1 from '../components/labels/MainH1.vue';
-// import {useAuth} from '../composition/useAuth';
+import { useRoute } from 'vue-router';
+import { getUserProfilebyId } from '../services/userProfile';
+import { onMounted, ref } from 'vue';
 
-// const {user: authUser} = useAuth();
+const route = useRoute();
+
+const { user } = userUserProfile(route.params.id)
+
+function userUserProfile(id) {
+
+    const user = ref({
+        id: null,
+        email: null,
+        displayName: null,
+        bio: null,
+        photoURL: null,
+    })
+
+    onMounted(async () => {
+        user.value = await getUserProfilebyId(id);
+    })
+
+    return {
+        user,
+    }
+}
 </script>
 <template>
     <section class="w-full">
@@ -11,7 +34,7 @@ import MainH1 from '../components/labels/MainH1.vue';
             <MainH1>Mi perfil</MainH1>
         </header>
         <article>
-            <ProfileData />
+            <ProfileData :userData="user"/>
         </article>
     </section>
 </template>

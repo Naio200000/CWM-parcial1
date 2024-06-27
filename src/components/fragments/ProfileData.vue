@@ -1,41 +1,16 @@
-<script>
-import { getUserProfilebyId } from '../../services/userProfile';
+<script setup>
 import MainH2 from '../labels/MainH2.vue';
 import MainP from '../labels/MainP.vue';
 import MainRouterLink from '../labels/MainRouterLink.vue';
 import UserPosts from './UserPosts.vue';
 
-export default {
-
-    name: 'ProfileData.vue',
-    components: { MainP, MainH2, UserPosts, MainRouterLink },
-    data() {
-        return {
-           authUser: {
-                id: null,
-                email: null,
-           },
-           userData: {
-                id: null,
-                email: null,
-                displayName: null,
-                bio: null,
-                photoURL: null,
-           },
-           showPosts: false,
-        }
+defineProps({
+    userData: {
+        type: Object,
+        require: true,
     },
-    async mounted() {
-
-        this.userData = await getUserProfilebyId(this.$route.params.id );
-
-    },
-    unmounted() {
-
-    },
-}
+});
 </script>
-
 <template>
     <section class="w-10/12 max-w-post mx-auto my-4 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
         <div>
