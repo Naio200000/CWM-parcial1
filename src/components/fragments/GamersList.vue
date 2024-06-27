@@ -1,31 +1,29 @@
-<script>
-import { subscribeToUsers } from '../../services/userProfile';
+<script setup>
 import MainP from '../labels/MainP.vue';
 import MainRouterLink from '../labels/MainRouterLink.vue';
-export default {
-    name: 'GamersList',
-    components: {MainP, MainRouterLink},
-    data() {
+import { subscribeToUsers } from '../../services/userProfile';
+import { onMounted, onUnmounted, ref } from 'vue';
+const { gamers } = useGamerList();
 
-        return {
-            gamers: [],
-            unsubscribeToUsers: () => {},
-        }
-    },
-    mounted() {
+function useGamerList() {
+    
+    const gamers = ref([]);
+    let unsubscribeToUsers = () =>{};
 
-        this.unsubscribeToUsers = subscribeToUsers(newGamers =>{
-
-            this.gamers = newGamers;
+    onMounted(()=>{
+        unsubscribeToUsers = subscribeToUsers(newGamers => {
+            gamers.value.push(...newGamers)
         })
-    },
-    unmounted() {
-        
-        this.unsubscribeToUsers();
+    })
+    onUnmounted(()=>{
+        unsubscribeToUsers();
+    })
+    console.log(gamers.value)
+    return {
+        gamers,
     }
 }
 </script>
-
 <template>
     <template v-for="gamer in gamers" :key="gamer.id">
         <div class="w-10/12 flex items-end max-w-post mx-auto my-4 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
