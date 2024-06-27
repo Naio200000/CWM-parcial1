@@ -6,7 +6,6 @@ import { getUserProfilebyId } from '../services/userProfile';
 import { onMounted, ref } from 'vue';
 
 const route = useRoute();
-
 const { user } = userUserProfile(route.params.id)
 
 function userUserProfile(id) {
