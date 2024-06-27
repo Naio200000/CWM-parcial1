@@ -1,15 +1,8 @@
-<script>
+<script setup>
 import MainH1 from '../components/labels/MainH1.vue';
-import MainP from '../components/labels/MainP.vue';
-import MainNav from '../components/fragments/MainNav.vue';
 import PostsList from '../components/fragments/PostsList.vue';
 import PostForm from '../components/fragments/PostForm.vue';
-    export default {
-        name: 'Home',
-        components: { MainH1, MainP, MainNav, PostsList, PostForm,  },
-    }
 </script>
-
 <template>
     <section class="w-full">
         <header class="mt-8">
