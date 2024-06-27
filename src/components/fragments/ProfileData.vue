@@ -4,7 +4,10 @@ import MainH2 from '../labels/MainH2.vue';
 import MainP from '../labels/MainP.vue';
 import MainRouterLink from '../labels/MainRouterLink.vue';
 import UserPosts from './UserPosts.vue';
+import { useAuth } from '../../composition/useAuth';
 
+
+const {user: authUser} = useAuth();
 defineProps({
     userData: {
         type: Object,
@@ -18,8 +21,10 @@ const showPosts = ref(false);
         <div>
             <div class="flex pt-2 px-2">
                 <MainH2 class="w-11/12">{{ userData.displayName }}</MainH2>
-                <MainRouterLink class="my-2 underline" :to="`/perfil/editar`" href="#">Editar</MainRouterLink>
-            </div>
+                <template v-if="authUser.id == userData.id">
+                    <MainRouterLink class="my-2 underline" :to="`/perfil/editar`" href="#">Editar</MainRouterLink>
+                </template>
+                </div> 
             <div class="pt-2 px-2 mb-3">
                 <MainP class="text-lg"><span class="font-bold"></span>{{userData.bio || 'Cuenta un poco sobre ti. ¿Qué juegos te gustan? ¿Cuáles fueron tus primeros pasos o qué juego estás jugando actualmente?' }}</MainP>
             </div>
