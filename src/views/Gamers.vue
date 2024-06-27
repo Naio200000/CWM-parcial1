@@ -1,12 +1,7 @@
-<script>
+<script setup>
 import GamersList from '../components/fragments/GamersList.vue';
 import MainH1 from '../components/labels/MainH1.vue';
-    export default {
-        name: 'Gamers',
-        components: { MainH1, GamersList },
-    }
 </script>
-
 <template>
     <section class="w-full">
         <header class="mt-8">
