@@ -34,7 +34,7 @@ const showPosts = ref(false);
                 <MainP class="text-lg"><span class="font-bold">Id: </span>{{ userData.id }}</MainP>
             </div>
         </div>
-        <div @click="showPosts = !showPosts" class="flex justify-end px-4 items-center cursor-pointer">
+        <div v-if="authUser.id != userData.id" @click="showPosts = !showPosts" class="flex justify-end px-4 items-center cursor-pointer">
             <MainP class="text-end p-2 me-2">Posts </MainP>
             <span class="">
                 <svg fill="#000000" height="20px" width="20px" viewBox="0 0 330 330" >
