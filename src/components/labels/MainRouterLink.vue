@@ -1,11 +1,12 @@
-<script>
-    export default {
-        name: 'MainRouterLink',
-        props: ['to'],
-    }
+<script setup>
 
+defineProps({
+    to: {
+        type: String,
+        require: true,
+    },
+});
 </script>
-
 <template>
     <routerLink :to="to"><slot /></routerLink>
 </template>
