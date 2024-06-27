@@ -6,7 +6,6 @@ import MainRouterLink from '../labels/MainRouterLink.vue';
 import UserPosts from './UserPosts.vue';
 import { useAuth } from '../../composition/useAuth';
 
-
 const {user: authUser} = useAuth();
 defineProps({
     userData: {
