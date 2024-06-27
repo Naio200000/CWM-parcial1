@@ -1,9 +1,3 @@
-<script>
-export default {
-    name: 'CommentSkeleton',
-}
-</script>
-
 <template>
     <div role="status" class="animate-pulse py-6 px-4">
         <div class="flex items-center justify-start">

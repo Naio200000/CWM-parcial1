@@ -1,9 +1,3 @@
-<script>
-export default {
-    name: 'PostingLoader',
-}
-</script>
-
 <template>
     <div class="lds-ellipsis">
         <div></div>

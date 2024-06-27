@@ -1,10 +1,6 @@
-<script>
+<script setup>
     import MainH1 from '../labels/MainH1.vue';
     import MainP from '../labels/MainP.vue';
-    export default {
-        name: 'LogTitle',
-        components: {MainH1, MainP},
-    }
 </script>
 
 <template>

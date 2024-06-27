@@ -1,9 +1,3 @@
-<script>
-    export default {
-        name: 'MainFooter',
-    }
-</script>
-
 <template>
     <footer class="flex flex-col justify-center items-center bg-black text-white">
         <div class="text-lg">
