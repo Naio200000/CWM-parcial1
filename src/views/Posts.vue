@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 import MainNav from '../components/fragments/MainNav.vue';
 import MenuList from '../components/fragments/MenuList.vue';
 import UserPosts from '../components/fragments/UserPosts.vue';
@@ -28,8 +28,15 @@ import { subscribeToAuth } from '../services/auth';
             this.unsubscribeToAUth();
         },
     }
-</script>
+</script> -->
+<script setup>
+import UserPosts from '../components/fragments/UserPosts.vue';
+import MainH1 from '../components/labels/MainH1.vue';
+import {useAuth} from '../composition/useAuth';
 
+const {user: authUser} = useAuth();
+
+</script>
 <template>
     <section class="w-full">
         <header class="mt-8">
