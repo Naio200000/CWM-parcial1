@@ -10,7 +10,7 @@ import PostForm from '../components/fragments/PostForm.vue';
                 <MainH1 class="sr-only">Gaming Room</MainH1>
             </div>
         </header>
-        <article class="overflow-y-scroll max-h-screen">
+        <article class="">
             <PostForm />
             <PostsList/>
         </article>
