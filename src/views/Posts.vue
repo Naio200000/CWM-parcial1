@@ -1,9 +1,11 @@
 <script setup>
 import UserPosts from '../components/fragments/UserPosts.vue';
 import MainH1 from '../components/labels/MainH1.vue';
-import {useAuth} from '../composition/useAuth';
+import { useRoute } from 'vue-router';
 
-const {user: authUser} = useAuth();
+const route = useRoute();
+
+const userId = route.params.id
 
 </script>
 <template>
@@ -12,7 +14,7 @@ const {user: authUser} = useAuth();
             <MainH1>Mis Posts</MainH1>
         </header>
         <article>
-            <UserPosts :userId="authUser.id" />
+            <UserPosts :userId="userId" />
         </article>
     </section>
 </template>
