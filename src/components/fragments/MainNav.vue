@@ -61,7 +61,7 @@
                         </MainRouterLink>
                     </li>
                     <li class="w-12">
-                        <MainRouterLink :to="'/posts'">
+                        <MainRouterLink :to="`/posts/${authUser.id}`">
                             <MainImg :src="'./img/icons/posts.png'"/>
                             <span class="sr-only">Mis Posts</span>
                         </MainRouterLink>
