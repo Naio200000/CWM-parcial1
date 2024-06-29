@@ -1,6 +1,6 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { auth } from "./firebase";
-import { createUserProfile } from "./userProfile";
+import { createUserProfile, updateUserProfile } from "./userProfile";
 
 
 const EMPTY_USER_DATA = {id: null, email:null,};
@@ -67,6 +67,23 @@ function setUserData(data) {
     notifyAll();
 };
 
+export async function updateUserData({displayName}) {
+
+    try {
+        
+        const updateAuthData = updateProfile(auth.currentUser, {displayName});
+
+        console.log(userData.id);
+        const updateUserData = updateUserProfile(userData.id, {displayName})
+
+        await Promise.all({updateAuthData, updateUserData});
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+
+
 /**
  * Registra un usuario en la base de datos
  * 
@@ -79,7 +96,7 @@ export async function register(email, password, displayName){
     try {
 
         const userData = await createUserWithEmailAndPassword(auth, email, password)
-        console.log(userData);
+        // console.log(userData);
         await createUserProfile(userData.user.uid, {email, displayName})
     } catch (error) {
 
