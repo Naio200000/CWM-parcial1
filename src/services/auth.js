@@ -83,10 +83,9 @@ export async function updateUserData({displayName}) {
         
         const updateAuthData = updateProfile(auth.currentUser, {displayName});
 
-        console.log(userData.id);
         const updateUserData = updateUserProfile(userData.id, {displayName})
 
-        await Promise.all({updateAuthData, updateUserData});
+        await Promise.all([updateAuthData, updateUserData]);
     } catch (error) {
         console.log(error)
     }

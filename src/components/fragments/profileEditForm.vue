@@ -1,5 +1,5 @@
 <script>
-import { updateUserData } from '../../services/auth';
+import { subscribeToAuth, updateUserData } from '../../services/auth';
 import MainH2 from '../labels/MainH2.vue';
 import MainLabel from '../labels/MainLabel.vue';
 import PostingLoader from './PostingLoader.vue';
@@ -12,22 +12,35 @@ export default {
             profileData: {
                 displayName: '',
             },
+            authUser: {
+                id: null,
+                email: null,
+                displayName: null,
+            },
             postinSkeleton: false,
+            unsubscribeToAUth: () => {},
         };
     },
     methods: {
        async editProfile() {
-            console.log('meg')
-            await updateUserData({
-                displayName: this.profileData.displayName,
-            })
+            try {
+                await updateUserData({
+                    displayName: this.profileData.displayName,
+                })
+            } catch (error) {
+                console.error(error)
+            }
         },
     },
     mounted() {
-
+    this.unsubscribeToAUth = subscribeToAuth(userData => {
+        this.authUser = userData;
+        this.profileData.displayName = this.authUser.displayName        
+        });
     },
     unmounted() {
 
+    this.unsubscribeToAUth();
     },
 }
 </script>
