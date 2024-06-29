@@ -39,7 +39,7 @@ const showPosts = ref(false);
                     <MainP class="text-lg"><span class="font-bold">Email: </span>{{userData.email }}</MainP>
                 </div>
                 <div class="pt-2 px-2">
-                    <MainP class="text-lg"><span class="font-bold">Jugando: </span>{{userData.playing }}</MainP>
+                    <MainP class="text-lg"><span class="font-bold">Jugando: </span>{{userData.playing || 'Que juegos esta jugando ahora?'}}</MainP>
                 </div>
                 <div class="p-2">
                     <MainP class="text-lg"><span class="font-bold">Id: </span>{{ userData.id }}</MainP>
