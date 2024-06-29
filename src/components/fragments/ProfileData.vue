@@ -15,7 +15,6 @@ defineProps({
     },
 });
 const showPosts = ref(false);
-const showProfile = ref(false);
 </script>
 <template>
     <section class="w-10/12 max-w-post mx-auto my-4 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
@@ -32,6 +31,9 @@ const showProfile = ref(false);
                 </div> 
                 <div class="pt-2 px-2 mb-3">
                     <MainP class="text-lg"><span class="font-bold"></span>{{userData.bio || 'Cuenta un poco sobre ti. ¿Qué juegos te gustan? ¿Cuáles fueron tus primeros pasos o qué juego estás jugando actualmente?' }}</MainP>
+                </div>
+                <div class="pt-2 px-2">
+                    <MainP class="text-lg"><span class="font-bold">Nombre de usuario: </span>{{userData.displayName }}</MainP>
                 </div>
                 <div class="pt-2 px-2">
                     <MainP class="text-lg"><span class="font-bold">Email: </span>{{userData.email }}</MainP>
