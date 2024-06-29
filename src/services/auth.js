@@ -7,6 +7,7 @@ const EMPTY_USER_DATA = {
     id: null, 
     email:null,
     displayName:null,
+    playing:null,
     bio:null,
     photoURL:null,
 };
@@ -77,17 +78,17 @@ function setUserData(data) {
     notifyAll();
 };
 
-export async function updateUserData({displayName}) {
+export async function updateUserData({displayName, playing, bio}) {
 
     try {
         
         const updateAuthData = updateProfile(auth.currentUser, {displayName});
 
-        const updateUserData = updateUserProfile(userData.id, {displayName})
+        const updateUserData = updateUserProfile(userData.id, {displayName, playing, bio})
 
         await Promise.all([updateAuthData, updateUserData]);
 
-        setUserData({displayName})
+        setUserData({displayName, playing, bio})
     } catch (error) {
         console.log(error)
     }

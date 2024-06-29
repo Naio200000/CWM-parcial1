@@ -11,6 +11,8 @@ export default {
         return {
             profileData: {
                 displayName: '',
+                playing: '',
+                bio: '',
             },
             authUser: {
                 id: null,
@@ -26,6 +28,8 @@ export default {
             try {
                 await updateUserData({
                     displayName: this.profileData.displayName,
+                    playing: this.profileData.playing,
+                    bio: this.profileData.bio,
                 })
             } catch (error) {
                 console.error(error)
@@ -52,14 +56,32 @@ export default {
             <form 
                 action="#"
                 @submit.prevent="editProfile">
-                <div class="my-2 py-4">
-                    <MainLabel class="not-sr-only inline px-4 py-2 text-xl font-bold" for="displayName">Nombre de Usuario:</MainLabel>
+                <div class="my-2 py-4 px-4 flex justify-between">
+                    <MainLabel class="w-full not-sr-only inline px-4 py-2 text-xl font-bold" for="displayName">Nombre de Usuario:</MainLabel>
                     <input 
-                    class=" p-2 border-gray-200 border-2 rounded-lg focus:border-gray-200 focus:outline-none" 
+                    class="w-full p-2 border-gray-200 border-2 rounded-lg focus:border-gray-200 focus:outline-none" 
                     type="text"
                     name="displayName" 
                     id="displayName"
                     v-model="profileData.displayName">
+                </div>
+                <div class="my-2 py-4 px-4 flex justify-between">
+                    <MainLabel class="w-full not-sr-only inline px-4 py-2 text-xl font-bold" for="playing">Jugando:</MainLabel>
+                    <input 
+                    class="w-full p-2 border-gray-200 border-2 rounded-lg focus:border-gray-200 focus:outline-none" 
+                    type="text"
+                    name="playing" 
+                    id="playing"
+                    v-model="profileData.playing">
+                </div>
+                <div class="my-2 py-4 px-4 flex justify-between">
+                    <MainLabel class="w-full not-sr-only inline px-4 py-2 text-xl font-bold" for="bio">Bio:</MainLabel>
+                    <textarea 
+                    class="w-full p-2 border-gray-200 border-2 rounded-lg focus:border-gray-200 focus:outline-none" 
+                    type="text"
+                    name="bio" 
+                    id="bio"
+                    v-model="profileData.bio"></textarea>
                 </div>
                 <div class="text-end mt-1">
                     <button type="submit" 
