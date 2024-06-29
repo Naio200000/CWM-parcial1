@@ -3,7 +3,13 @@ import { auth } from "./firebase";
 import { createUserProfile, updateUserProfile } from "./userProfile";
 
 
-const EMPTY_USER_DATA = {id: null, email:null,};
+const EMPTY_USER_DATA = {
+    id: null, 
+    email:null,
+    displayName:null,
+    bio:null,
+    photoURL:null,
+};
 let userData = localStorage.getItem('user') == null ? EMPTY_USER_DATA : JSON.parse(localStorage.getItem('user'));
 let observers = [];
 
@@ -13,7 +19,11 @@ let observers = [];
 onAuthStateChanged(auth, user => {
 
     if (user) {
-        setUserData({id: user.uid, email: user.email,});
+        setUserData({
+            id: user.uid, 
+            email: user.email,
+            displayName: user.displayName,
+        });
     } else {
         setUserData(EMPTY_USER_DATA);
     }
