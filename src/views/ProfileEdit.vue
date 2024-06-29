@@ -1,5 +1,5 @@
 <script>
-import ProfileEditForm from '../components/fragments/profileEditForm.vue';
+import ProfileEditForm from '../components/fragments/ProfileEditForm.vue';
 import MainH1 from '../components/labels/MainH1.vue';
     export default {
         name: 'Profile',

@@ -1,6 +1,5 @@
 <script>
-import { subscribeToAuth } from '../../services/auth';
-import { savePost } from '../../services/post';
+import { updateUserData } from '../../services/auth';
 import MainH2 from '../labels/MainH2.vue';
 import MainLabel from '../labels/MainLabel.vue';
 import PostingLoader from './PostingLoader.vue';
@@ -13,36 +12,22 @@ export default {
             profileData: {
                 displayName: '',
             },
-            authUser: {
-                id: null,
-                email: null,
-            },
-            newPost: {
-                post: '',
-            },
             postinSkeleton: false,
-            unsubscribeToAUth: () => {},
         };
     },
     methods: {
-
-        editProfile() {
-            this.postinSkeleton = true;
-            savePost({
-                user_Id: this.authUser.id,
-                user: this.authUser.email,
-                post: this.newPost.post,
-            }).then(() => this.postinSkeleton = false);
-            this.newPost.post = '';
+       async editProfile() {
+            console.log('meg')
+            await updateUserData({
+                displayName: this.profileData.displayName,
+            })
         },
     },
     mounted() {
 
-        this.unsubscribeToAUth = subscribeToAuth(userData => this.authUser = userData);
     },
     unmounted() {
-        
-        this.unsubscribeToAUth();
+
     },
 }
 </script>
@@ -56,7 +41,12 @@ export default {
                 @submit.prevent="editProfile">
                 <div class="my-2 py-4">
                     <MainLabel class="not-sr-only inline px-4 py-2 text-xl font-bold" for="displayName">Nombre de Usuario:</MainLabel>
-                    <input class=" p-2 border-gray-200 border-2 rounded-lg focus:border-gray-200 focus:outline-none" type="text" name="displayName" id="displayName">
+                    <input 
+                    class=" p-2 border-gray-200 border-2 rounded-lg focus:border-gray-200 focus:outline-none" 
+                    type="text"
+                    name="displayName" 
+                    id="displayName"
+                    v-model="profileData.displayName">
                 </div>
                 <div class="text-end mt-1">
                     <button type="submit" 
