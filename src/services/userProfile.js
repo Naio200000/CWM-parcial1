@@ -47,6 +47,8 @@ export async function getUserProfilebyId(id) {
         id: docUser.id,
         email: docUser.data().email,
         displayName: docUser.data().displayName,
+        playing: docUser.data().playing,
+        bio: docUser.data().bio,
     }
 }
 

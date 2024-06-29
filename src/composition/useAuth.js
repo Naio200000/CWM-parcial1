@@ -6,7 +6,10 @@ export function useAuth() {
     const user = ref({
         authUser: {
             id: null,
-            email: null
+            email: null,
+            displayName: null,
+            playing: null,
+            bio: null
         },
     });
     let unsubscribeToAUth = () => {};

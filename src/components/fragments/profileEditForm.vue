@@ -18,6 +18,8 @@ export default {
                 id: null,
                 email: null,
                 displayName: null,
+                playing: null,
+                bio: null,
             },
             postinSkeleton: false,
             unsubscribeToAUth: () => {},
@@ -40,6 +42,8 @@ export default {
     this.unsubscribeToAUth = subscribeToAuth(userData => {
         this.authUser = userData;
         this.profileData.displayName = this.authUser.displayName        
+        this.profileData.playing = this.authUser.playing        
+        this.profileData.bio = this.authUser.bio        
         });
     },
     unmounted() {
