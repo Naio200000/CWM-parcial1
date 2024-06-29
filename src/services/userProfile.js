@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, onSnapshot, query, setDoc } from "firebase/firestore";
+import { collection, doc, getDoc, onSnapshot, query, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "./firebase";
 
 /**
@@ -48,4 +48,11 @@ export async function getUserProfilebyId(id) {
         email: docUser.data().email,
         displayName: docUser.data().displayName,
     }
+}
+
+export async function  updateUserProfile(id, data) {
+
+    const refUser = doc(db, `users/${id}`);
+
+    await updateDoc(refUser, data)
 }
