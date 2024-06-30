@@ -6,6 +6,7 @@ import Posts from '../views/Posts.vue';
 import Home from '../views/Home.vue';
 import Profile from '../views/Profile.vue';
 import ProfileEdit from '../views/ProfileEdit.vue';
+import ProfileEditPhoto from '../views/ProfileEdit.vue';
 import GamerProfile from '../views/GamerProfile.vue';
 import Gamers from '../views/Gamers.vue';
 

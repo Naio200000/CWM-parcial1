@@ -4,7 +4,7 @@ import MainH2 from '../../labels/MainH2.vue';
 import MainLabel from '../../labels/MainLabel.vue';
 import { subscribeToAuth, updateUserData } from '../../../services/auth';
 export default {
-    name: 'PostForm',
+    name: 'ProfileEditForm',
     components: { MainH2 , PostingLoader, MainLabel},
     data() {
 

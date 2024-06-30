@@ -1,6 +1,7 @@
 TOP Priority
     mensajes de feedback al iniciar sesion o registrarse
 MID Priority
+    si no esta autenticado, no mostrar el componente de mostrar y de comentar
     abrir los comentarios si sos el primero en comentar
 LOW Priority
     Add Gamers Chat Component
