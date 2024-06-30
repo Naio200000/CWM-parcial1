@@ -1,42 +1,22 @@
-<script>
+
+<script setup>
 import MainRouterLink from '../labels/MainRouterLink.vue';
 import MainImg from '../labels/MainImg.vue';
-import { subscribeToAuth } from '../../services/auth';
-    export default {
+import { useAuth } from '../../composition/useAuth';
 
-        name: 'MenuList',
-        components: {MainRouterLink, MainImg},
-        data() {
+const {user: authUser} = useAuth();
 
-            return {
-                authUser: {
-                    id: null,
-                    email: null,
-                },
-                unsubscribeToAUth: () => {},
-            }
-        },
-        mounted() {
 
-            this.unsubscribeToAUth = subscribeToAuth(userData => this.authUser = userData)
-        },
-        unmounted() {
-            
-            this.unsubscribeToAUth();
-        },
-    }
-    //MOVER
 </script>
 <template>
-
     <div class="h-ful px-8 m-8 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
         <ul class="py-8">
             <li v-if="authUser.id == null" class="py-4 ps-2 ms-6 xl:text-xl font-bold">    
                 <MainRouterLink class="font-bold text-2xl" :to="'/'">Iniciar Sesion</MainRouterLink>
             </li>
             <li v-else class="py-4 ps-2 xl:text-xl font-bold">
-                <MainImg class="xl:w-10 w-8 inline me-2" :alt="''" :src="''"/>
-                <MainRouterLink class="align-middle" :to="'/home'">{{ authUser.email }}</MainRouterLink>
+                <MainImg class="xl:w-10 w-8 inline me-2 rounded-full" :alt="''" :src="authUser.photoURL"/>
+                <MainRouterLink class="align-middle" :to="'/home'">{{ authUser.displayName }}</MainRouterLink>
             </li>
 
                     
