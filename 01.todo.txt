@@ -1,11 +1,7 @@
 TOP Priority
-    fix null id for posts and gamer's posts
-    Update my Profile Data
-    add more user data
-
+    mensajes de feedback al iniciar sesion o registrarse
 MID Priority
-    add a post component fragment
-
+    abrir los comentarios si sos el primero en comentar
 LOW Priority
     Add Gamers Chat Component
     update Home view to to show chats
@@ -17,10 +13,6 @@ Correcciones Generales
 - Errores de ortografía (ej: tildes, palabras maltipeadas como "contraña").
 - Falta mostrar mensajes de error.
 -- Falta poder editar mi perfil.
-- No es bueno para la usabilidad tener solo íconos
-para los botones sin alternativas de texto, dificulta
-notablemente la navegabilidad.
-
 
 Correcciones HTML+CSS
 
