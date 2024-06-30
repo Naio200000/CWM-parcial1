@@ -1,6 +1,8 @@
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { auth } from "./firebase";
 import { createUserProfile, updateUserProfile } from "./userProfile";
+import { getFileURL, uploadFile } from "./fileStorage";
+import { getImageExtension } from "../libraries/file";
 
 
 const EMPTY_USER_DATA = {
@@ -24,6 +26,7 @@ onAuthStateChanged(auth, user => {
             id: user.uid, 
             email: user.email,
             displayName: user.displayName,
+            photoURL: user.photoURL,
         });
     } else {
         setUserData(EMPTY_USER_DATA);
@@ -95,7 +98,27 @@ export async function updateUserData({displayName, playing, bio}) {
 
 }
 
+export async function updateUserPhoto (photo) {
 
+    try {
+        
+        await uploadFile(`users/${userData.id}/profilePhoto.${getImageExtension(photo)}`, photo);
+
+        const photoURL = await getFileURL(`users/${userData.id}/profilePhoto.${getImageExtension(photo)}`);
+
+        const updateAuthPhoto = updateProfile(auth.currentUser, {photoURL});
+
+        const updateUserPhoto = updateUserProfile(userData.id, {photoURL})
+        
+        await Promise.all([updateAuthPhoto, updateUserPhoto]);
+        
+        setUserData({photoURL})
+    } catch (error) {
+        
+        console.log(error)
+        throw error
+    }
+}
 /**
  * Registra un usuario en la base de datos
  * 

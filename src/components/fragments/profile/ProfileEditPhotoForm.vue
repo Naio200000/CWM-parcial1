@@ -2,12 +2,12 @@
 import PostingLoader from '../skeletons/PostingLoader.vue';
 import MainH2 from '../../labels/MainH2.vue';
 import MainLabel from '../../labels/MainLabel.vue';
-import { subscribeToAuth, updateUserData } from '../../../services/auth';
+import { subscribeToAuth, updateUserPhoto } from '../../../services/auth';
 import MainImg from '../../labels/MainImg.vue';
 import MainP from '../../labels/MainP.vue';
 export default {
     name: 'ProfileEditPhotoForm',
-    components: { MainH2 , PostingLoader, MainLabel, MainImg},
+    components: { MainH2 , PostingLoader, MainLabel, MainImg, MainP},
     data() {
 
         return {
@@ -15,11 +15,7 @@ export default {
                 photoURL: null,
             },
             authUser: {
-                id: null,
-                email: null,
-                displayName: null,
-                playing: null,
-                bio: null,
+                photoURL: null,
             },
             uploadedPhoto: null, 
             postinSkeleton: false,
@@ -39,7 +35,7 @@ export default {
         editProfilePhoto() {
 
             try {
-                
+                updateUserPhoto(this.uploadedPhoto);
             } catch (error) {
                 throw error
             }
@@ -47,7 +43,8 @@ export default {
     },
     mounted() {
         this.unsubscribeToAUth = subscribeToAuth(userData => {
-        this.authUser = userData;     
+        this.authUser = userData;
+        this.profileData.photoURL = this.authUser.photoURL
         });
     },
     unmounted() {
