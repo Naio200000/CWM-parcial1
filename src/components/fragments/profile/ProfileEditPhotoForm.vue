@@ -12,7 +12,7 @@ export default {
 
         return {
             profileData: {
-                photoURL: '',
+                photoURL: null,
             },
             authUser: {
                 id: null,
@@ -21,13 +21,21 @@ export default {
                 playing: null,
                 bio: null,
             },
+            uploadedPhoto: null, 
             postinSkeleton: false,
             unsubscribeToAUth: () => {},
         };
     },
     methods: {
-       async editProfile() {
+       async editPhoto(e) {
+            this.uploadedPhoto = e.target.files[0];
 
+            const reader = new FileReader();
+            reader.addEventListener('load', () => {
+                console.log('completo: ', reader.result)
+                this.profileData.photoURL = reader.result
+            });
+            reader.readAsDataURL(this.uploadedPhoto);
         },
     },
     mounted() {
@@ -54,12 +62,13 @@ export default {
                     type="file" 
                     class="w-full p-2 bg-white border-gray-200 border-2 rounded-lg focus:border-gray-200 focus:outline-none" 
                     id="photoURL" 
-                    name="photoURL">
+                    name="photoURL"
+                    @change="editPhoto">
                 </div>
                 <div class="text-end mt-1 flex justify-between ">
                     <div class="w-6/12 px-6 py-1 m1-1 me-4 mb-2">
                         <MainP class="sr-only">Foto actual</MainP>
-                        <MainImg class="" :src="'./../img/icons/profile.png'"/>
+                        <MainImg class="" :src="profileData.photoURL || './../img/icons/profile.png'"/>
                     </div>
                     <button type="submit" 
                         class="flex-none max-h-9 px-6 py-1 m1-1 me-4 mb-2 rounded-lg text-xl text-end text-white bg-green-600 hover:bg-green-500 active:bg-green-700 transition-all">
