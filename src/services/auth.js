@@ -116,7 +116,7 @@ export async function register(email, password, displayName){
         setUserData({displayName});
     } catch (error) {
 
-        console.error(error.code)
+        // console.error(error.code)
         throw error
     }
 };
