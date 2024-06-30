@@ -9,7 +9,8 @@ export function useAuth() {
             email: null,
             displayName: null,
             playing: null,
-            bio: null
+            bio: null,
+            phtoURL:null,
         },
     });
     let unsubscribeToAUth = () => {};

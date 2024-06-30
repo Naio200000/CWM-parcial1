@@ -1,8 +1,8 @@
 <script>
+import { subscribeToAuth, updateUserPhoto } from '../../../services/auth';
 import PostingLoader from '../skeletons/PostingLoader.vue';
 import MainH2 from '../../labels/MainH2.vue';
 import MainLabel from '../../labels/MainLabel.vue';
-import { subscribeToAuth, updateUserPhoto } from '../../../services/auth';
 import MainImg from '../../labels/MainImg.vue';
 import MainP from '../../labels/MainP.vue';
 export default {

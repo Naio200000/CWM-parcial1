@@ -3,6 +3,7 @@ import ProfileSkeleton from '../skeletons/ProfileSkeleton.vue';
 import UserPosts from '../posts/UserPosts.vue';
 import MainH2 from '../../labels/MainH2.vue';
 import MainP from '../../labels/MainP.vue';
+import MainImg from '../../labels/MainImg.vue';
 import MainRouterLink from '../../labels/MainRouterLink.vue';
 import { useAuth } from '../../../composition/useAuth';
 import { ref } from 'vue';
@@ -24,6 +25,9 @@ const showPosts = ref(false);
         <div v-else>
             <div>
                 <div class="flex pt-2 px-2">
+                    <div >
+                        <MainImg class="rounded-full" :src="authUser.photoURL"/>
+                    </div>
                     <MainH2 class="w-11/12">{{ userData.displayName }}</MainH2>
                     <template v-if="authUser.id == userData.id">
                         <MainRouterLink class="my-2 underline" :to="`/perfil/editar`" href="#">Editar</MainRouterLink>
