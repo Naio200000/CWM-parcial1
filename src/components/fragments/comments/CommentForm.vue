@@ -62,7 +62,7 @@ export default {
                     type="text" 
                     id="usuario"
                     disabled
-                    v-model="authUser.email">
+                    v-model="authUser.displayName">
             </div>
             <div class="mx-4 flex-grow">
                 <MainLabel for="post">comentario</MainLabel>
