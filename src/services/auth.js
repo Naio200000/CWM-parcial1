@@ -109,7 +109,11 @@ export async function register(email, password, displayName){
 
         const userData = await createUserWithEmailAndPassword(auth, email, password)
         // console.log(userData);
-        await createUserProfile(userData.user.uid, {email, displayName})
+        const updateAuthData = updateProfile(auth.currentUser, {displayName});
+        const createUserData = createUserProfile(userData.user.uid, {email, displayName})
+        await Promise.all([updateAuthData, createUserData]);
+
+        setUserData({displayName});
     } catch (error) {
 
         console.error(error.code)

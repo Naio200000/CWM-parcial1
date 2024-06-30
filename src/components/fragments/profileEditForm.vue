@@ -39,7 +39,7 @@ export default {
         },
     },
     mounted() {
-    this.unsubscribeToAUth = subscribeToAuth(userData => {
+        this.unsubscribeToAUth = subscribeToAuth(userData => {
         this.authUser = userData;
         this.profileData.displayName = this.authUser.displayName        
         this.profileData.playing = this.authUser.playing        
