@@ -1,11 +1,11 @@
 <script setup>
+import ProfileSkeleton from '../skeletons/ProfileSkeleton.vue';
+import UserPosts from '../posts/UserPosts.vue';
+import MainH2 from '../../labels/MainH2.vue';
+import MainP from '../../labels/MainP.vue';
+import MainRouterLink from '../../labels/MainRouterLink.vue';
+import { useAuth } from '../../../composition/useAuth';
 import { ref } from 'vue';
-import MainH2 from '../labels/MainH2.vue';
-import MainP from '../labels/MainP.vue';
-import MainRouterLink from '../labels/MainRouterLink.vue';
-import UserPosts from './UserPosts.vue';
-import { useAuth } from '../../composition/useAuth';
-import ProfileSkeleton from './ProfileSkeleton.vue';
 
 const {user: authUser} = useAuth();
 defineProps({

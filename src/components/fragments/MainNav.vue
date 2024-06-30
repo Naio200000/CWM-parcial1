@@ -1,8 +1,8 @@
 <script>
-    import { logout, subscribeToAuth } from '../../services/auth';
     import ImageLogo from './ImageLogo.vue';
     import MainImg from '../labels/MainImg.vue';
     import MainRouterLink from '../labels/MainRouterLink.vue';
+    import { logout, subscribeToAuth } from '../../services/auth';
     export default {
         name: 'MainNav',
         components: { ImageLogo, MainImg, MainRouterLink },
@@ -35,6 +35,7 @@
             this.unsubscribeToAUth();
         }
     }
+    //MOVER
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <script>
-import { RouterLink } from 'vue-router';
 import MainImg from '../labels/MainImg.vue';
 import MainP from '../labels/MainP.vue';
+import { RouterLink } from 'vue-router';
     export default {
         name: 'ImageLogo',
         components: {MainImg, MainP},

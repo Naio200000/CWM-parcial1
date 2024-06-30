@@ -1,10 +1,10 @@
 <script>
-    import MainH1 from '../components/labels/MainH1.vue';
     import LogTitle from '../components/fragments/LogTitle.vue';
+    import MainH1 from '../components/labels/MainH1.vue';
     import MainH2 from '../components/labels/MainH2.vue';
-    import { login } from '../services/auth';
     import MainLabel from '../components/labels/MainLabel.vue';
     import MainButton from '../components/labels/MainButton.vue';
+    import { login } from '../services/auth';
     export default {
         name: 'Login',
         components: {MainH1, MainH2, LogTitle, MainLabel, MainButton},

@@ -1,5 +1,5 @@
 <script setup>
-import UserPosts from '../components/fragments/UserPosts.vue';
+import UserPosts from '../components/fragments/posts/UserPosts.vue';
 import MainH1 from '../components/labels/MainH1.vue';
 import { useRoute } from 'vue-router';
 

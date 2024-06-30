@@ -1,7 +1,7 @@
 <script>
-import { subscribeToAuth } from '../../services/auth';
-import MainImg from '../labels/MainImg.vue';
 import MainRouterLink from '../labels/MainRouterLink.vue';
+import MainImg from '../labels/MainImg.vue';
+import { subscribeToAuth } from '../../services/auth';
     export default {
 
         name: 'MenuList',
@@ -25,9 +25,8 @@ import MainRouterLink from '../labels/MainRouterLink.vue';
             this.unsubscribeToAUth();
         },
     }
-    
+    //MOVER
 </script>
-
 <template>
 
     <div class="h-ful px-8 m-8 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">

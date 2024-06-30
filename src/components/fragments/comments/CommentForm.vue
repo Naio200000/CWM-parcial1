@@ -1,9 +1,9 @@
 <script>
-import { subscribeToAuth } from '../../services/auth';
-import { saveComment } from '../../services/post';
-import MainH2 from '../labels/MainH2.vue';
-import MainLabel from '../labels/MainLabel.vue';
-import PostingLoader from './PostingLoader.vue';
+import PostingLoader from '../skeletons/PostingLoader.vue';
+import MainH2 from '../../labels/MainH2.vue';
+import MainLabel from '../../labels/MainLabel.vue';
+import { subscribeToAuth } from '../../../services/auth';
+import { saveComment } from '../../../services/post';
 export default {
     name: 'CommentForm',
     components: { MainH2 , PostingLoader, MainLabel},

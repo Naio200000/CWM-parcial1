@@ -1,7 +1,7 @@
 <script>
-    import { subscribeToComments } from '../../services/post';
-    import MainP from '../labels/MainP.vue';
-    import CommentSkeleton from './CommentSkeleton.vue';
+    import CommentSkeleton from '../skeletons/CommentSkeleton.vue';
+    import MainP from '../../labels/MainP.vue';
+    import { subscribeToComments } from '../../../services/post';
     export default {
         name: 'CommentsList',
         components: { MainP, CommentSkeleton },

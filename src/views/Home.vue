@@ -1,7 +1,7 @@
 <script setup>
+import PostsList from '../components/fragments/posts/PostsList.vue';
+import PostForm from '../components/fragments/posts/PostForm.vue';
 import MainH1 from '../components/labels/MainH1.vue';
-import PostsList from '../components/fragments/PostsList.vue';
-import PostForm from '../components/fragments/PostForm.vue';
 </script>
 <template>
     <section class="w-full">

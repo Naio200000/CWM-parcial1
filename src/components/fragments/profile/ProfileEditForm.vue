@@ -1,8 +1,8 @@
 <script>
-import { subscribeToAuth, updateUserData } from '../../services/auth';
-import MainH2 from '../labels/MainH2.vue';
-import MainLabel from '../labels/MainLabel.vue';
-import PostingLoader from './PostingLoader.vue';
+import PostingLoader from '../skeletons/PostingLoader.vue';
+import MainH2 from '../../labels/MainH2.vue';
+import MainLabel from '../../labels/MainLabel.vue';
+import { subscribeToAuth, updateUserData } from '../../../services/auth';
 export default {
     name: 'PostForm',
     components: { MainH2 , PostingLoader, MainLabel},

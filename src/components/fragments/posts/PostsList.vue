@@ -1,14 +1,13 @@
 <script>
-    import { subscribeToUserPosting } from '../../services/post';
-    import MainH2 from '../labels/MainH2.vue';
-    import MainP from '../labels/MainP.vue';
-    import PostSkeleton from './PostSkeleton.vue';
-    import CommentForm from './CommentForm.vue';
-    import CommentsList from './CommentsList.vue';
+    import PostSkeleton from '../skeletons/PostSkeleton.vue';
+    import CommentForm from '../comments/CommentForm.vue';
+    import CommentsList from '../comments/CommentsList.vue';
+    import MainH2 from '../../labels/MainH2.vue';
+    import MainP from '../../labels/MainP.vue';
+    import { subscribeToPosting } from '../../../services/post';
     export default {
-        name: 'UserPosts',
+        name: 'Posts',
         components: {MainH2, MainP, PostSkeleton, CommentForm, CommentsList},
-        props: ['userId'],
         data (){
 
             return {
@@ -17,10 +16,11 @@
                 },                
                 posts:[],
                 postSkeleton: false,
-                unsubscribeToUserPosting: () =>{},
+                unsubscribeToPosting: () =>{},
             }
         },
         methods: {
+
             /**
              * Conviere la fecha que recibimos del servidor en un formateo de "Dia DD/MM/AAAA"
              * @param string Date dato que viene de firebase
@@ -36,10 +36,10 @@
             },
         },
         mounted() {
-            this.unsubscribeToPosting = subscribeToUserPosting(this.userId, newPosts => {
+
+            this.unsubscribeToPosting = subscribeToPosting(newPosts => {
                 this.posts = newPosts;
                 this.posts = this.posts.map(post => {
-
                     return {
                         ...post,
                         showComments: false
@@ -49,9 +49,10 @@
             });
         },
         unmounted() {
-            this.unsubscribeToUserPosting();
+            this.unsubscribeToPosting();
         },
     }
+
 </script>
 <template>
     <section class="">
@@ -63,11 +64,12 @@
                 <PostSkeleton />
             </div>
         </template>
-        <template v-else v-for="post in posts"  :key="post.id">
+        <template v-else v-for="post in posts" :key="post.id">
             <div :class="['w-10/12', 'max-w-post', 'mx-auto mt-4', 'rounded-lg', 'shadow-lg', 'shadow-slate-400', 'bg-gray-100', 'rounded-b-none'] ">
                 <div class="pt-2 px-2">
                     <MainP class="text-2xl font-bold pb-0">{{post.user}}</MainP>
-                    <span class="px-2 ps-4 text-sm capitalize">{{ `Publicado:  ${formatDate(post.date)}` }}</span>
+                    <span v-if="post.date != null" class="px-2 ps-4 text-sm capitalize">{{ `Publicado:  ${formatDate(post.date)}` }}</span>
+                    <span v-else class="px-2 ps-4 text-sm capitalize">Publicando... </span>
                 </div>
                 <div class="px-2 py-4">
                     <MainP>{{ post.post }}</MainP>

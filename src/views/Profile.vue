@@ -1,8 +1,8 @@
 <script setup>
-import ProfileData from '../components/fragments/ProfileData.vue';
+import ProfileData from '../components/fragments/profile/ProfileData.vue';
 import MainH1 from '../components/labels/MainH1.vue';
-import { useRoute } from 'vue-router';
 import { getUserProfilebyId } from '../services/userProfile';
+import { useRoute } from 'vue-router';
 import { onMounted, ref } from 'vue';
 
 const route = useRoute();

@@ -1,11 +1,11 @@
 <script>
-    import { register } from '../services/auth';
+    import RegisterSkeleton from '../components/fragments/skeletons/RegisterSkeleton.vue';
     import LogTitle from '../components/fragments/LogTitle.vue';
     import MainH1 from '../components/labels/MainH1.vue';
     import MainH2 from '../components/labels/MainH2.vue';
     import MainLabel from '../components/labels/MainLabel.vue';
     import MainButton from '../components/labels/MainButton.vue';
-    import RegisterSkeleton from '../components/fragments/RegisterSkeleton.vue';
+    import { register } from '../services/auth';
     export default {
         name: 'Register',
         components: {MainH1, MainH2, LogTitle, MainLabel, MainButton, RegisterSkeleton},

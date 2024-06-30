@@ -1,9 +1,9 @@
 <script>
-import { subscribeToAuth } from '../../services/auth';
-import { savePost } from '../../services/post';
-import MainH2 from '../labels/MainH2.vue';
-import MainLabel from '../labels/MainLabel.vue';
-import PostingLoader from './PostingLoader.vue';
+import { subscribeToAuth } from '../../../services/auth';
+import { savePost } from '../../../services/post';
+import MainH2 from '../../labels/MainH2.vue';
+import MainLabel from '../../labels/MainLabel.vue';
+import PostingLoader from '../skeletons/PostingLoader.vue';
 export default {
     name: 'PostForm',
     components: { MainH2 , PostingLoader, MainLabel},

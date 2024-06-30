@@ -1,10 +1,10 @@
 <script setup>
+import GamersListSkeleton from './skeletons/GamersListSkeleton.vue';
 import MainP from '../labels/MainP.vue';
 import MainRouterLink from '../labels/MainRouterLink.vue';
 import { subscribeToUsers } from '../../services/userProfile';
 import { onMounted, onUnmounted, ref } from 'vue';
 import { useAuth } from '../../composition/useAuth';
-import GamersListSkeleton from './GamersListSkeleton.vue';
 
 const {user: authUser} = useAuth();
 
@@ -19,7 +19,7 @@ function useGamerList() {
 
     onMounted(()=>{
         unsubscribeToUsers = subscribeToUsers(newGamers => {
-            gamers.value.push(...newGamers);
+            gamers.value.push(...newGamers );
             showGamersList = true;
         })
     })
