@@ -27,15 +27,22 @@ export default {
         };
     },
     methods: {
-       async editPhoto(e) {
+       selectPhoto(e) {
             this.uploadedPhoto = e.target.files[0];
 
             const reader = new FileReader();
             reader.addEventListener('load', () => {
-                console.log('completo: ', reader.result)
                 this.profileData.photoURL = reader.result
             });
             reader.readAsDataURL(this.uploadedPhoto);
+        },
+        editProfilePhoto() {
+
+            try {
+                
+            } catch (error) {
+                throw error
+            }
         },
     },
     mounted() {
@@ -55,7 +62,7 @@ export default {
             <MainH2 class="sr-only">Ingresar un Datos</MainH2>
             <form 
                 action="#"
-                @submit.prevent="editProfile">
+                @submit.prevent="editProfilePhoto">
                 <div class="my-2 py-4 px-4 flex justify-between">
                     <MainLabel class="w-full not-sr-only inline px-4 py-2 text-xl font-bold" for="photoURL">Foto</MainLabel>
                 <input 
@@ -63,7 +70,7 @@ export default {
                     class="w-full p-2 bg-white border-gray-200 border-2 rounded-lg focus:border-gray-200 focus:outline-none" 
                     id="photoURL" 
                     name="photoURL"
-                    @change="editPhoto">
+                    @change="selectPhoto">
                 </div>
                 <div class="text-end mt-1 flex justify-between ">
                     <div class="w-6/12 px-6 py-1 m1-1 me-4 mb-2">
