@@ -3,9 +3,11 @@ import PostingLoader from '../skeletons/PostingLoader.vue';
 import MainH2 from '../../labels/MainH2.vue';
 import MainLabel from '../../labels/MainLabel.vue';
 import { subscribeToAuth, updateUserData } from '../../../services/auth';
+import MainImg from '../../labels/MainImg.vue';
+import MainP from '../../labels/MainP.vue';
 export default {
     name: 'ProfileEditPhotoForm',
-    components: { MainH2 , PostingLoader, MainLabel},
+    components: { MainH2 , PostingLoader, MainLabel, MainImg},
     data() {
 
         return {
@@ -48,11 +50,19 @@ export default {
                 @submit.prevent="editProfile">
                 <div class="my-2 py-4 px-4 flex justify-between">
                     <MainLabel class="w-full not-sr-only inline px-4 py-2 text-xl font-bold" for="photoURL">Foto</MainLabel>
-                <input type="file" class="w-full" id="photoURL" name="photoURL">
+                <input 
+                    type="file" 
+                    class="w-full p-2 bg-white border-gray-200 border-2 rounded-lg focus:border-gray-200 focus:outline-none" 
+                    id="photoURL" 
+                    name="photoURL">
                 </div>
-                <div class="text-end mt-1">
+                <div class="text-end mt-1 flex justify-between ">
+                    <div class="w-6/12 px-6 py-1 m1-1 me-4 mb-2">
+                        <MainP class="sr-only">Foto actual</MainP>
+                        <MainImg class="" :src="'./../img/icons/profile.png'"/>
+                    </div>
                     <button type="submit" 
-                        class=" px-6 py-1 m1-1 me-4 mb-2 rounded-lg text-xl text-end text-white bg-green-600 hover:bg-green-500 active:bg-green-700 transition-all">
+                        class="flex-none max-h-9 px-6 py-1 m1-1 me-4 mb-2 rounded-lg text-xl text-end text-white bg-green-600 hover:bg-green-500 active:bg-green-700 transition-all">
                         <template v-if="postinSkeleton">
                             <PostingLoader />
                         </template>
