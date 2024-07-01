@@ -1,23 +1,9 @@
 TOP Priority
     mensajes de feedback al iniciar sesion o registrarse
 MID Priority
-    si no esta autenticado, no mostrar el componente de mostrar y de comentar
+    si no esta autenticado, no mostrar el componente de postrar y de comentar
     abrir los comentarios si sos el primero en comentar
 LOW Priority
     Add Gamers Chat Component
     update Home view to to show chats
     Add hover to comment button
-
-
-
-Correcciones Generales
-- Errores de ortografía (ej: tildes, palabras maltipeadas como "contraña").
-- Falta mostrar mensajes de error.
--- Falta poder editar mi perfil.
-
-Correcciones HTML+CSS
-
-- Hay errores de validación de HTML.
-
-Correcciones JS+Firebase
-+ Organización de componentes.

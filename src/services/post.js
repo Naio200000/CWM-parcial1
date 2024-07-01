@@ -24,6 +24,9 @@ export function savePost(data) {
 
 export function saveComment(data, postId) {
 
+    if (data.comment == '') {
+        return Promise.reject(new Error('No puede publicar un comentario sin texto'));
+    }
     const refComment = collection(db, `posts/${postId}/comments`);
     
     return addDoc(refComment, {

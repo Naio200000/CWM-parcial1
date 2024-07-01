@@ -4,9 +4,10 @@ import MainH2 from '../../labels/MainH2.vue';
 import MainLabel from '../../labels/MainLabel.vue';
 import { subscribeToAuth } from '../../../services/auth';
 import { saveComment } from '../../../services/post';
+import MainP from '../../labels/MainP.vue';
 export default {
     name: 'CommentForm',
-    components: { MainH2 , PostingLoader, MainLabel},
+    components: { MainH2, PostingLoader, MainLabel, MainP },
     props: ['postId'],
     data() {
 
@@ -19,7 +20,7 @@ export default {
                 comment: '',
             },
             postinSkeleton: false,
-            posts: [],
+            feedbackMsg: '',
             unsubscribeToAUth: () => {},
         };
     },
@@ -28,14 +29,19 @@ export default {
         submitComment() {
 
             this.postinSkeleton = true;
-            
+            this.feedbackMsg = ''; 
             saveComment({
                 user_Id: this.authUser.id,
                 user_email: this.authUser.email,
                 comment: this.newComment.comment,
-            },this.postId).then(() => this.postinSkeleton = false);
+            },this.postId).then(() =>{
+                this.postinSkeleton = false
+                this.newComment.comment = '';
+            }).catch((error) => {
+                this.postinSkeleton = false;
+                this.feedbackMsg = error.message;
+            });
             
-            this.newComment.comment = '';
         },
     },
     mounted() {
@@ -86,5 +92,8 @@ export default {
                 </button>
             </div>
         </form>
+        <div class="mx-4">
+            <MainP class="text-center pb-1 text-red-500 font-bold">{{feedbackMsg}}</MainP>
+        </div>
     </section>
 </template>
