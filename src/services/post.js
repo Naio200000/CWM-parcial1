@@ -8,6 +8,9 @@ import {db} from './firebase';
  */
 export function savePost(data) {
 
+    if (data.post == '') {
+        return Promise.reject(new Error('No puede publicar un post sin texto'));
+    }
     const refPost = collection(db, 'posts');
 
     return addDoc(refPost, {
