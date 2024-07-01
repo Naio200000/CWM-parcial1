@@ -20,7 +20,6 @@ export default {
             },
             feedbackMsg: '',
             postinSkeleton: false,
-            posts: [],
             unsubscribeToAUth: () => {},
         };
     },
