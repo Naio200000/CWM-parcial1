@@ -1,54 +1,31 @@
-<script>
-    import ImageLogo from './ImageLogo.vue';
-    import MainImg from '../labels/MainImg.vue';
-    import MainRouterLink from '../labels/MainRouterLink.vue';
-    import { logout, subscribeToAuth } from '../../services/auth';
-    export default {
-        name: 'MainNav',
-        components: { ImageLogo, MainImg, MainRouterLink },
-        data() {
+<script setup>
+import ImageLogo from './ImageLogo.vue';
+import MainImg from '../labels/MainImg.vue';
+import MainRouterLink from '../labels/MainRouterLink.vue';
+import { logout } from '../../services/auth';
+import { useAuth } from '../../composition/useAuth';
 
-            return {
-                authUser: {
-                    id: null,
-                    email: null,
-                },
-                unsubscribeToAUth: () => {},
-            };
-        },
-        methods: {
+const {user: authUser} = useAuth();
 
-            async submitLogout() {
+async function submitLogout() {
 
-                await logout();
-                this.$router.push({
-                    path: '/',
-                });
-            }
-        },
-        mounted() { 
-
-            this.unsubscribeToAUth = subscribeToAuth(userData => this.authUser = userData);
-        },
-        unmounted() {
-            
-            this.unsubscribeToAUth();
-        }
-    }
-    //MOVER
+    await logout();
+    this.$router.push({
+        path: '/',
+    });
+}
 </script>
-
 <template>
-        <nav class="h-20 p-4 flex justify-between items-center bg-gray-100 text-black text-xl">
-            <div class="">
+        <nav class="h-20 p-4 flex justify-between items-center bg-gray-100 text-black text-xl ">
+            <div class=" w-1/4">
                 <ImageLogo />
             </div>
-            <ul class="flex justify-evenly gap-4 lg:gap-16 items-center ">
-                <template v-if="authUser.id === null">
-                    <li><MainRouterLink class="font-bold text-2xl" :to="'/'">Iniciar Sesion</MainRouterLink></li>
-                    <li><MainRouterLink class="font-bold text-2xl pe-4" :to="'/registrarse'">Registrarse</MainRouterLink></li>
+            <ul :class="['flex', 'w-1/2', 'gap-4', 'lg:gap-16', 'items-center', authUser.id ? 'justify-evenly' : 'justify-end']">
+                <template class="" v-if="authUser.id === null">
+                    <li><MainRouterLink class="font-bold text-2xl " :to="'/'">Iniciar Sesion</MainRouterLink></li>
+                    <li><MainRouterLink class="font-bold text-2xl pe-4 " :to="'/registrarse'">Registrarse</MainRouterLink></li>
                 </template>
-                <template v-else>
+                <template class="" v-else>
                     <li class="w-12">
                         <MainRouterLink :to="'/home'" href="#">
                             <MainImg :src="'./img/icons/home.png'"/>
@@ -75,7 +52,7 @@
                     </li>
                 </template>
             </ul>
-            <div v-if="authUser.id != null" class="pe-4">
+            <div v-if="authUser.id != null" class="pe-4 w-1/4 text-end">
                 <form action="" @submit.prevent="submitLogout">
                     <button type="submit" class="w-12 ">
                         <MainImg class="block" :src="'./img/icons/close.png'" :alt="'megamemga'"/>
