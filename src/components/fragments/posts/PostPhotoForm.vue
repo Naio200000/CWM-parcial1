@@ -62,12 +62,12 @@ export default {
                 @submit.prevent="editProfilePhoto">
                 <div class="my-2 py-4 px-4 flex justify-between">
                     <MainLabel class="w-full not-sr-only inline px-4 py-2 text-xl font-bold" for="photoURL">Foto</MainLabel>
-                <input 
-                    type="file" 
-                    class="w-full p-2 bg-white border-gray-200 border-2 rounded-lg focus:border-gray-200 focus:outline-none" 
-                    id="photoURL" 
-                    name="photoURL"
-                    @change="selectPhoto">
+                    <input 
+                        type="file" 
+                        class="w-full p-2 bg-white border-gray-200 border-2 rounded-lg focus:border-gray-200 focus:outline-none" 
+                        id="photoURL" 
+                        name="photoURL"
+                        @change="selectPhoto">
                 </div>
                 <div class="text-end mt-1 flex justify-between ">
                     <div class="w-6/12 px-6 py-1 m1-1 me-4 mb-2">

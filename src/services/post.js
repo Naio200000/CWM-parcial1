@@ -89,6 +89,7 @@ export function subscribeToUserPosting(userId, callback) {
                 id: doc.id,
                 user: doc.data().user,
                 post: doc.data().post,
+                photoURL: doc.data().photoURL,
                 date: doc.data().created_at?.toDate(),
             };
         });

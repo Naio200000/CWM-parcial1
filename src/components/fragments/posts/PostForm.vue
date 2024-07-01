@@ -20,6 +20,7 @@ export default {
                 photoURL:'',
                 post: '',
             },
+            uploadedPhoto: null, 
             feedbackMsg: '',
             postinSkeleton: false,
             unsubscribeToAUth: () => {},
@@ -42,6 +43,7 @@ export default {
                 user_Id: this.authUser.id,
                 user: this.authUser.email,
                 post: this.newPost.post,
+                photoURL: this.newPost.photoURL,
             }).then(() => {
                 this.postinSkeleton = false;
                 this.newPost.post = '';
