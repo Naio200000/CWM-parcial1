@@ -72,7 +72,7 @@
                     <span v-else class="px-2 ps-4 text-sm capitalize">Publicando... </span>
                 </div>
                 <div class="px-2 py-4">
-                    <img class="w-full" src="../../../../public/img/eldenringcover.jpg" alt="">
+                    <img class="w-full" src="../../../../img/eldenringcover.jpg" alt="">
                 </div>
                 <div class="px-2 py-4">
                     <MainP>{{ post.post }}</MainP>

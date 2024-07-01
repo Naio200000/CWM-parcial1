@@ -2,13 +2,13 @@
 import { subscribeToAuth } from '../../../services/auth';
 import { savePost } from '../../../services/post';
 import MainH2 from '../../labels/MainH2.vue';
+import MainImg from '../../labels/MainImg.vue';
 import MainLabel from '../../labels/MainLabel.vue';
 import MainP from '../../labels/MainP.vue';
 import PostingLoader from '../skeletons/PostingLoader.vue';
-import PostPhotoForm from './PostPhotoForm.vue';
 export default {
     name: 'PostForm',
-    components: { MainH2, PostingLoader, MainLabel, MainP, PostPhotoForm },
+    components: { MainH2, PostingLoader, MainLabel, MainP, MainImg },
     data() {
 
         return {
@@ -17,6 +17,7 @@ export default {
                 email: null,
             },
             newPost: {
+                photoURL:'',
                 post: '',
             },
             feedbackMsg: '',
@@ -25,7 +26,15 @@ export default {
         };
     },
     methods: {
+        selectPhoto(e) {
+            this.uploadedPhoto = e.target.files[0];
 
+            const reader = new FileReader();
+            reader.addEventListener('load', () => {
+                this.newPost.photoURL = reader.result
+            });
+            reader.readAsDataURL(this.uploadedPhoto);
+        },
         submitPost() {
             this.postinSkeleton = true;
             this.feedbackMsg = ''; 
@@ -70,6 +79,10 @@ export default {
                         disabled
                         v-model="authUser.displayName">
                 </div>
+                <div class="w-6/12 px-6 py-1 m1-1 me-4 mb-2">
+                    <MainP class="sr-only">Foto a subir</MainP>
+                    <MainImg class="w-full" :src="newPost.photoURL || '../../../../img/eldenringcover.jpg'" />
+                </div>
                 <div class="mx-4">
                     <MainLabel for="post">Publicacion</MainLabel>
                     <textarea 
@@ -83,10 +96,16 @@ export default {
                 <div class="mx-4">
                     <MainP class="text-red-500 font-bold">{{feedbackMsg}}</MainP>
                 </div>
-                <div>
-                    <PostPhotoForm />
-                </div>
-                <div class="flex justify-between">
+                <div class="flex justify-between items-end">
+                    <div class="my-1 px-4">
+                        <MainLabel class="w-full not-sr-only inline px-4 py-2" for="photoURL">Agregar una imagen (opcional)</MainLabel>
+                        <input 
+                            type="file" 
+                            class="w-full p-2 bg-white border-gray-200 border-2 rounded-lg focus:border-gray-200 focus:outline-none" 
+                            id="photoURL" 
+                            name="photoURL"
+                            @change="selectPhoto">
+                    </div>
                     <div class="text-end mt-1">
                         <button type="submit" 
                             class=" px-6 py-1 m1-1 me-4 mb-2 rounded-lg text-xl text-end text-white bg-green-600 hover:bg-green-500 active:bg-green-700 transition-all">
