@@ -5,9 +5,10 @@ import MainH2 from '../../labels/MainH2.vue';
 import MainLabel from '../../labels/MainLabel.vue';
 import MainP from '../../labels/MainP.vue';
 import PostingLoader from '../skeletons/PostingLoader.vue';
+import PostPhotoForm from './PostPhotoForm.vue';
 export default {
     name: 'PostForm',
-    components: { MainH2, PostingLoader, MainLabel, MainP },
+    components: { MainH2, PostingLoader, MainLabel, MainP, PostPhotoForm },
     data() {
 
         return {
@@ -79,10 +80,13 @@ export default {
                         :disabled="postinSkeleton"
                         v-model="newPost.post"></textarea>
                 </div>
+                <div class="mx-4">
+                    <MainP class="text-red-500 font-bold">{{feedbackMsg}}</MainP>
+                </div>
+                <div>
+                    <PostPhotoForm />
+                </div>
                 <div class="flex justify-between">
-                    <div class="mx-4">
-                        <MainP class="text-red-500 font-bold">{{feedbackMsg}}</MainP>
-                    </div>
                     <div class="text-end mt-1">
                         <button type="submit" 
                             class=" px-6 py-1 m1-1 me-4 mb-2 rounded-lg text-xl text-end text-white bg-green-600 hover:bg-green-500 active:bg-green-700 transition-all">
