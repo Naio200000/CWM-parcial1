@@ -4,13 +4,16 @@ import MainImg from '../labels/MainImg.vue';
 import MainRouterLink from '../labels/MainRouterLink.vue';
 import { logout } from '../../services/auth';
 import { useAuth } from '../../composition/useAuth';
+import { useRouter } from 'vue-router';
 
 const {user: authUser} = useAuth();
+
+const router = useRouter();
 
 async function submitLogout() {
 
     await logout();
-    this.$router.push({
+    router.push({
         path: '/',
     });
 }
