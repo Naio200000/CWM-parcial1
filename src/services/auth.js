@@ -157,7 +157,7 @@ export function login(email, password){
         .then(userCredentials => {
         })
         .catch(error => {
-            console.error(error.code)
+            // console.error(error.code)
             throw error
         })
 };
