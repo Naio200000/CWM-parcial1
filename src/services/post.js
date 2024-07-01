@@ -1,25 +1,35 @@
-import { addDoc, collection, getDocs, onSnapshot, orderBy, query, serverTimestamp, snapshotEqual, where } from 'firebase/firestore';
+import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp, updateDoc, where } from 'firebase/firestore';
 import {db} from './firebase';
+import { getImageExtension } from '../libraries/file';
+import { uploadFile } from './fileStorage';
 
 /**
+ * const {photoURL: photoURL} = await uploadFile(`posts/${document.id}/postimage.${getImageExtension(file)}`, file);
+ * 
  * Graba un nuevos post en la base de datos
  * @param {{user: string, post: string}} data 
  * @returns {Promise<null>}
  */
-export function savePost(data) {
+export async function savePost(data, file) {
 
     if (data.post == '') {
         return Promise.reject(new Error('No puede publicar un post sin texto'));
     }
+    
     const refPost = collection(db, 'posts');
-
     return addDoc(refPost, {
         ...data,
         created_at: serverTimestamp(),
+    }).then(async refDoc =>{
+        console.log(refDoc.id)
+        console.log(file)
+        await uploadFile(`users/${refDoc.id}/profilePhoto.${getImageExtension(file)}`, file);
+        const photoURL = await getFileURL(`users/${refDoc.id}/profilePhoto.${getImageExtension(file)}`);
+        console.log('after getfileurl')
+        await refDoc.update({photoURL: photoURL, })
+        console.log('after update')
     })
-    .then(doc => {
 
-    });
 }
 
 export function saveComment(data, postId) {
@@ -33,7 +43,7 @@ export function saveComment(data, postId) {
         ...data,
         created_at:serverTimestamp(),
     }).then(doc => {
-    
+
     });
 }
 

@@ -43,7 +43,7 @@ export default {
                 user_Id: this.authUser.id,
                 user: this.authUser.email,
                 post: this.newPost.post,
-                photoURL: this.newPost.photoURL,
+                photo: uploadedPhoto
             }).then(() => {
                 this.postinSkeleton = false;
                 this.newPost.post = '';
