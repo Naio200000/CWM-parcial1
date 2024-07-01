@@ -72,7 +72,7 @@ export default {
                 <div class="text-end mt-1 flex justify-between ">
                     <div class="w-6/12 px-6 py-1 m1-1 me-4 mb-2">
                         <MainP class="sr-only">Foto actual</MainP>
-                        <MainImg class="" :src="profileData.photoURL || './../img/icons/profile.png'"/>
+                        <MainImg class="rounded-full" :src="profileData.photoURL || './../img/icons/profile.png'"/>
                     </div>
                     <button type="submit" 
                         class="flex-none max-h-9 px-6 py-1 m1-1 me-4 mb-2 rounded-lg text-xl text-end text-white bg-green-600 hover:bg-green-500 active:bg-green-700 transition-all">
