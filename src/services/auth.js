@@ -138,9 +138,9 @@ export async function register(email, password, displayName){
 
         setUserData({displayName});
     } catch (error) {
-
+        return Promise.reject(new Error('[Auth.js | Register error] ' + error));
         // console.error(error.code)
-        throw error
+        // throw error
     }
 };
 

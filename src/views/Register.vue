@@ -6,9 +6,10 @@
     import MainLabel from '../components/labels/MainLabel.vue';
     import MainButton from '../components/labels/MainButton.vue';
     import { register } from '../services/auth';
+import MainP from '../components/labels/MainP.vue';
     export default {
         name: 'Register',
-        components: {MainH1, MainH2, LogTitle, MainLabel, MainButton, RegisterSkeleton},
+        components: { MainH1, MainH2, LogTitle, MainLabel, MainButton, RegisterSkeleton, MainP },
         data() {
 
             return {
@@ -17,6 +18,7 @@
                     email: '',
                     password:'',
                 },
+                feedbackMsg: '',
                 loading: false,
             }
         },
@@ -31,7 +33,9 @@
                         path: '/home',
                     });
                 } catch (error) {
-                    
+                    // console.log('Register Error' + error)   
+                    this.feedbackMsg = 'Faltan completar algunos campos'                 
+                    this.loading = false;
                 }
             }
         }
@@ -49,6 +53,11 @@
         <section v-else class="lg:w-1/2 w-10/12 max-w-log p-5 bg-gray-100 rounded-xl shadow-xl shadow-slate-500">
             <MainH2 class="sr-only">Registrarse</MainH2>
             <form action="" @submit.prevent="submitRegister">
+                <div v-if="feedbackMsg" class="mb-4 px-4">
+                    <div class="bg-red-200 w-full p-2 m-2 text-xl rounded-lg">
+                        <MainP class="text-center text-lg">{{ feedbackMsg }}</MainP>
+                    </div>
+                </div>
                 <div class="mb-4 px-4">
                     <MainLabel for="displayName">Nombre de usuario</MainLabel>
                     <input  
