@@ -2,6 +2,10 @@
 import PostsList from '../components/fragments/posts/PostsList.vue';
 import PostForm from '../components/fragments/posts/PostForm.vue';
 import MainH1 from '../components/labels/MainH1.vue';
+import { useAuth } from '../composition/useAuth';
+
+const { user: authUser } = useAuth();
+
 </script>
 <template>
     <section class="w-full">
@@ -11,7 +15,9 @@ import MainH1 from '../components/labels/MainH1.vue';
             </div>
         </header>
         <article class="">
-            <PostForm />
+            <template v-if="authUser.id">
+                <PostForm />
+            </template>
             <PostsList/>
         </article>
     </section>
