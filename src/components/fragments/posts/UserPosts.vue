@@ -5,6 +5,7 @@
     import MainH2 from '../../labels/MainH2.vue';
     import MainP from '../../labels/MainP.vue';
     import { subscribeToUserPosting } from '../../../services/post';
+import { subscribeToAuth } from '../../../services/auth';
     export default {
         name: 'UserPosts',
         components: {MainH2, MainP, PostSkeleton, CommentForm, CommentsList},
@@ -12,12 +13,17 @@
         data (){
 
             return {
+                authUser: {
+                    id: null,
+                    email: null,
+                },
                 newPost: {
                     post: '',
                 },                
                 posts:[],
                 postSkeleton: false,
                 unsubscribeToUserPosting: () =>{},
+                unsubscribeToAuth: () =>{},
             }
         },
         methods: {
@@ -36,6 +42,7 @@
             },
         },
         mounted() {
+            this.unsubscribeToAuth = subscribeToAuth(newUser => this.authUser = newUser);
             this.unsubscribeToPosting = subscribeToUserPosting(this.userId, newPosts => {
                 this.posts = newPosts;
                 this.posts = this.posts.map(post => {
@@ -49,6 +56,7 @@
             });
         },
         unmounted() {
+            this.unsubscribeToUserPosting();
             this.unsubscribeToUserPosting();
         },
     }
@@ -70,7 +78,7 @@
                         <MainP class="text-2xl font-bold pb-0">{{post.user}}</MainP>
                         <span class="px-2 ps-4 text-sm capitalize">{{ `Publicado:  ${formatDate(post.date)}` }}</span>
                     </div>                    
-                    <template class="" v-if="userId == post.user_Id">
+                    <template class="" v-if="authUser.id == post.user_Id">
                         <MainRouterLink class="pt-2 px-4 underline" :to="`/posts/editar/{id}`" href="#">Editar</MainRouterLink>
                     </template>
                 </div>

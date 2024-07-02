@@ -19,7 +19,7 @@ function useGamerList() {
 
     onMounted(()=>{
         unsubscribeToUsers = subscribeToUsers(newGamers => {
-            gamers.value.push(...newGamers );
+            gamers.value.push(...newGamers);
             showGamersList = true;
         })
     })
