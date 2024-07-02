@@ -46,6 +46,7 @@ export default {
             }, this.uploadedPhoto).then(() => {
                 this.postinSkeleton = false;
                 this.newPost.post = '';
+                this.newPost.photoURL = '';
             }).catch((error) => {
                 this.postinSkeleton = false;
                 this.feedbackMsg = error.message;
