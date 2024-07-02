@@ -56,12 +56,9 @@ let postinSkeleton = false;
 function submitPost () { 
     postinSkeleton = true;
     feedbackMsg = '';
-    updatePost({
-        user_Id: authUser.id,
-        user: authUser.email,
-        post: post.newPost.post
+    updatePost(post.id, {
+        post: post.post,
     })
-
 }
 </script>
 <template>
@@ -114,7 +111,7 @@ function submitPost () {
                                 <PostingLoader />
                             </template>
                             <template v-else>
-                                Postear
+                                Editar
                             </template>
                         </button>
                     </div>
