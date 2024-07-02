@@ -28,10 +28,10 @@ export async function savePost(data) {
 
 export async function updatePost(id, data){
 
-    console.log(id);
-    console.log(data);
-
     const refPost = doc(db, `posts/${id}`);
+    
+    console.log(id);
+    console.log(refPost.id);
 
     await updateDoc(refPost, data);
 }

@@ -1,23 +1,3 @@
-<!-- 
-    methods: {
-        submitPost() {
-            this.postinSkeleton = true;
-            this.feedbackMsg = ''; 
-            savePost({
-                user_Id: this.authUser.id,
-                user: this.authUser.email,
-                post: this.newPost.post
-            }).then(() => {
-                this.postinSkeleton = false;
-                this.newPost.post = '';
-            }).catch((error) => {
-                this.postinSkeleton = false;
-                this.feedbackMsg = error.message;
-                // console.error("Error savingPost:", error);
-            });
-        },
-    }, -->
-
 <script setup>
 import { updatePost, getPostById } from '../../../services/post';
 import MainH2 from '../../labels/MainH2.vue';
@@ -50,15 +30,20 @@ function userGetPostById(id) {
         post,
     }
 }
-let uploadedPhoto = null 
-let feedbackMsg = '';
-let postinSkeleton = false;
-function submitPost () { 
-    postinSkeleton = true;
-    feedbackMsg = '';
-    updatePost(post.id, {
-        post: post.post,
-    })
+const postinSkeleton = ref(false);
+const feedbackMsg = ref('');
+let uploadedPhoto = null;
+async function submitPost () { 
+    postinSkeleton.value = true;
+    feedbackMsg.value = '';
+    try {
+        await updatePost(post.value.id, { 
+            post: post.value.post 
+        });
+    } catch (error) {
+        feedbackMsg.value = 'Ocurrió un error al editar';
+    }
+    postinSkeleton.value = false;
 }
 </script>
 <template>
