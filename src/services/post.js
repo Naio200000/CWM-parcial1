@@ -1,4 +1,4 @@
-import { addDoc, collection, onSnapshot, orderBy, query, serverTimestamp, updateDoc, where } from 'firebase/firestore';
+import { addDoc, collection, doc, getDoc, onSnapshot, orderBy, query, serverTimestamp, updateDoc, where } from 'firebase/firestore';
 import {db} from './firebase';
 import { getImageExtension } from '../libraries/file';
 import { uploadFile } from './fileStorage';
@@ -24,6 +24,13 @@ export async function savePost(data) {
 
     })
 
+}
+
+export async function updatePost(id, data){
+
+    const refPost = doc(db, `posts/${id}`);
+
+    await updateDoc(refPost, data);
 }
 
 export function saveComment(data, postId) {
@@ -102,6 +109,18 @@ export function subscribeToUserPosting(userId, callback) {
 
         callback(posts);
     });
+}
+
+export async function getPostById(id) {
+
+    const refPost = doc(db, `posts/${id}`);
+
+    const docPost = await getDoc(refPost);
+
+    return {
+        id: docPost.id,
+        post: docPost.data().post,
+    }
 }
 
 /**

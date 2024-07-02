@@ -1,4 +1,5 @@
 <script setup>
+import PostEditForm from '../components/fragments/posts/PostEditForm.vue';
 import MainH1 from '../components/labels/MainH1.vue';
 </script>
 <template>
@@ -7,6 +8,7 @@ import MainH1 from '../components/labels/MainH1.vue';
             <MainH1>Editar Post</MainH1>
         </header>
         <article>
+            <PostEditForm />
         </article>
     </section>
 </template>
