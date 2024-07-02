@@ -62,6 +62,7 @@ export function subscribeToPosting(callback) {
                 id: doc.id,
                 user: doc.data().user,
                 post: doc.data().post,
+                photoURL: doc.data().photoURL,
                 date: doc.data().created_at?.toDate(),
             }
         })
@@ -94,6 +95,7 @@ export function subscribeToUserPosting(userId, callback) {
                 user: doc.data().user,
                 post: doc.data().post,
                 photoURL: doc.data().photoURL,
+                user_Id: doc.data().user_Id,
                 date: doc.data().created_at?.toDate(),
             };
         });
