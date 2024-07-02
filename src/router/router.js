@@ -3,10 +3,10 @@ import { subscribeToAuth } from '../services/auth';
 import Login from '../views/Login.vue';
 import Register from '../views/Register.vue';
 import Posts from '../views/Posts.vue';
+import PostsEdit from '../views/PostsEdit.vue';
 import Home from '../views/Home.vue';
 import Profile from '../views/Profile.vue';
 import ProfileEdit from '../views/ProfileEdit.vue';
-import ProfileEditPhoto from '../views/ProfileEdit.vue';
 import GamerProfile from '../views/GamerProfile.vue';
 import Gamers from '../views/Gamers.vue';
 
@@ -19,6 +19,7 @@ const routes = [
     {path: '/gamers',           component: Gamers,          meta: {requireAuth: true}},
     {path: '/gamers/:id',       component: GamerProfile,    meta: {requireAuth: true}},
     {path: '/posts/:id',        component: Posts,           meta: {requireAuth: true}},
+    {path: '/posts/editar/:id',   component: PostsEdit,       meta: {requireAuth: true}},
 ];
 
 const router = createRouter({

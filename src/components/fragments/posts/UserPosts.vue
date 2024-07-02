@@ -4,11 +4,12 @@
     import CommentsList from '../comments/CommentsList.vue';
     import MainH2 from '../../labels/MainH2.vue';
     import MainP from '../../labels/MainP.vue';
+    import MainRouterLink from '../../labels/MainRouterLink.vue';
     import { subscribeToUserPosting } from '../../../services/post';
-import { subscribeToAuth } from '../../../services/auth';
+    import { subscribeToAuth } from '../../../services/auth';
     export default {
         name: 'UserPosts',
-        components: {MainH2, MainP, PostSkeleton, CommentForm, CommentsList},
+        components: { MainH2, MainP, PostSkeleton, CommentForm, CommentsList, MainRouterLink },
         props: ['userId'],
         data (){
 
@@ -79,7 +80,7 @@ import { subscribeToAuth } from '../../../services/auth';
                         <span class="px-2 ps-4 text-sm capitalize">{{ `Publicado:  ${formatDate(post.date)}` }}</span>
                     </div>                    
                     <template class="" v-if="authUser.id == post.user_Id">
-                        <MainRouterLink class="pt-2 px-4 underline" :to="`/posts/editar/{id}`" href="#">Editar</MainRouterLink>
+                        <MainRouterLink class="pt-2 px-4 underline" :to="`/posts/editar/${post.id}`" href="#">Editar</MainRouterLink>
                     </template>
                 </div>
                 <div class="px-2 py-4">
