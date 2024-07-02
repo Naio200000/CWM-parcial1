@@ -72,10 +72,9 @@
                     <span v-if="post.date != null" class="px-2 ps-4 text-sm capitalize">{{ `Publicado:  ${formatDate(post.date)}` }}</span>
                     <span v-else class="px-2 ps-4 text-sm capitalize">Publicando... </span>
                 </div>
-                <!-- <div class="px-2 py-4">
+                <div class="px-2 py-4 flex justify-center">
                     <MainImg :src="post.photoURL" />
-                    <img class="w-full" src="../../../../img/eldenringcover.jpg" alt="">
-                </div> -->
+                </div>
                 <div class="px-2 py-4">
                     <MainP>{{ post.post }}</MainP>
                 </div>
