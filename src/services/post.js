@@ -1,7 +1,7 @@
 import { addDoc, collection, doc, getDoc, onSnapshot, orderBy, query, serverTimestamp, updateDoc, where } from 'firebase/firestore';
 import {db} from './firebase';
+import { getFileURL, uploadFile } from "./fileStorage";
 import { getImageExtension } from '../libraries/file';
-import { uploadFile } from './fileStorage';
 
 /**
  * const {photoURL: photoURL} = await uploadFile(`posts/${document.id}/postimage.${getImageExtension(file)}`, file);
@@ -10,18 +10,28 @@ import { uploadFile } from './fileStorage';
  * @param {{user: string, post: string}} data 
  * @returns {Promise<null>}
  */
-export async function savePost(data) {
+export async function savePost(data, photo = null) {
+
+    console.log(data)
+    console.log(photo)
 
     if (data.post == '') {
         return Promise.reject(new Error('No puede publicar un post sin texto'));
     }
-    
+
     const refPost = collection(db, 'posts');
     return addDoc(refPost, {
         ...data,
         created_at: serverTimestamp(),
     }).then(async doc =>{
+        if (photo) {
+            
+            await uploadFile(`posts/${doc.id}/profilePhoto.${getImageExtension(photo)}`, photo);
 
+            const photoURL = await getFileURL(`posts/${doc.id}/profilePhoto.${getImageExtension(photo)}`);
+
+            await updatePost(doc.id, {photoURL})
+        }
     })
 
 }
