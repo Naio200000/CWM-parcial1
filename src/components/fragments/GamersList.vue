@@ -20,7 +20,7 @@ function useGamerList() {
     onMounted(()=>{
         unsubscribeToUsers = subscribeToUsers(newGamers => {
             gamers.value.push(...newGamers);
-            showGamersList = true;
+            showGamersList.value = true;
         })
     })
     onUnmounted(()=>{
@@ -33,7 +33,9 @@ function useGamerList() {
 </script>
 <template>
     <template v-if="!showGamersList" class="w-10/12 flex items-end max-w-post mx-auto my-4 rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
-        <GamersListSkeleton />
+        <div v-for="i in 4" :key="i" class="w-10/12 mx-auto my-4 max-w-post rounded-lg shadow-lg shadow-slate-400 bg-gray-100">
+            <GamersListSkeleton />
+        </div>
     </template>
     <template v-else>
         <template v-for="gamer in gamers" :key="gamer.id">
