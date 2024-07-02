@@ -115,7 +115,7 @@ export async function updateUserPhoto (photo) {
         setUserData({photoURL})
     } catch (error) {
         
-        console.log(error)
+        // console.log(error)
         throw error
     }
 }

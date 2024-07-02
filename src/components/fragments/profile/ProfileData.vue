@@ -26,7 +26,7 @@ const showPosts = ref(false);
             <div>
                 <div class="flex pt-2 px-2">
                     <div >
-                        <MainImg class="rounded-full" :src="authUser.photoURL"/>
+                        <MainImg class="rounded-full" :src="userData.photoURL"/>
                     </div>
                     <MainH2 class="w-11/12">{{ userData.displayName }}</MainH2>
                     <template v-if="authUser.id == userData.id">

@@ -49,6 +49,7 @@ export async function getUserProfilebyId(id) {
         displayName: docUser.data().displayName,
         playing: docUser.data().playing,
         bio: docUser.data().bio,
+        photoURL: docUser.data().photoURL,
     }
 }
 
