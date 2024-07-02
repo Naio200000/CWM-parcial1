@@ -130,6 +130,7 @@ export async function getPostById(id) {
     return {
         id: docPost.id,
         post: docPost.data().post,
+        photoURL: docPost.data().photoURL,
     }
 }
 

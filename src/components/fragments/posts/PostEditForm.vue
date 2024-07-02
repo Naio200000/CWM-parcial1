@@ -15,11 +15,18 @@ const route = useRoute();
 
 const { post } = userGetPostById(route.params.id)
 
+const postinSkeleton = ref(false);
+
+const feedbackMsg = ref('');
+
+let uploadedPhoto = ref(null);
+
 function userGetPostById(id) {
 
     const post = ref({
         id: null,
         post: null,
+        photoURL: null,
     })
 
     onMounted(async () => {
@@ -30,21 +37,31 @@ function userGetPostById(id) {
         post,
     }
 }
-const postinSkeleton = ref(false);
-const feedbackMsg = ref('');
-let uploadedPhoto = null;
+
 async function submitPost () { 
     postinSkeleton.value = true;
     feedbackMsg.value = '';
     try {
         await updatePost(post.value.id, { 
-            post: post.value.post 
+            post: post.value.post,
+            photoURL: post.value.photoURL,
         });
     } catch (error) {
         feedbackMsg.value = 'Ocurrió un error al editar';
     }
     postinSkeleton.value = false;
 }
+
+function selectPhoto(e) {
+    uploadedPhoto = e.target.files[0];
+
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+        post.value.photoURL = reader.result
+    });
+    reader.readAsDataURL(uploadedPhoto);
+}
+
 </script>
 <template>
     <section>
@@ -62,10 +79,12 @@ async function submitPost () {
                         disabled
                         v-model="authUser.displayName">
                 </div>
-                <!-- <div class="w-6/12 px-6 py-1 m1-1 me-4 mb-2">
-                    <MainP class="sr-only">Foto a subir</MainP>
-                    <MainImg class="w-full" :src="newPost.photoURL || '../../../../img/eldenringcover.jpg'" />
-                </div> -->
+                <template v-if="post.photoURL">
+                    <div class="w-6/12 px-6 py-1 m1-1 me-4 mb-2">
+                        <MainP class="sr-only">Imagen</MainP>
+                        <MainImg class="w-full" :src="post.photoURL" />
+                    </div>
+                </template>
                 <div class="mx-4">
                     <MainLabel for="post">Publicacion</MainLabel>
                     <textarea 
@@ -79,8 +98,8 @@ async function submitPost () {
                 <div class="mx-4">
                     <MainP class="text-red-500 font-bold">{{feedbackMsg}}</MainP>
                 </div>
-                <!-- <div class="flex justify-between items-end"> -->
-                    <!-- <div class="my-1 px-4">
+                <div class="flex justify-between items-end">
+                    <div class="my-1 px-4">
                         <MainLabel class="w-full not-sr-only inline px-4 py-2" for="photoURL">Agregar una imagen (opcional)</MainLabel>
                         <input 
                             type="file" 
@@ -88,7 +107,7 @@ async function submitPost () {
                             id="photoURL" 
                             name="photoURL"
                             @change="selectPhoto">
-                    </div> -->
+                    </div>
                     <div class="text-end mt-1">
                         <button type="submit" 
                             class=" px-6 py-1 m1-1 me-4 mb-2 rounded-lg text-xl text-end text-white bg-green-600 hover:bg-green-500 active:bg-green-700 transition-all">
@@ -100,7 +119,7 @@ async function submitPost () {
                             </template>
                         </button>
                     </div>
-                <!-- </div> -->
+                </div>
             </form>
         </section>
     </section>

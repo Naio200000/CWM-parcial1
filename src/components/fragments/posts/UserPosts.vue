@@ -5,11 +5,12 @@
     import MainH2 from '../../labels/MainH2.vue';
     import MainP from '../../labels/MainP.vue';
     import MainRouterLink from '../../labels/MainRouterLink.vue';
+    import MainImg from '../../labels/MainImg.vue';
     import { subscribeToUserPosting } from '../../../services/post';
     import { subscribeToAuth } from '../../../services/auth';
     export default {
         name: 'UserPosts',
-        components: { MainH2, MainP, PostSkeleton, CommentForm, CommentsList, MainRouterLink },
+        components: {MainImg, MainH2, MainP, PostSkeleton, CommentForm, CommentsList, MainRouterLink },
         props: ['userId'],
         data (){
 
@@ -82,6 +83,9 @@
                     <template class="" v-if="authUser.id == post.user_Id">
                         <MainRouterLink class="pt-2 px-4 underline" :to="`/posts/editar/${post.id}`" href="#">Editar</MainRouterLink>
                     </template>
+                </div>
+                <div class="px-2 py-4 flex justify-center">
+                    <MainImg :src="post.photoURL" />
                 </div>
                 <div class="px-2 py-4">
                     <MainP>{{ post.post }}</MainP>
