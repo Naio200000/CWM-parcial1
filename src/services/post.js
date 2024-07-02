@@ -10,7 +10,7 @@ import { uploadFile } from './fileStorage';
  * @param {{user: string, post: string}} data 
  * @returns {Promise<null>}
  */
-export async function savePost(data, file) {
+export async function savePost(data) {
 
     if (data.post == '') {
         return Promise.reject(new Error('No puede publicar un post sin texto'));
@@ -20,14 +20,8 @@ export async function savePost(data, file) {
     return addDoc(refPost, {
         ...data,
         created_at: serverTimestamp(),
-    }).then(async refDoc =>{
-        console.log(refDoc.id)
-        console.log(file)
-        await uploadFile(`users/${refDoc.id}/profilePhoto.${getImageExtension(file)}`, file);
-        const photoURL = await getFileURL(`users/${refDoc.id}/profilePhoto.${getImageExtension(file)}`);
-        console.log('after getfileurl')
-        await refDoc.update({photoURL: photoURL, })
-        console.log('after update')
+    }).then(async doc =>{
+
     })
 
 }
