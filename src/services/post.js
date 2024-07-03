@@ -26,9 +26,9 @@ export async function savePost(data, photo = null) {
     }).then(async doc =>{
         if (photo) {
             
-            await uploadFile(`posts/${doc.id}/profilePhoto.${getImageExtension(photo)}`, photo);
+            await uploadFile(`posts/${data.user_Id}/${doc.id}/profilePhoto.${getImageExtension(photo)}`, photo);
 
-            const photoURL = await getFileURL(`posts/${doc.id}/profilePhoto.${getImageExtension(photo)}`);
+            const photoURL = await getFileURL(`posts/${data.user_Id}/${doc.id}/profilePhoto.${getImageExtension(photo)}`);
 
             await updatePost(doc.id, {photoURL})
         }
