@@ -25,3 +25,5 @@ dist-ssr
 src/services/firebase.js
 alsinet-nicolas.rar
 datos.txt
+reglas-firestore.txt
+reglas-storage.txt
